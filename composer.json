@@ -1,0 +1,41 @@
+{
+    "name": "acelot/automapper",
+    "description": "Simple declarative data mapper for PHP 7",
+    "keywords": ["mapper", "automapper", "data-mapper"],
+    "type": "library",
+    "homepage": "https://github.com/acelot/automapper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valeriy Protopopov",
+            "email": "provaleriy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acelot\\AutoMapper\\": "src/"
+        },
+        "files": ["src/functions.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Acelot\\AutoMapper\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    },
+    "archive": {
+        "exclude": [
+            "/.*",
+            "/phpunit.xml",
+            "/tests"
+        ]
+    }
+}
