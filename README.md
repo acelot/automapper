@@ -7,13 +7,29 @@
 
 Simple declarative data mapper for PHP 7.
 
+AutoMapper can map data from array/object to existing array/object or marshal new ones. Mapping rules specified in declarative way using three simple definitions:
+- **From** definition (`From::create` or via short function `from`) — maps single field from source to target. Supports chainable functions:
+  - `->convert(callable $callable)` — converts input value to another one via any callable;
+  - `->trim()` — trims value to eliminate whitespaces (suitable for strings);
+  - `->default($defaultValue)` — returns default value if source field is missing;
+  - `->ignoreMissing()` — ignores target field if source field is missing;
+  - `->ignoreEmpty()`  — ignores target field if source field is empty.
+- **Aggregate** definition (`Aggregate::create` or via short function `aggregate`) — maps multiple fields from source to single target field. Supports chainable functions:
+  - `->trim()` — trims aggregated value
+  - `->ignoreEmpty()`  — ignores target field if aggregated value is empty.
+- **Value** definition (`Value::create` or via short function `value`) — maps constant value to target field. Supports chainable functions:
+  - `->trim()`
+  - `->ignoreEmpty()`
+
+All missing source fields can be ignored via `AutoMapper::create(...)->ignoreAllMissing()` modifier.
+
 ## Install
 
 ```bash
 composer require acelot/automapper
 ```
 
-## Usage
+## Example
 
 ```php
 use function Acelot\AutoMapper\{
