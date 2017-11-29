@@ -4,4 +4,8 @@ php:
   - '7.1'
 
 install:
-  - composer install --no-interaction
+  - composer install --no-interaction --prefer-dist
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
