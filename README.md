@@ -1,10 +1,17 @@
 # AutoMapper
 
-[![Build Status](https://travis-ci.org/acelot/automapper.svg?branch=master)](https://travis-ci.org/acelot/automapper)
-![](https://img.shields.io/badge/dependencies-zero-blue.svg)
-![](https://img.shields.io/badge/license-MIT-green.svg)
+[![travis](https://img.shields.io/travis/acelot/automapper/master.svg?style=flat)](https://travis-ci.org/acelot/automapper)
+[![packagist](https://img.shields.io/packagist/v/acelot/automapper.svg?style=flat)](https://packagist.org/packages/acelot/automapper)
+![deps](https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat)
+![license](https://img.shields.io/github/license/acelot/automapper.svg?style=flat)
 
 Simple declarative data mapper for PHP 7.
+
+## Install
+
+```bash
+composer require acelot/automapper
+```
 
 ## Usage
 
@@ -35,7 +42,7 @@ $source = [
 ];
 
 // Target
-$target = $mapper->marshalObject($source);
+$target = $mapper->marshalArray($source);
 var_dump($target);
 ```
 
