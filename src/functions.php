@@ -4,6 +4,7 @@ namespace Acelot\AutoMapper;
 
 use Acelot\AutoMapper\Definition\Aggregate;
 use Acelot\AutoMapper\Definition\From;
+use Acelot\AutoMapper\Definition\Ignore;
 use Acelot\AutoMapper\Definition\Value;
 
 /**
@@ -35,6 +36,14 @@ function aggregate(callable $aggregator): Aggregate
 function from(string $field): From
 {
     return new From($field);
+}
+
+/**
+ * @return Ignore
+ */
+function ignore(): Ignore
+{
+    return new Ignore();
 }
 
 /**

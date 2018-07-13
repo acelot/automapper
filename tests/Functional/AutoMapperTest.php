@@ -4,7 +4,11 @@ namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\AutoMapper;
 use function Acelot\AutoMapper\{
-    field, value, from, aggregate
+    field,
+    ignore,
+    value,
+    from,
+    aggregate
 };
 use Acelot\AutoMapper\SourceInterface;
 use PHPUnit\Framework\TestCase;
@@ -44,7 +48,8 @@ class AutoMapperTest extends TestCase
                     field('count', value(100)),
                     field('isEmpty', aggregate(function (SourceInterface $source) {
                         return !empty($source->get('title')) && !empty($source->get('url'));
-                    }))
+                    })),
+                    field('ignoredField', ignore())
                 )->ignoreAllMissing(),
                 [
                     'id' => '100',

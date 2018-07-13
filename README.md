@@ -17,6 +17,7 @@ AutoMapper can map data from array/object to existing array/object or marshal ne
 - **Aggregate** definition (`Aggregate::create` or via short function `aggregate`) — maps multiple fields from source to single target field. Supports chainable functions:
   - `->trim()` — trims aggregated value
   - `->ignoreEmpty()`  — ignores target field if aggregated value is empty.
+- **Ignore** definition (`Ignore::create` or via short function `ignore`) — simply ignores the field.
 - **Value** definition (`Value::create` or via short function `value`) — maps constant value to target field. Supports chainable functions:
   - `->trim()`
   - `->ignoreEmpty()`
@@ -47,7 +48,8 @@ $mapper = AutoMapper::create(
     field('count', value(100)),
     field('isEmpty', aggregate(function (SourceInterface $source) {
         return !empty($source->get('title')) && !empty($source->get('url'));
-    }))
+    })),
+    field('ignoreThisField', ignore())
 )->ignoreAllMissing();
 
 // Source data
