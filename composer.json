@@ -29,6 +29,6 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit"
+        "test": "phpunit -c phpunit.xml"
     }
 }

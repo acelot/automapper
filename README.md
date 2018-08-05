@@ -1,6 +1,7 @@
 # AutoMapper
 
 [![travis](https://img.shields.io/travis/acelot/automapper/master.svg?style=flat)](https://travis-ci.org/acelot/automapper)
+[![Code Climate](https://img.shields.io/codeclimate/coverage/acelot/automapper.svg)](https://codeclimate.com/github/acelot/automapper)
 [![packagist](https://img.shields.io/packagist/v/acelot/automapper.svg?style=flat)](https://packagist.org/packages/acelot/automapper)
 ![deps](https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat)
 ![license](https://img.shields.io/github/license/acelot/automapper.svg?style=flat)
