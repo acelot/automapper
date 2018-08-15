@@ -20,6 +20,7 @@ class ObjectSourceTest extends TestCase
         $data->boo = 'baz';
         $source = new ObjectSource($data);
         $this->assertEquals($data, $source->getData());
+        $this->assertEquals($data, $source->raw());
     }
 
     public function testShouldCheckPropertyExistence()

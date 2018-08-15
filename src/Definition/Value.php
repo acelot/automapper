@@ -40,6 +40,7 @@ final class Value implements DefinitionInterface
      * @param SourceInterface $source
      *
      * @return mixed
+     * @throws IgnoreFieldException
      */
     public function getValue(SourceInterface $source)
     {

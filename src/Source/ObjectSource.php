@@ -32,6 +32,14 @@ class ObjectSource implements SourceInterface
     }
 
     /**
+     * @return mixed
+     */
+    public function raw()
+    {
+        return $this->storage;
+    }
+
+    /**
      * @param string $field
      *
      * @return bool
@@ -43,7 +51,7 @@ class ObjectSource implements SourceInterface
 
     /**
      * @param string $field
-     * @param mixed $field
+     * @param mixed  $default
      *
      * @return mixed
      */

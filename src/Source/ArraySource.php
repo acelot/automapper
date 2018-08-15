@@ -32,6 +32,14 @@ class ArraySource implements SourceInterface
     }
 
     /**
+     * @return array|\ArrayAccess
+     */
+    public function raw()
+    {
+        return $this->storage;
+    }
+
+    /**
      * @param string $field
      *
      * @return bool

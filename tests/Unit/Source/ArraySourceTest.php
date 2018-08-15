@@ -31,6 +31,7 @@ class ArraySourceTest extends TestCase
         $data = ['foo' => 'bar'];
         $source = new ArraySource($data);
         $this->assertEquals($data, $source->getData());
+        $this->assertEquals($data, $source->raw());
     }
 
     public function testShouldCheckKeyExistence()

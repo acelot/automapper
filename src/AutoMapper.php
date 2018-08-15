@@ -6,9 +6,8 @@ use Acelot\AutoMapper\Exception\IgnoreFieldException;
 use Acelot\AutoMapper\Exception\InvalidSourceException;
 use Acelot\AutoMapper\Exception\InvalidTargetException;
 use Acelot\AutoMapper\Exception\SourceFieldMissingException;
-use Acelot\AutoMapper\Source\{
-    ArraySource, ObjectSource
-};
+use Acelot\AutoMapper\Source\ArraySource;
+use Acelot\AutoMapper\Source\ObjectSource;
 use Acelot\AutoMapper\Writer\ArrayWriter;
 use Acelot\AutoMapper\Writer\ObjectWriter;
 
@@ -25,7 +24,7 @@ class AutoMapper
     protected $ignoreAllMissing;
 
     /**
-     * @param Field[] ...$fields
+     * @param Field ...$fields
      *
      * @return AutoMapper
      */
@@ -35,7 +34,7 @@ class AutoMapper
     }
 
     /**
-     * @param Field[] ...$fields
+     * @param Field ...$fields
      */
     public function __construct(Field ...$fields)
     {
@@ -69,8 +68,6 @@ class AutoMapper
     }
 
     /**
-     * @param string $name
-     *
      * @return Field[]
      */
     public function getAllFields(): array
@@ -118,6 +115,8 @@ class AutoMapper
      * @param array|object $source
      * @param array|object $target
      *
+     * @throws InvalidSourceException
+     * @throws InvalidTargetException
      * @throws SourceFieldMissingException
      */
     public function map($source, &$target)
@@ -132,7 +131,6 @@ class AutoMapper
                 if ($this->ignoreAllMissing) {
                     continue;
                 }
-
                 throw $e;
             } catch (IgnoreFieldException $e) {
                 continue;
@@ -144,6 +142,9 @@ class AutoMapper
      * @param array|object $source
      *
      * @return array
+     * @throws InvalidSourceException
+     * @throws InvalidTargetException
+     * @throws SourceFieldMissingException
      */
     public function marshalArray($source): array
     {
@@ -156,6 +157,9 @@ class AutoMapper
      * @param array|object $source
      *
      * @return object
+     * @throws InvalidSourceException
+     * @throws InvalidTargetException
+     * @throws SourceFieldMissingException
      */
     public function marshalObject($source)
     {

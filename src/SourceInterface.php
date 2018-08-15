@@ -5,8 +5,12 @@ namespace Acelot\AutoMapper;
 interface SourceInterface
 {
     /**
-     * @param array|object $data
-     * @param string       $field
+     * @return mixed
+     */
+    public function raw();
+
+    /**
+     * @param string $field
      *
      * @return bool
      */
