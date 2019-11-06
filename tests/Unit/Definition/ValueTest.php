@@ -21,6 +21,12 @@ class ValueTest extends TestCase
         $this->assertEquals('yahoo', Value::create(' yahoo ')->trim()->getValue($source));
     }
 
+    public function testShouldNotTrimNonStringValue()
+    {
+        $source = new ArraySource(['foo' => 'bar', 'boo' => 'baz']);
+        $this->assertEquals(null, Value::create(null)->trim()->getValue($source));
+    }
+
     public function testShouldIgnoreEmpty()
     {
         $source = new ArraySource(['foo' => '']);

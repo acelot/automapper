@@ -84,7 +84,7 @@ final class From implements DefinitionInterface
             $value = call_user_func($this->converter, $value);
         }
 
-        if ($this->isTrim) {
+        if ($this->isTrim && is_string($value)) {
             $value = trim($value);
         }
 

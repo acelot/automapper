@@ -46,7 +46,7 @@ final class Aggregate implements DefinitionInterface
     {
         $value = call_user_func($this->aggregator, $source);
 
-        if ($this->isTrim) {
+        if ($this->isTrim && is_string($value)) {
             $value = trim($value);
         }
 

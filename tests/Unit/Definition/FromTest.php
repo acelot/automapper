@@ -32,6 +32,13 @@ class FromTest extends TestCase
         $this->assertEquals('baz', $definition->getValue($source));
     }
 
+    public function testShouldNotTrimNonStringValue()
+    {
+        $source = new ArraySource(['foo' => 'bar', 'boo' => null]);
+        $definition = From::create('boo')->trim();
+        $this->assertEquals(null, $definition->getValue($source));
+    }
+
     public function testShouldReturnDefaultValue()
     {
         $source = new ArraySource(['foo' => 'bar']);

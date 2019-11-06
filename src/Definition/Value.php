@@ -46,7 +46,7 @@ final class Value implements DefinitionInterface
     {
         $value = $this->value;
 
-        if ($this->isTrim) {
+        if ($this->isTrim && is_string($value)) {
             $value = trim($value);
         }
 
