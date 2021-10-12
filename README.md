@@ -6,7 +6,7 @@
 ![deps](https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat)
 ![license](https://img.shields.io/github/license/acelot/automapper.svg?style=flat)
 
-Simple declarative data mapper for PHP 7.
+Simple declarative data mapper for PHP 7 & 8.
 
 AutoMapper can map data from array/object to existing array/object or marshal new ones. Mapping rules specified in declarative way using three simple definitions:
 - **From** definition (`From::create` or via short function `from`) — maps single field from source to target. Supports chainable functions:
