@@ -1,6 +1,6 @@
 {
     "name": "acelot/automapper",
-    "description": "Simple declarative data mapper for PHP 7",
+    "description": "Simple declarative data mapper for PHP 7 & 8",
     "keywords": ["mapper", "automapper", "data-mapper"],
     "type": "library",
     "homepage": "https://github.com/acelot/automapper",
@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.1 || ^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
