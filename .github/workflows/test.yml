@@ -1,5 +1,8 @@
 name: Testing
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - v2
 jobs:
   test:
     name: Automapper (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})

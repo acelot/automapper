@@ -4,6 +4,9 @@ namespace Acelot\AutoMapper\Path\Part;
 
 use Acelot\AutoMapper\Path\PartInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 final class SelfPointer implements PartInterface
 {
 }
