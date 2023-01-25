@@ -2,12 +2,12 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          bootstrap="vendor/autoload.php"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage>
+  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
     <include>
       <directory suffix=".php">src/</directory>
     </include>
     <report>
-      <clover outputFile="./clover.xml"/>
+      <clover outputFile="clover.xml"/>
     </report>
   </coverage>
   <testsuites>
