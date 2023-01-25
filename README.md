@@ -4,7 +4,7 @@
 
 # AutoMapper
 
-[![build](https://github.com/acelot/automapper/actions/workflows/test.yml/badge.svg)](https://github.com/acelot/automapper/actions)
+[![build](https://github.com/acelot/automapper/actions/workflows/matrix-test.yml/badge.svg)](https://github.com/acelot/automapper/actions)
 ![сoverage](https://raw.githubusercontent.com/acelot/automapper/v2/badge-coverage.svg)
 [![packagist](https://img.shields.io/packagist/v/acelot/automapper.svg?style=flat)](https://packagist.org/packages/acelot/automapper)
 ![deps](https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat)
