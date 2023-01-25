@@ -1,11 +1,11 @@
-name: Testing
+name: Matrix testing
 on:
   push:
     branches:
       - v2
 jobs:
   test:
-    name: Automapper (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})
+    name: AutoMapper Test (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})
     runs-on: ${{ matrix.operating-system }}
     strategy:
       fail-fast: false

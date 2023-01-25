@@ -131,6 +131,11 @@ function marshalNestedObject(Field\ToObjectProp $firstField, Field\ToObjectProp 
     return new Processor\MarshalNestedObject(new MapperFactory(), $firstField, ...$restFields);
 }
 
+function notFound(string $path): Processor\NotFound
+{
+    return new Processor\NotFound($path);
+}
+
 function value(mixed $value): Processor\Value
 {
     return new Processor\Value($value);

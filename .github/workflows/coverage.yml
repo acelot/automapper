@@ -1,4 +1,4 @@
-name: Testing
+name: Code coverage
 on:
   push:
     branches:
