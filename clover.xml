@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674678532">
-  <project timestamp="1674678532">
+<coverage generated="1674748045">
+  <project timestamp="1674748045">
     <file name="/home/runner/work/automapper/automapper/src/Context/Context.php">
       <class name="Acelot\AutoMapper\Context\Context" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
       </class>
-      <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="42"/>
-      <line num="14" type="stmt" count="42"/>
+      <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="43"/>
+      <line num="14" type="stmt" count="43"/>
       <line num="16" type="method" name="has" visibility="public" complexity="1" crap="1" count="8"/>
       <line num="18" type="stmt" count="8"/>
       <line num="21" type="method" name="get" visibility="public" complexity="2" crap="2" count="6"/>
       <line num="23" type="stmt" count="6"/>
       <line num="24" type="stmt" count="1"/>
       <line num="27" type="stmt" count="5"/>
-      <line num="30" type="method" name="set" visibility="public" complexity="1" crap="1" count="36"/>
-      <line num="32" type="stmt" count="36"/>
+      <line num="30" type="method" name="set" visibility="public" complexity="1" crap="1" count="34"/>
+      <line num="32" type="stmt" count="34"/>
       <metrics loc="35" ncloc="32" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Context/ContextInterface.php">
@@ -65,14 +65,14 @@
       <class name="Acelot\AutoMapper\Extractor\FromArrayKey" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="38"/>
-      <line num="11" type="stmt" count="38"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="39"/>
+      <line num="11" type="stmt" count="39"/>
       <line num="13" type="method" name="getKey" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="15" type="stmt" count="1"/>
-      <line num="18" type="method" name="isExtractable" visibility="public" complexity="2" crap="2" count="36"/>
-      <line num="20" type="stmt" count="36"/>
-      <line num="23" type="method" name="extract" visibility="public" complexity="1" crap="1" count="33"/>
-      <line num="25" type="stmt" count="33"/>
+      <line num="18" type="method" name="isExtractable" visibility="public" complexity="2" crap="2" count="37"/>
+      <line num="20" type="stmt" count="37"/>
+      <line num="23" type="method" name="extract" visibility="public" complexity="1" crap="1" count="34"/>
+      <line num="25" type="stmt" count="34"/>
       <metrics loc="28" ncloc="28" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Extractor/FromArrayKeyFirst.php">
@@ -140,9 +140,9 @@
       <class name="Acelot\AutoMapper\ExtractorResolver" namespace="global">
         <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="14" coveredelements="14"/>
       </class>
-      <line num="12" type="method" name="resolve" visibility="public" complexity="7" crap="7" count="43"/>
-      <line num="14" type="stmt" count="43"/>
-      <line num="15" type="stmt" count="35"/>
+      <line num="12" type="method" name="resolve" visibility="public" complexity="7" crap="7" count="44"/>
+      <line num="14" type="stmt" count="44"/>
+      <line num="15" type="stmt" count="36"/>
       <line num="18" type="stmt" count="11"/>
       <line num="19" type="stmt" count="1"/>
       <line num="22" type="stmt" count="10"/>
@@ -160,8 +160,8 @@
       <class name="Acelot\AutoMapper\Field\ToArrayKey" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="13" type="stmt" count="2"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="13" type="stmt" count="4"/>
       <line num="15" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="35"/>
       <line num="17" type="stmt" count="35"/>
       <line num="20" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="33"/>
@@ -184,12 +184,12 @@
       <class name="Acelot\AutoMapper\Field\ToObjectProp" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="13" type="stmt" count="3"/>
-      <line num="15" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="17" type="stmt" count="3"/>
-      <line num="20" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="22" type="stmt" count="3"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="13" type="stmt" count="4"/>
+      <line num="15" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="17" type="stmt" count="4"/>
+      <line num="20" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="22" type="stmt" count="4"/>
       <metrics loc="25" ncloc="25" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Field/ToSelf.php">
@@ -208,22 +208,22 @@
       <class name="Acelot\AutoMapper\Mapper" namespace="global">
         <metrics complexity="8" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="16" coveredelements="14"/>
       </class>
-      <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="44"/>
-      <line num="22" type="stmt" count="44"/>
-      <line num="23" type="stmt" count="44"/>
+      <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="45"/>
+      <line num="22" type="stmt" count="45"/>
+      <line num="23" type="stmt" count="45"/>
       <line num="26" type="method" name="getContext" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="28" type="stmt" count="0"/>
       <line num="34" type="method" name="getFields" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="36" type="stmt" count="3"/>
-      <line num="39" type="method" name="map" visibility="public" complexity="5" crap="5" count="41"/>
-      <line num="41" type="stmt" count="41"/>
-      <line num="42" type="stmt" count="40"/>
-      <line num="44" type="stmt" count="40"/>
+      <line num="39" type="method" name="map" visibility="public" complexity="5" crap="5" count="42"/>
+      <line num="41" type="stmt" count="42"/>
+      <line num="42" type="stmt" count="41"/>
+      <line num="44" type="stmt" count="41"/>
       <line num="45" type="stmt" count="3"/>
-      <line num="48" type="stmt" count="37"/>
+      <line num="48" type="stmt" count="38"/>
       <line num="49" type="stmt" count="1"/>
-      <line num="52" type="stmt" count="36"/>
-      <line num="53" type="stmt" count="35"/>
+      <line num="52" type="stmt" count="37"/>
+      <line num="53" type="stmt" count="36"/>
       <metrics loc="58" ncloc="52" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="16" coveredelements="14"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/MapperExceptionInterface.php">
@@ -241,44 +241,44 @@
       <class name="Acelot\AutoMapper\Path\Parser" namespace="global">
         <metrics complexity="10" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="28" coveredelements="28"/>
       </class>
-      <line num="48" type="method" name="parse" visibility="public" complexity="3" crap="3" count="44"/>
-      <line num="50" type="stmt" count="44"/>
+      <line num="48" type="method" name="parse" visibility="public" complexity="3" crap="3" count="45"/>
+      <line num="50" type="stmt" count="45"/>
       <line num="51" type="stmt" count="1"/>
-      <line num="54" type="stmt" count="43"/>
+      <line num="54" type="stmt" count="44"/>
       <line num="55" type="stmt" count="1"/>
-      <line num="58" type="stmt" count="42"/>
-      <line num="60" type="stmt" count="42"/>
-      <line num="63" type="method" name="getTokens" visibility="private" complexity="4" crap="4" count="42"/>
-      <line num="65" type="stmt" count="42"/>
-      <line num="67" type="stmt" count="42"/>
-      <line num="68" type="stmt" count="42"/>
-      <line num="69" type="stmt" count="42"/>
-      <line num="70" type="stmt" count="42"/>
-      <line num="71" type="stmt" count="42"/>
-      <line num="76" type="stmt" count="42"/>
-      <line num="79" type="method" name="convertToParts" visibility="private" complexity="3" crap="3" count="42"/>
-      <line num="81" type="stmt" count="42"/>
-      <line num="83" type="stmt" count="42"/>
-      <line num="84" type="stmt" count="42"/>
-      <line num="85" type="stmt" count="42"/>
-      <line num="86" type="stmt" count="42"/>
-      <line num="87" type="stmt" count="42"/>
-      <line num="88" type="stmt" count="42"/>
-      <line num="89" type="stmt" count="42"/>
-      <line num="90" type="stmt" count="42"/>
-      <line num="91" type="stmt" count="42"/>
-      <line num="92" type="stmt" count="42"/>
-      <line num="95" type="stmt" count="42"/>
+      <line num="58" type="stmt" count="43"/>
+      <line num="60" type="stmt" count="43"/>
+      <line num="63" type="method" name="getTokens" visibility="private" complexity="4" crap="4" count="43"/>
+      <line num="65" type="stmt" count="43"/>
+      <line num="67" type="stmt" count="43"/>
+      <line num="68" type="stmt" count="43"/>
+      <line num="69" type="stmt" count="43"/>
+      <line num="70" type="stmt" count="43"/>
+      <line num="71" type="stmt" count="43"/>
+      <line num="76" type="stmt" count="43"/>
+      <line num="79" type="method" name="convertToParts" visibility="private" complexity="3" crap="3" count="43"/>
+      <line num="81" type="stmt" count="43"/>
+      <line num="83" type="stmt" count="43"/>
+      <line num="84" type="stmt" count="43"/>
+      <line num="85" type="stmt" count="43"/>
+      <line num="86" type="stmt" count="43"/>
+      <line num="87" type="stmt" count="43"/>
+      <line num="88" type="stmt" count="43"/>
+      <line num="89" type="stmt" count="43"/>
+      <line num="90" type="stmt" count="43"/>
+      <line num="91" type="stmt" count="43"/>
+      <line num="92" type="stmt" count="43"/>
+      <line num="95" type="stmt" count="43"/>
       <metrics loc="98" ncloc="90" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="28" coveredelements="28"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Path/Part/ArrayKey.php">
       <class name="Acelot\AutoMapper\Path\Part\ArrayKey" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="37"/>
-      <line num="11" type="stmt" count="37"/>
-      <line num="13" type="method" name="getKey" visibility="public" complexity="1" crap="1" count="37"/>
-      <line num="15" type="stmt" count="37"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="38"/>
+      <line num="11" type="stmt" count="38"/>
+      <line num="13" type="method" name="getKey" visibility="public" complexity="1" crap="1" count="38"/>
+      <line num="15" type="stmt" count="38"/>
       <metrics loc="18" ncloc="18" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Path/Part/ArrayKeyFirst.php">
@@ -326,10 +326,10 @@
       <class name="Acelot\AutoMapper\Path\Path" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="44"/>
-      <line num="14" type="stmt" count="44"/>
-      <line num="20" type="method" name="getParts" visibility="public" complexity="1" crap="1" count="44"/>
-      <line num="22" type="stmt" count="44"/>
+      <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="45"/>
+      <line num="14" type="stmt" count="45"/>
+      <line num="20" type="method" name="getParts" visibility="public" complexity="1" crap="1" count="45"/>
+      <line num="22" type="stmt" count="45"/>
       <metrics loc="25" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/Call.php">
@@ -338,13 +338,13 @@
       </class>
       <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="19" type="stmt" count="5"/>
-      <line num="22" type="method" name="process" visibility="public" complexity="3" crap="3" count="23"/>
-      <line num="24" type="stmt" count="23"/>
+      <line num="22" type="method" name="process" visibility="public" complexity="3" crap="3" count="22"/>
+      <line num="24" type="stmt" count="22"/>
       <line num="25" type="stmt" count="1"/>
-      <line num="28" type="stmt" count="22"/>
-      <line num="30" type="stmt" count="22"/>
-      <line num="31" type="stmt" count="22"/>
-      <line num="34" type="stmt" count="22"/>
+      <line num="28" type="stmt" count="21"/>
+      <line num="30" type="stmt" count="21"/>
+      <line num="31" type="stmt" count="21"/>
+      <line num="34" type="stmt" count="21"/>
       <metrics loc="37" ncloc="34" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/CallWithContext.php">
@@ -368,10 +368,10 @@
       </class>
       <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="23" type="stmt" count="5"/>
-      <line num="26" type="method" name="process" visibility="public" complexity="3" crap="3" count="25"/>
-      <line num="28" type="stmt" count="25"/>
+      <line num="26" type="method" name="process" visibility="public" complexity="3" crap="3" count="24"/>
+      <line num="28" type="stmt" count="24"/>
       <line num="29" type="stmt" count="21"/>
-      <line num="32" type="stmt" count="7"/>
+      <line num="32" type="stmt" count="6"/>
       <metrics loc="35" ncloc="32" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/ConditionWithContext.php">
@@ -390,23 +390,57 @@
       <line num="37" type="stmt" count="2"/>
       <metrics loc="40" ncloc="37" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
     </file>
+    <file name="/home/runner/work/automapper/automapper/src/Processor/Find.php">
+      <class name="Acelot\AutoMapper\Processor\Find" namespace="global">
+        <metrics complexity="6" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="11" coveredelements="11"/>
+      </class>
+      <line num="22" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="24" type="stmt" count="6"/>
+      <line num="27" type="method" name="process" visibility="public" complexity="5" crap="5" count="6"/>
+      <line num="29" type="stmt" count="6"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="5"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="4"/>
+      <line num="38" type="stmt" count="4"/>
+      <line num="39" type="stmt" count="2"/>
+      <line num="43" type="stmt" count="2"/>
+      <metrics loc="46" ncloc="40" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="11" coveredelements="11"/>
+    </file>
+    <file name="/home/runner/work/automapper/automapper/src/Processor/FindWithContext.php">
+      <class name="Acelot\AutoMapper\Processor\FindWithContext" namespace="global">
+        <metrics complexity="6" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="11" coveredelements="11"/>
+      </class>
+      <line num="22" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="24" type="stmt" count="7"/>
+      <line num="27" type="method" name="process" visibility="public" complexity="5" crap="5" count="7"/>
+      <line num="29" type="stmt" count="7"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="6"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="5"/>
+      <line num="38" type="stmt" count="5"/>
+      <line num="39" type="stmt" count="3"/>
+      <line num="43" type="stmt" count="2"/>
+      <metrics loc="46" ncloc="40" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="11" coveredelements="11"/>
+    </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/Get.php">
       <class name="Acelot\AutoMapper\Processor\Get" namespace="global">
         <metrics complexity="5" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="13" coveredelements="13"/>
       </class>
-      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="9"/>
-      <line num="19" type="stmt" count="9"/>
-      <line num="21" type="method" name="process" visibility="public" complexity="4" crap="4" count="40"/>
-      <line num="23" type="stmt" count="40"/>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="12"/>
+      <line num="19" type="stmt" count="12"/>
+      <line num="21" type="method" name="process" visibility="public" complexity="4" crap="4" count="41"/>
+      <line num="23" type="stmt" count="41"/>
       <line num="24" type="stmt" count="1"/>
-      <line num="27" type="stmt" count="39"/>
-      <line num="28" type="stmt" count="39"/>
-      <line num="30" type="stmt" count="39"/>
-      <line num="31" type="stmt" count="38"/>
-      <line num="33" type="stmt" count="38"/>
+      <line num="27" type="stmt" count="40"/>
+      <line num="28" type="stmt" count="40"/>
+      <line num="30" type="stmt" count="40"/>
+      <line num="31" type="stmt" count="39"/>
+      <line num="33" type="stmt" count="39"/>
       <line num="34" type="stmt" count="2"/>
-      <line num="37" type="stmt" count="36"/>
-      <line num="40" type="stmt" count="37"/>
+      <line num="37" type="stmt" count="37"/>
+      <line num="40" type="stmt" count="38"/>
       <metrics loc="43" ncloc="43" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="13" coveredelements="13"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/GetFromContext.php">
@@ -429,57 +463,30 @@
       <line num="14" type="stmt" count="5"/>
       <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
-    <file name="/home/runner/work/automapper/automapper/src/Processor/MapArray.php">
-      <class name="Acelot\AutoMapper\Processor\MapArray" namespace="global">
-        <metrics complexity="10" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
-      </class>
-      <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="19" type="stmt" count="7"/>
-      <line num="21" type="method" name="process" visibility="public" complexity="3" crap="3" count="10"/>
-      <line num="23" type="stmt" count="10"/>
-      <line num="24" type="stmt" count="1"/>
-      <line num="27" type="stmt" count="9"/>
-      <line num="28" type="stmt" count="1"/>
-      <line num="31" type="stmt" count="8"/>
-      <line num="34" type="method" name="map" visibility="private" complexity="6" crap="6" count="8"/>
-      <line num="36" type="stmt" count="8"/>
-      <line num="38" type="stmt" count="8"/>
-      <line num="39" type="stmt" count="8"/>
-      <line num="41" type="stmt" count="8"/>
-      <line num="42" type="stmt" count="4"/>
-      <line num="45" type="stmt" count="8"/>
-      <line num="46" type="stmt" count="1"/>
-      <line num="49" type="stmt" count="8"/>
-      <line num="50" type="stmt" count="7"/>
-      <line num="51" type="stmt" count="3"/>
-      <line num="53" type="stmt" count="4"/>
-      <line num="58" type="stmt" count="7"/>
-      <metrics loc="61" ncloc="61" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
-    </file>
-    <file name="/home/runner/work/automapper/automapper/src/Processor/MapIterator.php">
-      <class name="Acelot\AutoMapper\Processor\MapIterator" namespace="global">
+    <file name="/home/runner/work/automapper/automapper/src/Processor/MapIterable.php">
+      <class name="Acelot\AutoMapper\Processor\MapIterable" namespace="global">
         <metrics complexity="10" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="19" coveredelements="19"/>
       </class>
-      <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="21" type="stmt" count="7"/>
-      <line num="23" type="method" name="process" visibility="public" complexity="3" crap="3" count="8"/>
-      <line num="25" type="stmt" count="8"/>
-      <line num="26" type="stmt" count="1"/>
-      <line num="29" type="stmt" count="7"/>
-      <line num="30" type="stmt" count="1"/>
-      <line num="33" type="stmt" count="6"/>
-      <line num="36" type="method" name="map" visibility="private" complexity="6" crap="6" count="6"/>
-      <line num="38" type="stmt" count="6"/>
-      <line num="39" type="stmt" count="6"/>
-      <line num="41" type="stmt" count="6"/>
-      <line num="42" type="stmt" count="2"/>
-      <line num="45" type="stmt" count="6"/>
-      <line num="46" type="stmt" count="1"/>
-      <line num="49" type="stmt" count="6"/>
-      <line num="50" type="stmt" count="5"/>
-      <line num="51" type="stmt" count="3"/>
-      <line num="53" type="stmt" count="2"/>
-      <metrics loc="59" ncloc="59" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="19" coveredelements="19"/>
+      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="20" type="stmt" count="8"/>
+      <line num="22" type="method" name="process" visibility="public" complexity="3" crap="3" count="11"/>
+      <line num="24" type="stmt" count="11"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="28" type="stmt" count="10"/>
+      <line num="29" type="stmt" count="1"/>
+      <line num="32" type="stmt" count="9"/>
+      <line num="35" type="method" name="map" visibility="private" complexity="6" crap="6" count="9"/>
+      <line num="37" type="stmt" count="9"/>
+      <line num="38" type="stmt" count="9"/>
+      <line num="40" type="stmt" count="9"/>
+      <line num="41" type="stmt" count="4"/>
+      <line num="44" type="stmt" count="9"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="9"/>
+      <line num="49" type="stmt" count="7"/>
+      <line num="50" type="stmt" count="3"/>
+      <line num="52" type="stmt" count="4"/>
+      <metrics loc="58" ncloc="58" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="19" coveredelements="19"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/MarshalNestedArray.php">
       <class name="Acelot\AutoMapper\Processor\MarshalNestedArray" namespace="global">
@@ -535,10 +542,10 @@
       </class>
       <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="18" type="stmt" count="4"/>
-      <line num="21" type="method" name="process" visibility="public" complexity="2" crap="2" count="34"/>
-      <line num="23" type="stmt" count="34"/>
-      <line num="24" type="stmt" count="34"/>
-      <line num="27" type="stmt" count="34"/>
+      <line num="21" type="method" name="process" visibility="public" complexity="2" crap="2" count="32"/>
+      <line num="23" type="stmt" count="32"/>
+      <line num="24" type="stmt" count="32"/>
+      <line num="27" type="stmt" count="32"/>
       <metrics loc="30" ncloc="27" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/Value.php">
@@ -547,10 +554,10 @@
       </class>
       <line num="12" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="14" type="stmt" count="2"/>
-      <line num="16" type="method" name="process" visibility="public" complexity="2" crap="2" count="15"/>
-      <line num="18" type="stmt" count="15"/>
+      <line num="16" type="method" name="process" visibility="public" complexity="2" crap="2" count="14"/>
+      <line num="18" type="stmt" count="14"/>
       <line num="19" type="stmt" count="1"/>
-      <line num="22" type="stmt" count="14"/>
+      <line num="22" type="stmt" count="13"/>
       <metrics loc="25" ncloc="25" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Value/IgnoreValue.php">
@@ -573,37 +580,37 @@
       <class name="Acelot\AutoMapper\Value\UserValue" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="37"/>
-      <line num="11" type="stmt" count="37"/>
-      <line num="13" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="37"/>
-      <line num="15" type="stmt" count="37"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="38"/>
+      <line num="11" type="stmt" count="38"/>
+      <line num="13" type="method" name="getValue" visibility="public" complexity="1" crap="1" count="38"/>
+      <line num="15" type="stmt" count="38"/>
       <metrics loc="18" ncloc="18" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/ValueInterface.php">
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/functions.php">
-      <line num="16" type="stmt" count="1"/>
-      <line num="17" type="stmt" count="1"/>
-      <line num="22" type="stmt" count="35"/>
-      <line num="24" type="stmt" count="35"/>
-      <line num="25" type="stmt" count="35"/>
-      <line num="27" type="stmt" count="35"/>
-      <line num="32" type="stmt" count="1"/>
-      <line num="34" type="stmt" count="1"/>
-      <line num="35" type="stmt" count="1"/>
-      <line num="37" type="stmt" count="1"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="1"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="34"/>
+      <line num="24" type="stmt" count="34"/>
+      <line num="25" type="stmt" count="34"/>
+      <line num="27" type="stmt" count="34"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="34" type="stmt" count="2"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="37" type="stmt" count="2"/>
+      <line num="45" type="stmt" count="2"/>
+      <line num="50" type="stmt" count="2"/>
       <line num="55" type="stmt" count="1"/>
       <line num="60" type="stmt" count="0"/>
       <line num="68" type="stmt" count="2"/>
       <line num="73" type="stmt" count="0"/>
       <line num="82" type="stmt" count="2"/>
       <line num="91" type="stmt" count="0"/>
-      <line num="96" type="stmt" count="1"/>
-      <line num="101" type="stmt" count="2"/>
-      <line num="106" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="101" type="stmt" count="0"/>
+      <line num="106" type="stmt" count="5"/>
       <line num="111" type="stmt" count="0"/>
       <line num="116" type="stmt" count="0"/>
       <line num="121" type="stmt" count="0"/>
@@ -636,15 +643,15 @@
       <line num="191" type="stmt" count="1"/>
       <line num="192" type="stmt" count="1"/>
       <line num="193" type="stmt" count="1"/>
-      <line num="198" type="stmt" count="3"/>
-      <line num="203" type="stmt" count="1"/>
-      <line num="208" type="stmt" count="1"/>
+      <line num="198" type="stmt" count="1"/>
+      <line num="203" type="stmt" count="3"/>
+      <line num="208" type="stmt" count="0"/>
       <line num="213" type="stmt" count="1"/>
       <line num="218" type="stmt" count="1"/>
       <line num="223" type="stmt" count="1"/>
       <line num="228" type="stmt" count="1"/>
       <line num="233" type="stmt" count="1"/>
-      <line num="238" type="stmt" count="0"/>
+      <line num="238" type="stmt" count="1"/>
       <line num="243" type="stmt" count="3"/>
       <line num="244" type="stmt" count="3"/>
       <line num="245" type="stmt" count="3"/>
@@ -672,8 +679,8 @@
       <line num="287" type="stmt" count="1"/>
       <line num="288" type="stmt" count="1"/>
       <line num="293" type="stmt" count="0"/>
-      <line num="294" type="stmt" count="1"/>
-      <line num="295" type="stmt" count="1"/>
+      <line num="294" type="stmt" count="3"/>
+      <line num="295" type="stmt" count="3"/>
       <line num="298" type="stmt" count="0"/>
       <line num="299" type="stmt" count="0"/>
       <line num="302" type="stmt" count="0"/>
@@ -681,6 +688,6 @@
       <line num="308" type="stmt" count="2"/>
       <metrics loc="311" ncloc="303" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="76" elements="96" coveredelements="76"/>
     </file>
-    <metrics files="50" loc="1627" ncloc="1575" classes="39" methods="93" coveredmethods="92" conditionals="0" coveredconditionals="0" statements="308" coveredstatements="287" elements="401" coveredelements="379"/>
+    <metrics files="51" loc="1657" ncloc="1593" classes="40" methods="94" coveredmethods="93" conditionals="0" coveredconditionals="0" statements="308" coveredstatements="287" elements="402" coveredelements="380"/>
   </project>
 </coverage>
