@@ -29,20 +29,20 @@ final class FromObjectMethodTest extends TestCase
     {
         $extractor = new FromObjectMethod('test');
 
-        self::assertFalse($extractor->isExtractable(new TestClass()));
+        self::assertFalse($extractor->isExtractable(new TestClass(0, '', 0)));
     }
 
     public function testIsExtractable_PassedObjectAndExistingMethod_ReturnsTrue(): void
     {
-        $extractor = new FromObjectMethod('testMethod');
+        $extractor = new FromObjectMethod('getId');
 
-        self::assertTrue($extractor->isExtractable(new TestClass()));
+        self::assertTrue($extractor->isExtractable(new TestClass(0, '', 0)));
     }
 
     public function testExtract_PassedObjectAndExistingMethod_ReturnsCorrectValue(): void
     {
-        $extractor = new FromObjectMethod('testMethod');
+        $extractor = new FromObjectMethod('getId');
 
-        self::assertSame('test', $extractor->extract(new TestClass()));
+        self::assertSame(100, $extractor->extract(new TestClass(100, '', 0)));
     }
 }

@@ -7,7 +7,7 @@ use Acelot\AutoMapper\ExtractorInterface;
 final class FromArrayKey implements ExtractorInterface
 {
     public function __construct(
-        private string $key
+        private int|string $key
     ) {}
 
     public function getKey(): string
@@ -17,7 +17,10 @@ final class FromArrayKey implements ExtractorInterface
 
     public function isExtractable(mixed $source): bool
     {
-        return is_array($source) && array_key_exists($this->key, $source);
+        return (
+            (is_string($source) && is_int($this->key) && isset($source[$this->key])) ||
+            (is_array($source) && array_key_exists($this->key, $source))
+        );
     }
 
     public function extract(mixed $source): mixed

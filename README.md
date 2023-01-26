@@ -166,61 +166,61 @@ The main functions of AutoMapper.
 
 Definitions that helps you to shape the target structure.
 
-| Function   | Description                                                                    |
-|------------|--------------------------------------------------------------------------------|
-| `toKey`    | Sets/creates the value by key with given name in the target array.             |
-| `toProp`   | Sets/creates the value by property with given name in the target object.       |
-| `toMethod` | Calls a method with given name with value as an argument in the target object. |
-| `toSelf`   | Assigns a value to the target.                                                 |
+| Function                                      | Description                                                                    |
+|-----------------------------------------------|--------------------------------------------------------------------------------|
+| [`toKey`](tests/Examples/marshalArray.php)    | Sets/creates the value by key with given name in the target array.             |
+| [`toProp`](tests/Examples/marshalObject.php)  | Sets/creates the value by property with given name in the target object.       |
+| [`toMethod`](tests/Examples/toMethodTest.php) | Calls a method with given name with value as an argument in the target object. |
+| [`toSelf`](tests/Examples/toSelfTest.php)     | Assigns a value to the target.                                                 |
 
 ### Processors
 
 Core value processors. The purpose of processors is to retrieve the value or mutate the incoming value and pass it to the next one.
 
-| Function              | Description                                                                                                                                                                                                |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `call`                | Process the value by user defined function.                                                                                                                                                                |
-| `callCtx`             | Same as `call` but context will be passed as a first argument.                                                                                                                                             |
-| `condition`           | Condition processor. If the user-defined function returns `true`, then the value will be passed to the first processor, otherwise to the second.                                                           |
-| `conditionCtx`        | Same as `condition` but context will be passed to the user-defined function.                                                                                                                               |
-| `find`                | Finds the element in iterable by the given predicate function.                                                                                                                                             |
-| `findCtx`             | Same as `find` but context will be passed to the predicate function.                                                                                                                                       |
-| `get`                 | Most useful processor. Fetches the value from the source by given path.                                                                                                                                    |
-| `getFromCtx`          | Fetches the value from the context.                                                                                                                                                                        |
-| `ignore`              | Always returns the `IgnoreValue`. This value will be ignored by field definition, `mapArray` and `mapIterator`                                                                                             |
-| `mapIterable`         | Iterates over elements of an iterable and applies the given sub-processor. ℹ️ Produces values by `yield` operator, so in order to retrieve them you should to iterate the result or call `toArray` helper. |
-| `marshalNestedArray`  | The same function as `mapArray` only in the form of a processor. Accepts the value from the previous processor as a source.                                                                                |
-| `marshalNestedObject` | Same as `marshalNestedArray` only produces object.                                                                                                                                                         |
-| `notFound`            | Always returns the `NotFoundValue`. This value throws an `NotFoundException` but you can recover it using `ifNotFound` helper.                                                                             |
-| `pass`                | This processor do nothing and just returns the value untouched.                                                                                                                                            |
-| `pipe`                | Conveyor processor. Accepts multiple sub-processors and pass the value to the first sub-processor, then pass the result of the first to the second, then to the third and so on.                           |
-| `value`               | Just returns the given value.                                                                                                                                                                              |
+| Function                                                            | Description                                                                                                                                                                                                |
+|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`call`](tests/Examples/callTest.php)                               | Process the value by user defined function.                                                                                                                                                                |
+| [`callCtx`](tests/Examples/callCtxTest.php)                         | Same as `call` but context will be passed as a first argument.                                                                                                                                             |
+| [`condition`](tests/Examples/conditionTest.php)                     | Condition processor. If the user-defined function returns `true`, then the value will be passed to the first processor, otherwise to the second.                                                           |
+| [`conditionCtx`](tests/Examples/conditionCtxTest.php)               | Same as `condition` but context will be passed to the user-defined function.                                                                                                                               |
+| [`find`](tests/Examples/findTest.php)                               | Finds the element in iterable by the given predicate function.                                                                                                                                             |
+| [`findCtx`](tests/Examples/findCtxTest.php)                         | Same as `find` but context will be passed to the predicate function.                                                                                                                                       |
+| [`get`](tests/Examples/getTest.php)                                 | Most useful processor. Fetches the value from the source by given path.                                                                                                                                    |
+| [`getFromCtx`](tests/Examples/getFromCtxTest.php)                   | Fetches the value from the context.                                                                                                                                                                        |
+| [`ignore`](tests/Examples/ignoreTest.php)                           | Always returns the `IgnoreValue`. This value will be ignored by field definition, `mapArray` and `mapIterator`                                                                                             |
+| [`mapIterable`](tests/Examples/mapIterableTest.php)                 | Iterates over elements of an iterable and applies the given sub-processor. ℹ️ Produces values by `yield` operator, so in order to retrieve them you should to iterate the result or call `toArray` helper. |
+| [`marshalNestedArray`](tests/Examples/marshalNestedArrayTest.php)   | The same function as `mapArray` only in the form of a processor. Accepts the value from the previous processor as a source.                                                                                |
+| [`marshalNestedObject`](tests/Examples/marshalNestedObjectTest.php) | Same as `marshalNestedArray` only produces object.                                                                                                                                                         |
+| [`notFound`](tests/Examples/notFoundTest.php)                       | Always returns the `NotFoundValue`. This value throws an `NotFoundException` but you can recover it using `ifNotFound` helper.                                                                             |
+| [`pass`](tests/Examples/passTest.php)                               | This processor do nothing and just returns the value untouched.                                                                                                                                            |
+| [`pipe`](tests/Examples/pipeTest.php)                               | Conveyor processor. Accepts multiple sub-processors and pass the value to the first sub-processor, then pass the result of the first to the second, then to the third and so on.                           |
+| [`value`](tests/Examples/valueTest.php)                             | Just returns the given value.                                                                                                                                                                              |
 
 ### Helpers
 
 Helpers are the processors that built on top of the another processors. Some helpers are just a shorthands to the core processors with specific arguments, some of them are combination of the multiple processors.
 
-| Function        | Description                                                                                                                                                    |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `joinArray`     | Joins the incoming array using the given separator. Throws `UnexpectedValueException` if incoming value is not an array.                                       |
-| `sortArray`     | Sorts the incoming array using built-in `sort` function. Throws `UnexpectedValueException` if incoming value is not an array.                                  |
-| `uniqueArray`   | Returns only unique elements of the incoming array. Throws `UnexpectedValueException` if incoming value is not an array.                                       |
-| `ifNotFound`    | Checks if the incoming value is `NotFoundValue` and passes the value to other processors depending on the result.                                              |
-| `ifEmpty`       | Same as `ifNotFound` but checks if the value is `empty`.                                                                                                       |
-| `ifNull`        | Same as `ifNotFound` but checks if the value `is_null`.                                                                                                        |
-| `ifLt`          | Checks if the incoming value is less than the given value.                                                                                                     |
-| `ifLte`         | Checks if the incoming value is less than the given value or equal.                                                                                            |
-| `IfEqual`       | Checks if the incoming value is equal with the given value.                                                                                                    |
-| `ifNotEqual`    | Checks if the incoming value is not equal with the given value.                                                                                                |
-| `ifGte`         | Checks if the incoming value is greater than the given value or equal.                                                                                         |
-| `ifGt`          | Checks if the incoming value is greater than the given value.                                                                                                  |
-| `explodeString` | Splits the incoming string into parts using built-in `explode` function. Throws `UnexpectedValueException` if incoming value is not a string.                  |
-| `trimString`    | Trims the incoming string using built-in `trim` function. Throws `UnexpectedValueException` if incoming value is not a string.                                 |
-| `toBool`        | Converts the incoming value to boolean type.                                                                                                                   |
-| `toFloat`       | Converts the incoming value to float type. Throws `UnexpectedValueException` if incoming value is not a scalar.                                                |
-| `toInt`         | Converts the incoming value to integer type. Throws `UnexpectedValueException` if incoming value is not a scalar.                                              |
-| `toString`      | Converts the incoming value to string type. Throws `UnexpectedValueException` if incoming value is not a scalar or an object that not implements `__toString`. |
-| `toArray`       | Converts the incoming value to array. Usually used with `mapIterable` processor.                                                                               |
+| Function                                                | Description                                                                                                                                                    |
+|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`joinArray`](tests/Examples/joinArrayTest.php)         | Joins the incoming array using the given separator. Throws `UnexpectedValueException` if incoming value is not an array.                                       |
+| [`sortArray`](tests/Examples/sortArrayTest.php)         | Sorts the incoming array using built-in `sort` function. Throws `UnexpectedValueException` if incoming value is not an array.                                  |
+| [`uniqueArray`](tests/Examples/uniqueArrayTest.php)     | Returns only unique elements of the incoming array. Throws `UnexpectedValueException` if incoming value is not an array.                                       |
+| [`ifNotFound`](tests/Examples/ifNotFoundTest.php)       | Checks if the incoming value is `NotFoundValue` and passes the value to other processors depending on the result.                                              |
+| [`ifEmpty`](tests/Examples/ifEmptyTest.php)             | Same as `ifNotFound` but checks if the value is `empty`.                                                                                                       |
+| [`ifNull`](tests/Examples/ifNullTest.php)               | Same as `ifNotFound` but checks if the value `is_null`.                                                                                                        |
+| [`ifLt`](tests/Examples/ifLtTest.php)                   | Checks if the incoming value is less than the given value.                                                                                                     |
+| [`ifLte`](tests/Examples/ifLteTest.php)                 | Checks if the incoming value is less than the given value or equal.                                                                                            |
+| [`IfEqual`](tests/Examples/IfEqualTest.php)             | Checks if the incoming value is equal to the given value.                                                                                                      |
+| [`ifNotEqual`](tests/Examples/ifNotEqualTest.php)       | Checks if the incoming value is not equal to the given value.                                                                                                  |
+| [`ifGte`](tests/Examples/ifGteTest.php)                 | Checks if the incoming value is greater than the given value or equal.                                                                                         |
+| [`ifGt`](tests/Examples/ifGtTest.php)                   | Checks if the incoming value is greater than the given value.                                                                                                  |
+| [`explodeString`](tests/Examples/explodeStringTest.php) | Splits the incoming string into parts using built-in `explode` function. Throws `UnexpectedValueException` if incoming value is not a string.                  |
+| [`trimString`](tests/Examples/trimStringTest.php)       | Trims the incoming string using built-in `trim` function. Throws `UnexpectedValueException` if incoming value is not a string.                                 |
+| [`toBool`](tests/Examples/toBoolTest.php)               | Converts the incoming value to boolean type.                                                                                                                   |
+| [`toFloat`](tests/Examples/toFloatTest.php)             | Converts the incoming value to float type. Throws `UnexpectedValueException` if incoming value is not a scalar.                                                |
+| [`toInt`](tests/Examples/toIntTest.php)                 | Converts the incoming value to integer type. Throws `UnexpectedValueException` if incoming value is not a scalar.                                              |
+| [`toString`](tests/Examples/toStringTest.php)           | Converts the incoming value to string type. Throws `UnexpectedValueException` if incoming value is not a scalar or an object that not implements `__toString`. |
+| [`toArray`](tests/Examples/toArrayTest.php)             | Converts the incoming value to array. Usually used with `mapIterable` processor.                                                                               |
 
 ## Examples
 

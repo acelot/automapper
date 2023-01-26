@@ -87,7 +87,7 @@ class MapperTest extends TestCase
     public function testObjectMapperFunctionality(): void
     {
         $context = new Context();
-        $target = new TestClass();
+        $target = new TestClass(0, '', 0);
 
         map(
             $context,
@@ -99,14 +99,16 @@ class MapperTest extends TestCase
         );
 
         self::assertEquals(
-            <<<JSON
-            {
-                "id": 42,
-                "name": "Hoover Max Extract® 60 Pressure Pro",
-                "price": 199.99
-            }
-            JSON,
-            json_encode($target, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+            [
+                'id' => 42,
+                'name' => 'Hoover Max Extract® 60 Pressure Pro',
+                'price' => 199.99,
+            ],
+            [
+                'id' => $target->getId(),
+                'name' => $target->getName(),
+                'price' => $target->getPrice(),
+            ]
         );
     }
 
@@ -144,7 +146,7 @@ class MapperTest extends TestCase
                 1,
                 (object)[
                     'interesting field' => [
-                        'some key' => new TestClass()
+                        'some key' => new TestClass(1, 'name', 500)
                     ]
                 ]
             ],
@@ -711,12 +713,12 @@ class MapperTest extends TestCase
             'deep path' => [
                 [
                     toKey(
-                        'title',
-                        get('[nested_field][#last]->{interesting field}[some key]->testMethod()')
+                        'price',
+                        get('[nested_field][#last]->{interesting field}[some key]->getPrice()')
                     ),
                 ],
                 [
-                    'title' => 'test',
+                    'price' => 500,
                 ],
             ],
             'aggregate' => [

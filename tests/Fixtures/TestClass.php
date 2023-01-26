@@ -1,22 +1,18 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Acelot\AutoMapper\Tests\Fixtures;
 
-use JsonSerializable;
-
-final class TestClass implements JsonSerializable
+final class TestClass
 {
-    private int $id;
+    public function __construct(
+        private int $id,
+        private string $name,
+        private float $price
+    ) {}
 
-    private string $name;
-
-    private float $price;
-
-    public function testMethod(): string
+    public function getId(): int
     {
-        return 'test';
+        return $this->id;
     }
 
     public function setId(int $id): void
@@ -24,22 +20,23 @@ final class TestClass implements JsonSerializable
         $this->id = $id;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
     public function setPrice(float $price): void
     {
         $this->price = $price;
-    }
-
-    public function jsonSerialize(): mixed
-    {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'price' => $this->price,
-        ];
     }
 }
