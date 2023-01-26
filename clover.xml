@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674748045">
-  <project timestamp="1674748045">
+<coverage generated="1674753659">
+  <project timestamp="1674753659">
     <file name="/home/runner/work/automapper/automapper/src/Context/Context.php">
       <class name="Acelot\AutoMapper\Context\Context" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
