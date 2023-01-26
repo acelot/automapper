@@ -10,7 +10,7 @@ use Acelot\AutoMapper\Value\NotFoundValue;
 use stdClass;
 use Traversable;
 
-#region API
+#region Main
 function map(Context $context, mixed $source, mixed &$target, FieldInterface ...$fields)
 {
     $mapper = new Mapper($context, ...$fields);
@@ -91,9 +91,14 @@ function conditionCtx(
     return new Processor\ConditionWithContext($condition, $true, $false ?? new Pass());
 }
 
-function fork(ProcessorInterface $true, ProcessorInterface $false): Processor\Condition
+function find(callable $predicate): Processor\Find
 {
-    return new Processor\Condition(fn($value) => boolval($value), $true, $false);
+    return new Processor\Find($predicate);
+}
+
+function findCtx(callable $predicate): Processor\FindWithContext
+{
+    return new Processor\FindWithContext($predicate);
 }
 
 function get(string $path): Processor\Get
@@ -111,14 +116,9 @@ function ignore(): Processor\Ignore
     return new Processor\Ignore();
 }
 
-function mapArray(ProcessorInterface $processor, bool $keepKeys = false): Processor\MapArray
+function mapIterable(ProcessorInterface $processor, bool $keepKeys = false): Processor\MapIterable
 {
-    return new Processor\MapArray($processor, $keepKeys);
-}
-
-function mapIterator(ProcessorInterface $processor, bool $keepKeys = false): Processor\MapIterator
-{
-    return new Processor\MapIterator($processor, $keepKeys);
+    return new Processor\MapIterable($processor, $keepKeys);
 }
 
 function marshalNestedArray(Field\ToArrayKey $firstField, Field\ToArrayKey ...$restFields): Processor\MarshalNestedArray
@@ -193,9 +193,19 @@ function uniqueArray(bool $keepKeys = false, int $options = SORT_STRING): Proces
     );
 }
 
+function ifNotFound(ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
+{
+    return condition(fn($value) => $value instanceof NotFoundValue, $true, $false ?? pass());
+}
+
 function ifEmpty(ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
 {
     return condition(fn($value) => empty($value), $true, $false ?? pass());
+}
+
+function ifNull(ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
+{
+    return condition('is_null', $true, $false ?? pass());
 }
 
 function ifLt(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
@@ -226,16 +236,6 @@ function ifGte(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false
 function ifGt(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
 {
     return condition(fn($value) => $value > $than, $true, $false ?? pass());
-}
-
-function ifNotFound(ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition(fn($value) => $value instanceof NotFoundValue, $true, $false ?? pass());
-}
-
-function ifNull(ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition('is_null', $true, $false ?? pass());
 }
 
 function explodeString(string $separator): Processor\Condition

@@ -10,8 +10,9 @@ use Acelot\AutoMapper\Value\IgnoreValue;
 use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;
+use Generator;
 
-final class MapArray implements ProcessorInterface
+final class MapIterable implements ProcessorInterface
 {
     public function __construct(
         private ProcessorInterface $processor,
@@ -24,18 +25,16 @@ final class MapArray implements ProcessorInterface
             return $value;
         }
 
-        if (!is_array($value->getValue())) {
-            throw new UnexpectedValueException('array', $value->getValue());
+        if (!is_iterable($value->getValue())) {
+            throw new UnexpectedValueException('array|Traversable', $value->getValue());
         }
 
         return new UserValue($this->map($context, $value->getValue()));
     }
 
-    private function map(ContextInterface $context, array $arr): array
+    private function map(ContextInterface $context, iterable $iterator): Generator
     {
-        $out = [];
-
-        foreach ($arr as $key => $item) {
+        foreach ($iterator as $key => $item) {
             $processed = $this->processor->process($context, new UserValue($item));
 
             if ($processed instanceof IgnoreValue) {
@@ -48,13 +47,11 @@ final class MapArray implements ProcessorInterface
 
             if ($processed instanceof UserValue) {
                 if ($this->keepKeys) {
-                    $out[$key] = $processed->getValue();
+                    yield $key => $processed->getValue();
                 } else {
-                    $out[] = $processed->getValue();
+                    yield $processed->getValue();
                 }
             }
         }
-
-        return $out;
     }
 }

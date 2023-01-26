@@ -14,7 +14,6 @@ use function Acelot\AutoMapper\{call,
     condition,
     conditionCtx,
     explodeString,
-    fork,
     get,
     getFromCtx,
     ifEmpty,
@@ -29,8 +28,7 @@ use function Acelot\AutoMapper\{call,
     ignore,
     joinArray,
     map,
-    mapArray,
-    mapIterator,
+    mapIterable,
     marshalArray,
     marshalNestedArray,
     marshalNestedObject,
@@ -252,12 +250,13 @@ class MapperTest extends TestCase
                         pipe(
                             get('[description]'),
                             explodeString(' '),
-                            mapArray(
+                            mapIterable(
                                 pipe(
                                     trimString(),
                                     ifEmpty(ignore())
                                 )
                             ),
+                            toArray(),
                             callCtx(function (ContextInterface $ctx, $value) {
                                 $wordIndex = $ctx->get('word_index');
                                 return $value[$wordIndex];
@@ -305,23 +304,6 @@ class MapperTest extends TestCase
                 ],
                 [
                     'is_price_greater_than_min' => true,
-                ],
-            ],
-            'fork processor' => [
-                [
-                    toKey(
-                        'clean_surge',
-                        pipe(
-                            get('[clean_surge]'),
-                            fork(
-                                true: value('Clean surge available'),
-                                false: value('Clean surge not available')
-                            )
-                        )
-                    ),
-                ],
-                [
-                    'clean_surge' => 'Clean surge not available',
                 ],
             ],
             'get processor' => [
@@ -452,33 +434,19 @@ class MapperTest extends TestCase
                     'child_cat' => 200,
                 ],
             ],
-            'mapArray processor' => [
+            'mapIterable, toArray processor' => [
                 [
                     toKey(
                         'reviews',
                         pipe(
                             get('[reviews]'),
-                            mapArray(call(fn($v) => $v * 2))
+                            mapIterable(call(fn($v) => $v * 2)),
+                            toArray()
                         )
                     ),
                 ],
                 [
                     'reviews' => [8, 8, 8, 10, 10, 10, 10, 8, 4, 6],
-                ],
-            ],
-            'mapIterator, toArray processor' => [
-                [
-                    toKey(
-                        'capitalized_letters',
-                        pipe(
-                            get('[alphabet]'),
-                            mapIterator(call('strtoupper')),
-                            toArray()
-                        )
-                    )
-                ],
-                [
-                    'capitalized_letters' => ['A', 'B', 'C'],
                 ],
             ],
             'ignore processor' => [
@@ -663,12 +631,13 @@ class MapperTest extends TestCase
                         pipe(
                             get('[categories]'),
                             explodeString(','),
-                            mapArray(
+                            mapIterable(
                                 pipe(
                                     toInt(),
                                     ifEmpty(ignore())
                                 )
-                            )
+                            ),
+                            toArray()
                         )
                     ),
                 ],

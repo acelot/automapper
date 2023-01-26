@@ -5,45 +5,47 @@ namespace Acelot\AutoMapper\Tests\Unit\Processor;
 use Acelot\AutoMapper\Context\ContextInterface;
 use Acelot\AutoMapper\Exception\NotFoundException;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
-use Acelot\AutoMapper\Processor\MapArray;
+use Acelot\AutoMapper\Processor\MapIterable;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
 use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;
+use ArrayIterator;
+use Iterator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Acelot\AutoMapper\Processor\MapArray
+ * @covers \Acelot\AutoMapper\Processor\MapIterable
  */
-final class MapArrayTest extends TestCase
+final class MapIterableTest extends TestCase
 {
     public function testProcess_NotUserValuePassed_NeverCallsProcessorProcessMethod(): void
     {
         $context = $this->createMock(ContextInterface::class);
-        $value = $this->createMock(ValueInterface::class);
         $subProcessor = $this->createMock(ProcessorInterface::class);
+        $value = $this->createMock(ValueInterface::class);
 
-        $processor = new MapArray($subProcessor);
+        $processor = new MapIterable($subProcessor);
 
         self::assertSame($value, $processor->process($context, $value));
     }
 
-    public function testProcess_NotArrayPassed_ThrowsUnexpectedValueException(): void
+    public function testProcess_NotIterablePassed_ThrowsUnexpectedValueException(): void
     {
         $context = $this->createMock(ContextInterface::class);
         $subProcessor = $this->createMock(ProcessorInterface::class);
 
-        $processor = new MapArray($subProcessor);
+        self::expectExceptionObject(new UnexpectedValueException('array|Traversable', 'asd'));
 
-        self::expectExceptionObject(new UnexpectedValueException('array', 'test'));
-
-        $processor->process($context, new UserValue('test'));
+        $processor = new MapIterable($subProcessor);
+        $processor->process($context, new UserValue('asd'));
     }
 
-    public function testProcess_ArrayPassed_CallsSubProcessorForEachElement(): void
+    public function testProcess_IteratorPassed_CallsSubProcessorForEachElement(): void
     {
         $context = $this->createMock(ContextInterface::class);
+
         $subProcessor = $this->createMock(ProcessorInterface::class);
         $subProcessor
             ->expects(self::exactly(3))
@@ -63,11 +65,48 @@ final class MapArrayTest extends TestCase
                 ]
             );
 
-        $processor = new MapArray($subProcessor);
-        $processor->process($context, new UserValue([1, 2, 3]));
+        $processor = new MapIterable($subProcessor);
+
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));
+
+        // Need to spin up the generator
+        iterator_to_array($result->getValue());
     }
 
-    public function testProcess_SomeElementsIgnored_ReturnsArrayWithNotIgnoredElements(): void
+    public function testProcess_ArrayPassed_CallsSubProcessorForEachElement(): void
+    {
+        $context = $this->createMock(ContextInterface::class);
+
+        $subProcessor = $this->createMock(ProcessorInterface::class);
+        $subProcessor
+            ->expects(self::exactly(3))
+            ->method('process')
+            ->withConsecutive(
+                [
+                    self::equalTo($context),
+                    self::callback(fn(ValueInterface $v) => $v instanceof UserValue && $v->getValue() === 1)
+                ],
+                [
+                    self::equalTo($context),
+                    self::callback(fn(ValueInterface $v) => $v instanceof UserValue && $v->getValue() === 2)
+                ],
+                [
+                    self::equalTo($context),
+                    self::callback(fn(ValueInterface $v) => $v instanceof UserValue && $v->getValue() === 3)
+                ]
+            );
+
+        $processor = new MapIterable($subProcessor);
+
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue([1, 2, 3]));
+
+        // Need to spin up the generator
+        iterator_to_array($result->getValue());
+    }
+
+    public function testProcess_SomeElementsIgnored_ReturnsIteratorWithNotIgnoredElements(): void
     {
         $context = $this->createMock(ContextInterface::class);
 
@@ -81,12 +120,16 @@ final class MapArrayTest extends TestCase
                 new UserValue(30),
             );
 
-        $processor = new MapArray($subProcessor);
+        $processor = new MapIterable($subProcessor);
 
-        self::assertEquals(new UserValue([10, 30]), $processor->process($context, new UserValue([1, 2, 3])));
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));
+
+        self::assertInstanceOf(Iterator::class, $result->getValue());
+        self::assertEquals([10, 30], iterator_to_array($result->getValue()));
     }
 
-    public function testProcess_KeepKeysAndSomeElementsIgnored_ReturnsArrayWithNotIgnoredElements(): void
+    public function testProcess_KeepKeysAndSomeElementsIgnored_ReturnsIteratorWithNotIgnoredElements(): void
     {
         $context = $this->createMock(ContextInterface::class);
 
@@ -100,9 +143,13 @@ final class MapArrayTest extends TestCase
                 new UserValue(30),
             );
 
-        $processor = new MapArray($subProcessor, true);
+        $processor = new MapIterable($subProcessor, true);
 
-        self::assertEquals(new UserValue([0 => 10, 2 => 30]), $processor->process($context, new UserValue([1, 2, 3])));
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));
+
+        self::assertInstanceOf(Iterator::class, $result->getValue());
+        self::assertEquals([0 => 10, 2 => 30], iterator_to_array($result->getValue()));
     }
 
     public function testProcess_ProcessorReturnsNotFoundValue_ThrowsNotFoundException(): void
@@ -119,11 +166,15 @@ final class MapArrayTest extends TestCase
                 new UserValue(30),
             );
 
-        $processor = new MapArray($subProcessor, true);
+        $processor = new MapIterable($subProcessor, true);
 
         self::expectExceptionObject(new NotFoundException('test'));
 
-        $processor->process($context, new UserValue([1, 2, 3]));
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));
+
+        // Need to spin up the generator
+        iterator_to_array($result->getValue());
     }
 
     public function testProcess_ProcessorReturnedUserValues_ReturnsCorrectValue(): void
@@ -140,8 +191,12 @@ final class MapArrayTest extends TestCase
                 new UserValue(30),
             );
 
-        $processor = new MapArray($subProcessor, true);
+        $processor = new MapIterable($subProcessor, true);
 
-        self::assertEquals(new UserValue([10, 20, 30]), $processor->process($context, new UserValue([1, 2, 3])));
+        /** @var UserValue $result */
+        $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));
+
+        self::assertInstanceOf(Iterator::class, $result->getValue());
+        self::assertEquals([10, 20, 30], iterator_to_array($result->getValue()));
     }
 }

@@ -2,21 +2,24 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          bootstrap="vendor/autoload.php"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">src/</directory>
-    </include>
-    <report>
-      <clover outputFile="clover.xml"/>
-    </report>
-  </coverage>
-  <testsuites>
-    <testsuite name="unit">
-      <directory>tests/Unit</directory>
-    </testsuite>
-    <testsuite name="functional">
-      <directory>tests/Functional</directory>
-    </testsuite>
-  </testsuites>
-  <logging/>
+    <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+        <report>
+            <clover outputFile="clover.xml"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="functional">
+            <directory>tests/Functional</directory>
+        </testsuite>
+        <testsuite name="examples">
+            <directory>tests/Examples</directory>
+        </testsuite>
+    </testsuites>
+    <logging/>
 </phpunit>
