@@ -32,6 +32,6 @@ final class marshalObjectTest extends TestCase
         $expected->mappedTitle = 'Hello, world!';
         $expected->mappedTags = ['one', 'two', 'three'];
 
-        self::assertSame($expected, $result);
+        self::assertEquals($expected, $result);
     }
 }

@@ -7,14 +7,14 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/acelot/automapper/actions"><img src="https://github.com/acelot/automapper/actions/workflows/matrix-test.yml/badge.svg" alt="build"/></a>
+<a href="https://github.com/acelot/automapper/actions"><img src="https://github.com/acelot/automapper/actions/workflows/pipeline.yml/badge.svg" alt="build"/></a>
 <a href="https://github.com/acelot/automapper/tree/v2/clover.xml"><img src="https://raw.githubusercontent.com/acelot/automapper/v2/badge-coverage.svg" alt="coverage"/></a>
 <a href="https://packagist.org/packages/acelot/automapper"><img src="https://img.shields.io/packagist/v/acelot/automapper.svg?style=flat" alt="packagist"/></a>
 <img src="https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat" alt="dependencies"/>
 <img src="https://img.shields.io/github/license/acelot/automapper.svg?style=flat" alt="MIT"/>
 </p>
 
-Powerful declarative data mapper for PHP 8. AutoMapper can map data from any source data (usually array/object) to the existing array/object or marshal a new ones.
+**AutoMapper** – powerful declarative data mapper for PHP 8. AutoMapper can map data from any source data (usually array/object) to the existing array/object or marshal a new ones.
 
 ## Install
 
@@ -71,6 +71,8 @@ var_export($result);
 ```
 
 ### How to marshal new array from the another?
+
+<details><summary>Show the code</summary>
 
 ```php
 use Acelot\AutoMapper\Context;
@@ -137,6 +139,8 @@ var_export($result);
 //  ],
 // )
 ```
+
+</details>
 
 ### What is Context?
 
