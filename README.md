@@ -3,7 +3,10 @@
 ⚠️ **WORK IN PROGRESS**
 
 <p align="center">
-<a href="https://github.com/acelot/automapper/tree/v2"><img src="https://user-images.githubusercontent.com/1065215/214675170-3a1411b7-12d0-4cd1-b666-fc2cec4bf8b9.png" width="450" alt="AutoMapper"/></a>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="./logo-night.png">
+<img alt="AutoMapper" width="450" src="./logo-light.png">
+</picture>
 </p>
 
 <p align="center">
@@ -24,55 +27,7 @@ composer require acelot/automapper:^2.0
 
 ## Usage
 
-### How to map data from source to the existing array?
-
-```php
-use Acelot\AutoMapper\Context;
-use function Acelot\AutoMapper\{
-    get,
-    map,
-    pipe,
-    toKey,
-    trimString
-};
-
-$source = [
-    'title' => '  Product title  ',
-    'desc' => [
-        'Product short description',
-        'Product regular description',
-        'Product descriptive description',
-    ]
-];
-
-$target = [
-    'id' => 5,
-    'title' => 'Current title',
-];
-
-$result = map(
-    new Context(),
-    $source,
-    $target,
-    toKey('title', pipe(
-        get('[title]'),
-        trimString()
-    )),
-    toKey('description', get('[desc][#last]')),
-);
-
-var_export($result);
-
-// array (
-//  'id' => 5,
-//  'title' => 'Product title',
-//  'description' => 'Product descriptive description',
-// )
-```
-
 ### How to marshal new array from the another?
-
-<details><summary>Show the code</summary>
 
 ```php
 use Acelot\AutoMapper\Context;
@@ -124,20 +79,66 @@ $result = marshalArray(
     ))
 );
 
-var_export($result);
+// Output of `var_export($result)`
+array(
+  'id' => 99,
+  'fullname' => 'John Doe',
+  'skills' => [
+    0 => 'brainfuck',
+    1 => 'css',
+    2 => 'html',
+    3 => 'js',
+    4 => 'mysql',
+    5 => 'php',
+  ],
+)
+```
 
-// array (
-//  'id' => 99,
-//  'fullname' => 'John Doe',
-//  'skills' => [
-//    0 => 'brainfuck',
-//    1 => 'css',
-//    2 => 'html',
-//    3 => 'js',
-//    4 => 'mysql',
-//    5 => 'php',
-//  ],
-// )
+### How to map data from source to the existing array?
+
+<details><summary>Show the code</summary>
+
+```php
+use Acelot\AutoMapper\Context;
+use function Acelot\AutoMapper\{
+    get,
+    map,
+    pipe,
+    toKey,
+    trimString
+};
+
+$source = [
+    'title' => '  Product title  ',
+    'desc' => [
+        'Product short description',
+        'Product regular description',
+        'Product descriptive description',
+    ]
+];
+
+$target = [
+    'id' => 5,
+    'title' => 'Current title',
+];
+
+$result = map(
+    new Context(),
+    $source,
+    $target,
+    toKey('title', pipe(
+        get('[title]'),
+        trimString()
+    )),
+    toKey('description', get('[desc][#last]')),
+);
+
+// Output of `var_export($result)`
+array (
+  'id' => 5,
+  'title' => 'Product title',
+  'description' => 'Product descriptive description',
+)
 ```
 
 </details>

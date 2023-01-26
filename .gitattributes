@@ -6,4 +6,6 @@ tests/ export-ignore
 .gitignore export-ignore
 badge-coverage.svg export-ignore
 clover.xml export-ignore
+logo-light.png export-ignore
+logo-night.png export-ignore
 phpunit.xml export-ignore
