@@ -74,7 +74,7 @@ jobs:
         run: composer run test
 
       - name: Generate coverage badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
         with:
           coverage_badge_path: 'badge-coverage.svg'
           push_badge: true
