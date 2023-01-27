@@ -1,16 +1,20 @@
-<svg width="100" height="20" xmlns="http://www.w3.org/2000/svg">
-    <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
-
-    <g>
-        <rect fill="none" id="canvas_background" height="22" width="102" y="-1" x="-1"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108" height="20" role="img">
+    <linearGradient id="s" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <clipPath id="r">
+        <rect width="108" height="20" rx="3" fill="#fff"/>
+    </clipPath>
+    <g clip-path="url(#r)">
+        <rect width="63" height="20" fill="#555"/>
+        <rect x="63" width="45" height="20" fill="#4c1"/>
+        <rect width="108" height="20" fill="url(#s)"/>
     </g>
-    <g>
-        <rect rx="2" id="svg_1" height="18" width="98" y="1" x="1" stroke-width="1.5" stroke="#4c4c4c" fill="#4c4c4c"/>
-        <text transform="matrix(0.95, 0, 0, 1.01133, 0.0809801, -0.0237383)" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="12" id="svg_8" y="14.45" x="2.8" stroke-width="0" stroke="#4c4c4c" fill="#6e747d">coverage</text>
-        <text transform="matrix(0.95, 0, 0, 1.01133, 0.0809801, -0.0237383)" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="12" id="svg_3" y="13.9" x="2.2" stroke-width="0" stroke="#4c4c4c" fill="#ffffff">coverage</text>
-        <rect rx="2" id="svg_5" height="18" width="40.90531" y="1.01077" x="58.13716" stroke-width="1.5" stroke="#4c1" fill="#4c1"/>
-        <rect id="svg_7" height="18" width="10" y="1.01077" x="58.00804" stroke-width="1.5" stroke="#4c1" fill="#4c1"/>
-        <text transform="matrix(0.95, 0, 0, 1.01133, 0.0809801, -0.0237383)" font-weight="normal" xml:space="preserve" text-anchor="end" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="10" id="svg_10" y="14.35" x="99" stroke-width="0" stroke="#4c4c4c" fill="#6e747d">98 %</text>
-        <text transform="matrix(0.95, 0, 0, 1.01133, 0.0809801, -0.0237383)" font-weight="normal" xml:space="preserve" text-anchor="end" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="10" id="svg_9" y="13.8" x="98.4" stroke-width="0" stroke="#4c4c4c" fill="#ffffff">98 %</text>
+    <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+        <text aria-hidden="true" x="315" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="530">coverage</text>
+        <text x="315" y="140" transform="scale(.1)" fill="#fff" textLength="530">coverage</text>
+        <text aria-hidden="true" x="850" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">98 %</text>
+        <text x="850" y="140" transform="scale(.1)" fill="#fff" textLength="350">98 %</text>
     </g>
 </svg>
