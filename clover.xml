@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674804504">
-  <project timestamp="1674804504">
+<coverage generated="1674806450">
+  <project timestamp="1674806450">
     <file name="/home/runner/work/automapper/automapper/src/Context/Context.php">
       <class name="Acelot\AutoMapper\Context\Context" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
@@ -19,9 +19,6 @@
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Context/ContextInterface.php">
       <metrics loc="13" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
-    <file name="/home/runner/work/automapper/automapper/src/DefinitionInterface.php">
-      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Exception/NotFoundException.php">
       <class name="Acelot\AutoMapper\Exception\NotFoundException" namespace="global">
@@ -215,13 +212,13 @@
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Mapper.php">
       <class name="Acelot\AutoMapper\Mapper" namespace="global">
-        <metrics complexity="8" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="16" coveredelements="14"/>
+        <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
       </class>
-      <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="39"/>
-      <line num="22" type="stmt" count="39"/>
-      <line num="23" type="stmt" count="39"/>
-      <line num="26" type="method" name="getContext" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="28" type="stmt" count="0"/>
+      <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="40"/>
+      <line num="22" type="stmt" count="40"/>
+      <line num="23" type="stmt" count="40"/>
+      <line num="26" type="method" name="getContext" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="28" type="stmt" count="1"/>
       <line num="34" type="method" name="getFields" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="36" type="stmt" count="3"/>
       <line num="39" type="method" name="map" visibility="public" complexity="5" crap="5" count="36"/>
@@ -233,7 +230,7 @@
       <line num="49" type="stmt" count="2"/>
       <line num="52" type="stmt" count="34"/>
       <line num="53" type="stmt" count="33"/>
-      <metrics loc="58" ncloc="52" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="16" coveredelements="14"/>
+      <metrics loc="58" ncloc="52" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/MapperExceptionInterface.php">
       <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -711,6 +708,6 @@
       <line num="288" type="stmt" count="8"/>
       <metrics loc="291" ncloc="283" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="88" elements="92" coveredelements="88"/>
     </file>
-    <metrics files="59" loc="1720" ncloc="1653" classes="40" methods="94" coveredmethods="93" conditionals="0" coveredconditionals="0" statements="307" coveredstatements="302" elements="401" coveredelements="395"/>
+    <metrics files="58" loc="1711" ncloc="1644" classes="40" methods="94" coveredmethods="94" conditionals="0" coveredconditionals="0" statements="307" coveredstatements="303" elements="401" coveredelements="397"/>
   </project>
 </coverage>
