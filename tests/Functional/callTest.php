@@ -1,17 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
-use Acelot\AutoMapper\Context\ContextInterface;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\findCtx;
+use function Acelot\AutoMapper\call;
 use function Acelot\AutoMapper\get;
 use function Acelot\AutoMapper\marshalArray;
 use function Acelot\AutoMapper\pipe;
 use function Acelot\AutoMapper\toKey;
 
-final class findCtxTest extends TestCase
+final class callTest extends TestCase
 {
     public function testExample(): void
     {
@@ -22,25 +21,24 @@ final class findCtxTest extends TestCase
         ];
 
         $result = marshalArray(
-            new Context([
-                'index' => 0,
-                'value' => 'three'
-            ]),
+            new Context(),
             $source,
-            toKey('tag_by_index', pipe(
-                get('[tags]'),
-                findCtx(fn(ContextInterface $c, $v, $k) => $k === $c->get('index'))
+            toKey('mapped_id', call(fn($v) => 50)),
+            toKey('mapped_title', pipe(
+                get('[title]'),
+                call(fn($v) => $v . '!!')
             )),
-            toKey('tag_by_value', pipe(
+            toKey('mapped_tags', pipe(
                 get('[tags]'),
-                findCtx(fn(ContextInterface $c, $v, $k) => $v === $c->get('value'))
+                call(fn($v) => $v[1])
             )),
         );
 
         self::assertSame(
             [
-                'tag_by_index' => 'one',
-                'tag_by_value' => 'three',
+                'mapped_id' => 50,
+                'mapped_title' => 'Hello, world!!!',
+                'mapped_tags' => 'two',
             ],
             $result
         );

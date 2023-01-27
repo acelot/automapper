@@ -17,9 +17,6 @@
         <testsuite name="functional">
             <directory>tests/Functional</directory>
         </testsuite>
-        <testsuite name="examples">
-            <directory>tests/Examples</directory>
-        </testsuite>
     </testsuites>
     <logging/>
 </phpunit>

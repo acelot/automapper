@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\call;
 use function Acelot\AutoMapper\get;
 use function Acelot\AutoMapper\marshalArray;
 use function Acelot\AutoMapper\pipe;
+use function Acelot\AutoMapper\sortArray;
 use function Acelot\AutoMapper\toKey;
 
-final class callTest extends TestCase
+final class sortArrayTest extends TestCase
 {
     public function testExample(): void
     {
@@ -23,22 +23,15 @@ final class callTest extends TestCase
         $result = marshalArray(
             new Context(),
             $source,
-            toKey('mapped_id', call(fn($v) => 50)),
-            toKey('mapped_title', pipe(
-                get('[title]'),
-                call(fn($v) => $v . '!!')
-            )),
-            toKey('mapped_tags', pipe(
+            toKey('tags_reverse_sorted', pipe(
                 get('[tags]'),
-                call(fn($v) => $v[1])
+                sortArray(true)
             )),
         );
 
         self::assertSame(
             [
-                'mapped_id' => 50,
-                'mapped_title' => 'Hello, world!!!',
-                'mapped_tags' => 'two',
+                'tags_reverse_sorted' => ['two', 'three', 'one'],
             ],
             $result
         );

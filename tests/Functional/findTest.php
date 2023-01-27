@@ -1,15 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
-use Acelot\AutoMapper\Tests\Fixtures\TestClass;
 use PHPUnit\Framework\TestCase;
+use function Acelot\AutoMapper\find;
 use function Acelot\AutoMapper\get;
 use function Acelot\AutoMapper\marshalArray;
+use function Acelot\AutoMapper\pipe;
 use function Acelot\AutoMapper\toKey;
 
-final class getTest extends TestCase
+final class findTest extends TestCase
 {
     public function testExample(): void
     {
@@ -17,24 +18,25 @@ final class getTest extends TestCase
             'id' => 10,
             'title' => 'Hello, world!',
             'tags' => ['one', 'two', 'three'],
-            'deep' => [
-                'test class' => new TestClass(222, 'test class name', 500.0),
-            ],
         ];
 
         $result = marshalArray(
             new Context(),
             $source,
-            toKey('title_fifth_letter', get('[title][4]')),
-            toKey('last_tag', get('[tags][#last]')),
-            toKey('deep_class_price', get('[deep][test class]->getPrice()')),
+            toKey('third_tag_by_key', pipe(
+                get('[tags]'),
+                find(fn($v, $k) => $k === 2)
+            )),
+            toKey('second_tag_by_value', pipe(
+                get('[tags]'),
+                find(fn($v, $k) => $v === 'two')
+            )),
         );
 
         self::assertSame(
             [
-                'title_fifth_letter' => 'o',
-                'last_tag' => 'three',
-                'deep_class_price' => 500.0,
+                'third_tag_by_key' => 'three',
+                'second_tag_by_value' => 'two',
             ],
             $result
         );

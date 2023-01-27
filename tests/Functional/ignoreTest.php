@@ -1,14 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
+use function Acelot\AutoMapper\condition;
 use function Acelot\AutoMapper\get;
+use function Acelot\AutoMapper\ignore;
 use function Acelot\AutoMapper\marshalArray;
 use function Acelot\AutoMapper\toKey;
 
-final class marshalArrayTest extends TestCase
+final class ignoreTest extends TestCase
 {
     public function testExample(): void
     {
@@ -21,16 +23,14 @@ final class marshalArrayTest extends TestCase
         $result = marshalArray(
             new Context(),
             $source,
-            toKey('mapped_id', get('[id]')),
-            toKey('mapped_title', get('[title]')),
-            toKey('mapped_tags', get('[tags]')),
+            toKey('id', get('[id]')),
+            toKey('title', ignore()),
+            toKey('tags', condition(fn($v) => count($v) > 2, ignore())),
         );
 
         self::assertSame(
             [
-                'mapped_id' => 10,
-                'mapped_title' => 'Hello, world!',
-                'mapped_tags' => ['one', 'two', 'three'],
+                'id' => 10,
             ],
             $result
         );

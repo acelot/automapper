@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
 use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\map;
+use function Acelot\AutoMapper\marshalArray;
 use function Acelot\AutoMapper\toKey;
 
-final class mapTest extends TestCase
+final class marshalArrayTest extends TestCase
 {
     public function testExample(): void
     {
@@ -18,14 +18,9 @@ final class mapTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $target = [
-            'type' => 'article',
-        ];
-
-        map(
+        $result = marshalArray(
             new Context(),
             $source,
-            $target,
             toKey('mapped_id', get('[id]')),
             toKey('mapped_title', get('[title]')),
             toKey('mapped_tags', get('[tags]')),
@@ -33,12 +28,11 @@ final class mapTest extends TestCase
 
         self::assertSame(
             [
-                'type' => 'article',
                 'mapped_id' => 10,
                 'mapped_title' => 'Hello, world!',
                 'mapped_tags' => ['one', 'two', 'three'],
             ],
-            $target
+            $result
         );
     }
 }

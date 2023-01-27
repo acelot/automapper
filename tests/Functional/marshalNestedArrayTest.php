@@ -1,16 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Tests\Examples;
+namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\find;
 use function Acelot\AutoMapper\get;
+use function Acelot\AutoMapper\mapIterable;
 use function Acelot\AutoMapper\marshalArray;
+use function Acelot\AutoMapper\marshalNestedArray;
 use function Acelot\AutoMapper\pipe;
+use function Acelot\AutoMapper\toArray;
 use function Acelot\AutoMapper\toKey;
 
-final class findTest extends TestCase
+final class marshalNestedArrayTest extends TestCase
 {
     public function testExample(): void
     {
@@ -23,20 +25,24 @@ final class findTest extends TestCase
         $result = marshalArray(
             new Context(),
             $source,
-            toKey('third_tag_by_key', pipe(
+            toKey('tags_nested', pipe(
                 get('[tags]'),
-                find(fn($v, $k) => $k === 2)
-            )),
-            toKey('second_tag_by_value', pipe(
-                get('[tags]'),
-                find(fn($v, $k) => $v === 'two')
+                mapIterable(
+                    marshalNestedArray(
+                        toKey('name', get('@'))
+                    )
+                ),
+                toArray()
             )),
         );
 
         self::assertSame(
             [
-                'third_tag_by_key' => 'three',
-                'second_tag_by_value' => 'two',
+                'tags_nested' => [
+                    ['name' => 'one'],
+                    ['name' => 'two'],
+                    ['name' => 'three'],
+                ],
             ],
             $result
         );

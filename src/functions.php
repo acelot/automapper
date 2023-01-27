@@ -208,16 +208,6 @@ function ifNull(ProcessorInterface $true, ?ProcessorInterface $false = null): Pr
     return condition('is_null', $true, $false ?? pass());
 }
 
-function ifLt(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition(fn($value) => $value < $than, $true, $false ?? pass());
-}
-
-function ifLte(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition(fn($value) => $value <= $than, $true, $false ?? pass());
-}
-
 function ifEqual(mixed $to, ProcessorInterface $true, ?ProcessorInterface $false = null, bool $strict = true): Processor\Condition
 {
     return condition(fn($value) => $strict ? $value === $to : $value == $to, $true, $false ?? pass());
@@ -225,17 +215,7 @@ function ifEqual(mixed $to, ProcessorInterface $true, ?ProcessorInterface $false
 
 function ifNotEqual(mixed $to, ProcessorInterface $true, ?ProcessorInterface $false = null, bool $strict = true): Processor\Condition
 {
-    return condition(fn($value) => $strict ? $value !== $to : $value != $to, $true, $false ?? pass());
-}
-
-function ifGte(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition(fn($value) => $value >= $than, $true, $false ?? pass());
-}
-
-function ifGt(mixed $than, ProcessorInterface $true, ?ProcessorInterface $false = null): Processor\Condition
-{
-    return condition(fn($value) => $value > $than, $true, $false ?? pass());
+    return ifEqual($to, $false, $true, $strict);
 }
 
 function explodeString(string $separator): Processor\Condition
@@ -261,20 +241,20 @@ function toBool(): Processor\Call
     return call('boolval');
 }
 
-function toFloat(bool $nullToZero = false): Processor\Condition
+function toFloat(): Processor\Condition
 {
     return condition(
         fn($value) => is_null($value) || is_scalar($value),
-        true: call(fn($value) => (is_null($value) && $nullToZero) ? 0.0 : floatval($value)),
+        true: call(fn($value) => is_null($value) ? 0.0 : floatval($value)),
         false: throwUnexpectedValueException('null|scalar')
     );
 }
 
-function toInt(bool $nullToZero = false): Processor\Condition
+function toInt(): Processor\Condition
 {
     return condition(
         fn($value) => is_null($value) || is_scalar($value),
-        true: call(fn($value) => (is_null($value) && $nullToZero) ? 0 : intval($value)),
+        true: call(fn($value) => is_null($value) ? 0 : intval($value)),
         false: throwUnexpectedValueException('null|scalar')
     );
 }
