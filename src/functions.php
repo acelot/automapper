@@ -11,7 +11,7 @@ use stdClass;
 use Traversable;
 
 #region Main
-function map(Context $context, mixed $source, mixed &$target, FieldInterface ...$fields)
+function map(Context $context, mixed $source, mixed &$target, FieldInterface ...$fields): void
 {
     $mapper = new Mapper($context, ...$fields);
     $mapper->map($source, $target);

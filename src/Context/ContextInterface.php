@@ -4,9 +4,9 @@ namespace Acelot\AutoMapper\Context;
 
 interface ContextInterface
 {
-    public function has(string $key): bool;
+    public function has(int|string $key): bool;
 
-    public function get(string $key): mixed;
+    public function get(int|string $key): mixed;
 
-    public function set(string $key, mixed $value): void;
+    public function set(int|string $key, mixed $value): void;
 }

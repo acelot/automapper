@@ -17,6 +17,16 @@ use PHPUnit\Framework\TestCase;
  */
 final class MapperTest extends TestCase
 {
+    public function testGetContext_Constructed_ReturnsPassedContext(): void
+    {
+        $context = $this->createMock(ContextInterface::class);
+        $field0 = $this->createMock(FieldInterface::class);
+
+        $mapper = new Mapper($context, $field0);
+
+        self::assertSame($context, $mapper->getContext());
+    }
+
     public function testMap_PassedProcessor_CallsProcessorProcessMethod(): void
     {
         $context = $this->createMock(ContextInterface::class);
