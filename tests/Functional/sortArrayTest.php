@@ -23,6 +23,10 @@ final class sortArrayTest extends TestCase
         $result = marshalArray(
             new Context(),
             $source,
+            toKey('tags_sorted', pipe(
+                get('[tags]'),
+                sortArray()
+            )),
             toKey('tags_reverse_sorted', pipe(
                 get('[tags]'),
                 sortArray(true)
@@ -31,6 +35,7 @@ final class sortArrayTest extends TestCase
 
         self::assertSame(
             [
+                'tags_sorted' => ['one', 'three', 'two'],
                 'tags_reverse_sorted' => ['two', 'three', 'one'],
             ],
             $result
