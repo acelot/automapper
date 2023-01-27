@@ -2,17 +2,7 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\Exception\IgnoreFieldException;
-use Acelot\AutoMapper\Exception\SourceFieldMissingException;
-
 interface DefinitionInterface
 {
-    /**
-     * @param SourceInterface $source
-     *
-     * @return mixed
-     * @throws IgnoreFieldException
-     * @throws SourceFieldMissingException
-     */
-    public function getValue(SourceInterface $source);
+    public function getValue(mixed $source): ValueInterface;
 }
