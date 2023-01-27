@@ -10,7 +10,7 @@ If you want a previous version, then proceed to [1.x](https://github.com/acelot/
 
 <p align="center">
 <a href="https://github.com/acelot/automapper/actions"><img src="https://github.com/acelot/automapper/actions/workflows/pipeline.yml/badge.svg" alt="build"/></a>
-<a href="https://github.com/acelot/automapper/tree/v2/clover.xml"><img src="https://raw.githubusercontent.com/acelot/automapper/v2/badge-coverage.svg" alt="coverage"/></a>
+<a href="./clover.xml"><img src="https://raw.githubusercontent.com/acelot/automapper/master/badge-coverage.svg" alt="coverage"/></a>
 <a href="https://packagist.org/packages/acelot/automapper"><img src="https://img.shields.io/packagist/v/acelot/automapper.svg?style=flat" alt="packagist"/></a>
 <img src="https://img.shields.io/badge/dependencies-zero-blue.svg?style=flat" alt="dependencies"/>
 <img src="https://img.shields.io/github/license/acelot/automapper.svg?style=flat" alt="MIT"/>
