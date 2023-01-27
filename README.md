@@ -143,12 +143,6 @@ array (
 
 </details>
 
-### What is Context?
-
-The `Context` is a special DTO class for storing any kind of data: configs, DB connections, fixtures, etc.
-This DTO is passed to the mapper, and you can use your data inside the processors.
-Processors capable of working with the context end with `Ctx` suffix, [`callCtx`](tests/Functional/callCtxTest.php) for example.
-
 ## Examples
 
 All examples can be found in [`tests/Functional`](tests/Functional) directory.
@@ -191,13 +185,13 @@ Core value processors. The purpose of processors is to retrieve the value or mut
 | [`conditionCtx`](tests/Functional/conditionCtxTest.php)               | Same as `condition` but [context](#what-is-context) will be passed to the user-defined function.                                                                                                           |
 | [`find`](tests/Functional/findTest.php)                               | Finds the element in iterable by the given predicate function.                                                                                                                                             |
 | [`findCtx`](tests/Functional/findCtxTest.php)                         | Same as `find` but [context](#what-is-context) will be passed to the predicate function.                                                                                                                   |
-| [`get`](tests/Functional/getTest.php)                                 | Most useful processor. Fetches the value from the source by given path.                                                                                                                                    |
+| [`get`](tests/Functional/getTest.php)                                 | Most useful processor. Fetches the value from the source by given [path](#how-to-use-get-processor).                                                                                                       |
 | [`getFromCtx`](tests/Functional/getFromCtxTest.php)                   | Fetches the value from the [context](#what-is-context).                                                                                                                                                    |
 | [`ignore`](tests/Functional/ignoreTest.php)                           | Always returns the `IgnoreValue`. This value will be ignored by field definition, `mapArray` and `mapIterator`                                                                                             |
 | [`mapIterable`](tests/Functional/mapIterableTest.php)                 | Iterates over elements of an iterable and applies the given sub-processor. ℹ️ Produces values by `yield` operator, so in order to retrieve them you should to iterate the result or call `toArray` helper. |
 | [`marshalNestedArray`](tests/Functional/marshalNestedArrayTest.php)   | The same function as `mapArray` only in the form of a processor. Accepts the value from the previous processor as a source.                                                                                |
 | [`marshalNestedObject`](tests/Functional/marshalNestedObjectTest.php) | Same as `marshalNestedArray` only produces object.                                                                                                                                                         |
-| [`notFound`](tests/Functional/notFoundTest.php)                       | Always returns the `NotFoundValue`. This value throws an `NotFoundException` but you can recover it using `ifNotFound` helper.                                                                             |
+| [`notFound`](tests/Functional/notFoundTest.php)                       | Always returns the `NotFoundValue`.                                                                                                                                                                        |
 | [`pass`](tests/Functional/passTest.php)                               | This processor do nothing and just returns the value untouched.                                                                                                                                            |
 | [`pipe`](tests/Functional/marshalNestedArrayTest.php)                 | Conveyor processor. Accepts multiple sub-processors and pass the value to the first sub-processor, then pass the result of the first to the second, then to the third and so on.                           |
 | [`value`](tests/Functional/conditionTest.php)                         | Just returns the given value.                                                                                                                                                                              |
@@ -224,3 +218,38 @@ Helpers are the processors that built on top of the another processors. Some hel
 | [`toString`](tests/Functional/toStringTest.php)           | Converts the incoming value to string type. Throws `UnexpectedValueException` if incoming value is not a scalar or an object that not implements `__toString`. |
 | [`toArray`](tests/Functional/toArrayTest.php)             | Converts the incoming value to array. Usually used with `mapIterable` processor.                                                                               |
 
+## FAQ
+
+### What is Context?
+
+The `Context` is a special DTO class for storing any kind of data: configs, DB connections, fixtures, etc.
+This DTO is passed to the mapper, and you can use your data inside the processors.
+Processors capable of working with the context end with `Ctx` suffix, [`callCtx`](tests/Functional/callCtxTest.php) for example.
+
+### How to use `get` processor?
+
+You can obtain any key/prop/method from the source using the [`get`](tests/Functional/getTest.php) processor which accepts a special path string.
+The processor parses the given path and divides it into parts, then pulls out the data following the parts of the path.
+
+Available path parts:
+
+| Part                | Description                                          |
+|---------------------|------------------------------------------------------|
+| `@`                 | "Self Pointer" – returns the source itself           |
+| `[0]`               | Returns an array value by index                      |
+| `[key]`             | Returns an array value by key                        |
+| `[some key]`        | Returns an array value by key with spaces            |
+| `[#first]`          | Returns an array first value                         |
+| `[#last]`           | Returns an array last value                          |
+| `->property`        | Returns an object value by property                  |
+| `->{some property}` | Returns an object value by property name with spaces |
+| `->someMethod()`    | Calls an object method and returns the value         |
+
+You can combine the parts to obtain the deep values:
+
+```
+[array_key][array key with spaces][#first][#last]->property->{property with spaces}->someMethod()
+```
+
+If any part of the path is not found, then the processor will return `NotFoundValue` value.
+This value throws an `NotFoundException` but you can recover it using [`ifNotFound`](tests/Functional/notFoundTest.php) helper.
