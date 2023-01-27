@@ -1,8 +1,6 @@
-name: Matrix testing
-on:
-  push:
-    branches:
-      - v2
+name: Test Pipeline
+on: push
+
 jobs:
   matrix-test:
     name: AutoMapper Matrix Test (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})
