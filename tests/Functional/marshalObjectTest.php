@@ -2,12 +2,10 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalObject;
-use function Acelot\AutoMapper\toProp;
 
 final class marshalObjectTest extends TestCase
 {
@@ -19,12 +17,12 @@ final class marshalObjectTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalObject(
+        $result = a::marshalObject(
             new Context(),
             $source,
-            toProp('mappedId', get('[id]')),
-            toProp('mappedTitle', get('[title]')),
-            toProp('mappedTags', get('[tags]')),
+            a::toProp('mappedId', a::get('[id]')),
+            a::toProp('mappedTitle', a::get('[title]')),
+            a::toProp('mappedTags', a::get('[tags]')),
         );
 
         $expected = new stdClass();

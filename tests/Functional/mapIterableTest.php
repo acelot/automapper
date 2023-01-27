@@ -2,15 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\call;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\mapIterable;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toArray;
-use function Acelot\AutoMapper\toKey;
 
 final class mapIterableTest extends TestCase
 {
@@ -22,13 +16,13 @@ final class mapIterableTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('capitalized_tags', pipe(
-                get('[tags]'),
-                mapIterable(call('ucfirst')),
-                toArray()
+            a::toKey('capitalized_tags', a::pipe(
+                a::get('[tags]'),
+                a::mapIterable(a::call('ucfirst')),
+                a::toArray()
             )),
         );
 

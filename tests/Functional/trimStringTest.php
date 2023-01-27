@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\trimString;
 
 final class trimStringTest extends TestCase
 {
@@ -20,16 +16,16 @@ final class trimStringTest extends TestCase
             'price' => '$100',
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('title', pipe(
-                get('[title]'),
-                trimString()
+            a::toKey('title', a::pipe(
+                a::get('[title]'),
+                a::trimString()
             )),
-            toKey('price', pipe(
-                get('[price]'),
-                trimString('$')
+            a::toKey('price', a::pipe(
+                a::get('[price]'),
+                a::trimString('$')
             )),
         );
 

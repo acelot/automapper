@@ -2,11 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\map;
-use function Acelot\AutoMapper\pass;
-use function Acelot\AutoMapper\toSelf;
 
 final class toSelfTest extends TestCase
 {
@@ -16,11 +14,11 @@ final class toSelfTest extends TestCase
 
         $target = '';
 
-        map(
+        a::map(
             new Context(),
             $source,
             $target,
-            toSelf(pass())
+            a::toSelf(a::pass())
         );
 
         self::assertEquals('original', $target);

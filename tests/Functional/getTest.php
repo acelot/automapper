@@ -2,12 +2,10 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use Acelot\AutoMapper\Tests\Fixtures\TestClass;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\toKey;
 
 final class getTest extends TestCase
 {
@@ -26,14 +24,14 @@ final class getTest extends TestCase
             ],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('title_fifth_letter', get('[title][4]')),
-            toKey('last_tag', get('[tags][#last]')),
-            toKey('object_prop', get('[object]->property')),
-            toKey('object_prop_with_spaces', get('[object]->{property with spaces}')),
-            toKey('deep_class_price', get('[deep][test class]->getPrice()')),
+            a::toKey('title_fifth_letter', a::get('[title][4]')),
+            a::toKey('last_tag', a::get('[tags][#last]')),
+            a::toKey('object_prop', a::get('[object]->property')),
+            a::toKey('object_prop_with_spaces', a::get('[object]->{property with spaces}')),
+            a::toKey('deep_class_price', a::get('[deep][test class]->getPrice()')),
         );
 
         self::assertSame(

@@ -2,11 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\getFromCtx;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\toKey;
 
 final class getFromCtxTest extends TestCase
 {
@@ -14,14 +12,14 @@ final class getFromCtxTest extends TestCase
     {
         $source = [];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context([
                 'host' => 'localhost',
                 'port' => 3306,
             ]),
             $source,
-            toKey('db_host', getFromCtx('host')),
-            toKey('db_port', getFromCtx('port')),
+            a::toKey('db_host', a::getFromCtx('host')),
+            a::toKey('db_port', a::getFromCtx('port')),
         );
 
         self::assertSame(

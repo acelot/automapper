@@ -15,9 +15,9 @@ final class Condition implements ProcessorInterface
     private $condition;
 
     public function __construct(
-        callable $condition,
-        private ProcessorInterface $ifTrue,
-        private ProcessorInterface $ifFalse
+        callable                   $condition,
+        private ProcessorInterface $true,
+        private ProcessorInterface $false
     )
     {
         $this->condition = $condition;
@@ -26,9 +26,9 @@ final class Condition implements ProcessorInterface
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface
     {
         if (($this->condition)($value instanceof UserValue ? $value->getValue() : $value)) {
-            return $this->ifTrue->process($context, $value);
+            return $this->true->process($context, $value);
         }
 
-        return $this->ifFalse->process($context, $value);
+        return $this->false->process($context, $value);
     }
 }

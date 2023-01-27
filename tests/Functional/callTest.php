@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\call;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
 
 final class callTest extends TestCase
 {
@@ -20,17 +16,17 @@ final class callTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('mapped_id', call(fn($v) => 50)),
-            toKey('mapped_title', pipe(
-                get('[title]'),
-                call(fn($v) => $v . '!!')
+            a::toKey('mapped_id', a::call(fn($v) => 50)),
+            a::toKey('mapped_title', a::pipe(
+                a::get('[title]'),
+                a::call(fn($v) => $v . '!!')
             )),
-            toKey('mapped_tags', pipe(
-                get('[tags]'),
-                call(fn($v) => $v[1])
+            a::toKey('mapped_tags', a::pipe(
+                a::get('[tags]'),
+                a::call(fn($v) => $v[1])
             )),
         );
 

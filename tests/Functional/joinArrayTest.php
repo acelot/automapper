@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\joinArray;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
 
 final class joinArrayTest extends TestCase
 {
@@ -20,12 +16,12 @@ final class joinArrayTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('tags_by_comma', pipe(
-                get('[tags]'),
-                joinArray(', ')
+            a::toKey('tags_by_comma', a::pipe(
+                a::get('[tags]'),
+                a::joinArray(', ')
             )),
         );
 

@@ -2,14 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toBool;
-use function Acelot\AutoMapper\toFloat;
-use function Acelot\AutoMapper\toKey;
 
 final class toFloatTest extends TestCase
 {
@@ -24,32 +19,32 @@ final class toFloatTest extends TestCase
             'available' => null,
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('int_to_float', pipe(
-                get('[id]'),
-                toFloat()
+            a::toKey('int_to_float', a::pipe(
+                a::get('[id]'),
+                a::toFloat()
             )),
-            toKey('float_string_to_float', pipe(
-                get('[price]'),
-                toFloat()
+            a::toKey('float_string_to_float', a::pipe(
+                a::get('[price]'),
+                a::toFloat()
             )),
-            toKey('zero_string_to_float', pipe(
-                get('[netto]'),
-                toFloat()
+            a::toKey('zero_string_to_float', a::pipe(
+                a::get('[netto]'),
+                a::toFloat()
             )),
-            toKey('float_zero_string_to_float', pipe(
-                get('[brutto]'),
-                toFloat()
+            a::toKey('float_zero_string_to_float', a::pipe(
+                a::get('[brutto]'),
+                a::toFloat()
             )),
-            toKey('zero_to_float', pipe(
-                get('[width]'),
-                toFloat()
+            a::toKey('zero_to_float', a::pipe(
+                a::get('[width]'),
+                a::toFloat()
             )),
-            toKey('null_to_float', pipe(
-                get('[available]'),
-                toFloat()
+            a::toKey('null_to_float', a::pipe(
+                a::get('[available]'),
+                a::toFloat()
             )),
         );
 

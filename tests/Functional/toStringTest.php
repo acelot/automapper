@@ -2,15 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toBool;
-use function Acelot\AutoMapper\toFloat;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\toString;
 
 final class toStringTest extends TestCase
 {
@@ -30,32 +24,32 @@ final class toStringTest extends TestCase
             },
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('int_to_string', pipe(
-                get('[id]'),
-                toString()
+            a::toKey('int_to_string', a::pipe(
+                a::get('[id]'),
+                a::toString()
             )),
-            toKey('zero_to_string', pipe(
-                get('[width]'),
-                toString()
+            a::toKey('zero_to_string', a::pipe(
+                a::get('[width]'),
+                a::toString()
             )),
-            toKey('float_to_string', pipe(
-                get('[netto]'),
-                toString()
+            a::toKey('float_to_string', a::pipe(
+                a::get('[netto]'),
+                a::toString()
             )),
-            toKey('null_to_string', pipe(
-                get('[available]'),
-                toString()
+            a::toKey('null_to_string', a::pipe(
+                a::get('[available]'),
+                a::toString()
             )),
-            toKey('bool_to_string', pipe(
-                get('[has_delivery]'),
-                toString()
+            a::toKey('bool_to_string', a::pipe(
+                a::get('[has_delivery]'),
+                a::toString()
             )),
-            toKey('class_to_string', pipe(
-                get('[desc]'),
-                toString()
+            a::toKey('class_to_string', a::pipe(
+                a::get('[desc]'),
+                a::toString()
             )),
         );
 

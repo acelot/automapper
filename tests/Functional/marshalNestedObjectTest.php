@@ -2,16 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\mapIterable;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\marshalNestedObject;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toArray;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\toProp;
 
 final class marshalNestedObjectTest extends TestCase
 {
@@ -23,17 +16,17 @@ final class marshalNestedObjectTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('tags_nested', pipe(
-                get('[tags]'),
-                mapIterable(
-                    marshalNestedObject(
-                        toProp('name', get('@'))
+            a::toKey('tags_nested', a::pipe(
+                a::get('[tags]'),
+                a::mapIterable(
+                    a::marshalNestedObject(
+                        a::toProp('name', a::get('@'))
                     )
                 ),
-                toArray()
+                a::toArray()
             )),
         );
 

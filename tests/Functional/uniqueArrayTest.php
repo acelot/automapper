@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\uniqueArray;
 
 final class uniqueArrayTest extends TestCase
 {
@@ -20,16 +16,16 @@ final class uniqueArrayTest extends TestCase
             'tags' => ['one', 'four', 'one', 'two', 'two', 'three', 'five', 'three', 'one'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('unique_tags', pipe(
-                get('[tags]'),
-                uniqueArray()
+            a::toKey('unique_tags', a::pipe(
+                a::get('[tags]'),
+                a::uniqueArray()
             )),
-            toKey('unique_tags_preserve_keys', pipe(
-                get('[tags]'),
-                uniqueArray(true)
+            a::toKey('unique_tags_preserve_keys', a::pipe(
+                a::get('[tags]'),
+                a::uniqueArray(true)
             )),
         );
 

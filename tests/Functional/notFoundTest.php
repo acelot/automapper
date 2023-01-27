@@ -2,16 +2,10 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use Acelot\AutoMapper\Exception\NotFoundException;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\ifNotFound;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\notFound;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\value;
 
 final class notFoundTest extends TestCase
 {
@@ -25,11 +19,11 @@ final class notFoundTest extends TestCase
 
         self::expectExceptionObject(new NotFoundException('desc'));
 
-        $result = marshalArray(
+        a::marshalArray(
             new Context(),
             $source,
-            toKey('id', get('[id]')),
-            toKey('desc', notFound('desc')),
+            a::toKey('id', a::get('[id]')),
+            a::toKey('desc', a::notFound('desc')),
         );
     }
 
@@ -41,13 +35,13 @@ final class notFoundTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id', get('[id]')),
-            toKey('desc', pipe(
-                notFound('desc'),
-                ifNotFound(value('default description'))
+            a::toKey('id', a::get('[id]')),
+            a::toKey('desc', a::pipe(
+                a::notFound('desc'),
+                a::ifNotFound(a::value('default description'))
             )),
         );
 

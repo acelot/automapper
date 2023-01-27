@@ -2,16 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\call;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\ifEqual;
-use function Acelot\AutoMapper\ifNotEqual;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\value;
 
 final class ifEqualTest extends TestCase
 {
@@ -23,17 +16,17 @@ final class ifEqualTest extends TestCase
             'tags' => ['one', 'two', 'thee'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id_equal_10', pipe(
-                get('[id]'),
-                ifEqual(10, value('yes'), value('no')),
+            a::toKey('id_equal_10', a::pipe(
+                a::get('[id]'),
+                a::ifEqual(10, a::value('yes'), a::value('no')),
             )),
-            toKey('tags_count_not_equal_4', pipe(
-                get('[tags]'),
-                call(fn($v) => count($v)),
-                ifNotEqual(4, value('yes'), value('no'))
+            a::toKey('tags_count_not_equal_4', a::pipe(
+                a::get('[tags]'),
+                a::call(fn($v) => count($v)),
+                a::ifNotEqual(4, a::value('yes'), a::value('no'))
             )),
         );
 

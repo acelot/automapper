@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toBool;
-use function Acelot\AutoMapper\toKey;
 
 final class toBoolTest extends TestCase
 {
@@ -24,36 +20,36 @@ final class toBoolTest extends TestCase
             'available' => null,
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('int_to_bool', pipe(
-                get('[id]'),
-                toBool()
+            a::toKey('int_to_bool', a::pipe(
+                a::get('[id]'),
+                a::toBool()
             )),
-            toKey('zero_to_bool', pipe(
-                get('[parent_id]'),
-                toBool()
+            a::toKey('zero_to_bool', a::pipe(
+                a::get('[parent_id]'),
+                a::toBool()
             )),
-            toKey('string_to_bool', pipe(
-                get('[title]'),
-                toBool()
+            a::toKey('string_to_bool', a::pipe(
+                a::get('[title]'),
+                a::toBool()
             )),
-            toKey('empty_string_to_bool', pipe(
-                get('[desc]'),
-                toBool()
+            a::toKey('empty_string_to_bool', a::pipe(
+                a::get('[desc]'),
+                a::toBool()
             )),
-            toKey('array_to_bool', pipe(
-                get('[tags]'),
-                toBool()
+            a::toKey('array_to_bool', a::pipe(
+                a::get('[tags]'),
+                a::toBool()
             )),
-            toKey('empty_array_to_bool', pipe(
-                get('[attrs]'),
-                toBool()
+            a::toKey('empty_array_to_bool', a::pipe(
+                a::get('[attrs]'),
+                a::toBool()
             )),
-            toKey('null_to_bool', pipe(
-                get('[available]'),
-                toBool()
+            a::toKey('null_to_bool', a::pipe(
+                a::get('[available]'),
+                a::toBool()
             )),
         );
 

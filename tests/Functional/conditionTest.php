@@ -2,14 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\condition;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\value;
 
 final class conditionTest extends TestCase
 {
@@ -21,31 +16,31 @@ final class conditionTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id_equal_10', pipe(
-                get('[id]'),
-                condition(
+            a::toKey('id_equal_10', a::pipe(
+                a::get('[id]'),
+                a::condition(
                     fn($v) => $v === 10,
-                    value(true),
-                    value(false)
+                    a::value(true),
+                    a::value(false)
                 )
             )),
-            toKey('title_is_string', pipe(
-                get('[title]'),
-                condition(
+            a::toKey('title_is_string', a::pipe(
+                a::get('[title]'),
+                a::condition(
                     'is_string',
-                    value('string'),
-                    value('not string')
+                    a::value('string'),
+                    a::value('not string')
                 )
             )),
-            toKey('three_tags', pipe(
-                get('[tags]'),
-                condition(
+            a::toKey('three_tags', a::pipe(
+                a::get('[tags]'),
+                a::condition(
                     fn($v) => count($v) === 3,
-                    value('yes'),
-                    value('no')
+                    a::value('yes'),
+                    a::value('no')
                 )
             )),
         );

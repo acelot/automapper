@@ -2,14 +2,10 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use ArrayIterator;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toArray;
-use function Acelot\AutoMapper\toKey;
 
 final class toArrayTest extends TestCase
 {
@@ -24,32 +20,32 @@ final class toArrayTest extends TestCase
             'reviews' => new ArrayIterator([5, 5, 4]),
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('int_to_array', pipe(
-                get('[id]'),
-                toArray()
+            a::toKey('int_to_array', a::pipe(
+                a::get('[id]'),
+                a::toArray()
             )),
-            toKey('string_to_array', pipe(
-                get('[title]'),
-                toArray()
+            a::toKey('string_to_array', a::pipe(
+                a::get('[title]'),
+                a::toArray()
             )),
-            toKey('array_to_array', pipe(
-                get('[tags]'),
-                toArray()
+            a::toKey('array_to_array', a::pipe(
+                a::get('[tags]'),
+                a::toArray()
             )),
-            toKey('null_to_array', pipe(
-                get('[available]'),
-                toArray()
+            a::toKey('null_to_array', a::pipe(
+                a::get('[available]'),
+                a::toArray()
             )),
-            toKey('bool_to_array', pipe(
-                get('[has_delivery]'),
-                toArray()
+            a::toKey('bool_to_array', a::pipe(
+                a::get('[has_delivery]'),
+                a::toArray()
             )),
-            toKey('traversable_to_array', pipe(
-                get('[reviews]'),
-                toArray()
+            a::toKey('traversable_to_array', a::pipe(
+                a::get('[reviews]'),
+                a::toArray()
             )),
         );
 

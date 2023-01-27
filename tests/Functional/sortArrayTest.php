@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\sortArray;
-use function Acelot\AutoMapper\toKey;
 
 final class sortArrayTest extends TestCase
 {
@@ -20,16 +16,16 @@ final class sortArrayTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('tags_sorted', pipe(
-                get('[tags]'),
-                sortArray()
+            a::toKey('tags_sorted', a::pipe(
+                a::get('[tags]'),
+                a::sortArray()
             )),
-            toKey('tags_reverse_sorted', pipe(
-                get('[tags]'),
-                sortArray(true)
+            a::toKey('tags_reverse_sorted', a::pipe(
+                a::get('[tags]'),
+                a::sortArray(true)
             )),
         );
 

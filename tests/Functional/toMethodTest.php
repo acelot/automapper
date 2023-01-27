@@ -2,12 +2,10 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use Acelot\AutoMapper\Tests\Fixtures\TestClass;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\map;
-use function Acelot\AutoMapper\toMethod;
 
 final class toMethodTest extends TestCase
 {
@@ -21,13 +19,13 @@ final class toMethodTest extends TestCase
 
         $target = new TestClass(0, '', 0);
 
-        map(
+        a::map(
             new Context(),
             $source,
             $target,
-            toMethod('setId', get('[id]')),
-            toMethod('setName', get('[name]')),
-            toMethod('setPrice', get('[price]')),
+            a::toMethod('setId', a::get('[id]')),
+            a::toMethod('setName', a::get('[name]')),
+            a::toMethod('setPrice', a::get('[price]')),
         );
 
         self::assertEquals(

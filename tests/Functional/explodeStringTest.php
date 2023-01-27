@@ -2,18 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\explodeString;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\ifEmpty;
-use function Acelot\AutoMapper\ignore;
-use function Acelot\AutoMapper\mapIterable;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toArray;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\trimString;
 
 final class explodeStringTest extends TestCase
 {
@@ -25,22 +16,22 @@ final class explodeStringTest extends TestCase
             'tags' => 'one, two,three, ,,five,seven',
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('title_words', pipe(
-                get('[title]'),
-                explodeString(',')
+            a::toKey('title_words', a::pipe(
+                a::get('[title]'),
+                a::explodeString(',')
             )),
-            toKey('clean_tags', pipe(
-                get('[tags]'),
-                pipe(
-                    explodeString(','),
-                    mapIterable(pipe(
-                        trimString(),
-                        ifEmpty(ignore())
+            a::toKey('clean_tags', a::pipe(
+                a::get('[tags]'),
+                a::pipe(
+                    a::explodeString(','),
+                    a::mapIterable(a::pipe(
+                        a::trimString(),
+                        a::ifEmpty(a::ignore())
                     )),
-                    toArray()
+                    a::toArray()
                 )
             )),
         );

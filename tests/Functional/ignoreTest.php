@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\condition;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\ignore;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\toKey;
 
 final class ignoreTest extends TestCase
 {
@@ -20,12 +16,12 @@ final class ignoreTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id', get('[id]')),
-            toKey('title', ignore()),
-            toKey('tags', condition(fn($v) => count($v) > 2, ignore())),
+            a::toKey('id', a::get('[id]')),
+            a::toKey('title', a::ignore()),
+            a::toKey('tags', a::condition(fn($v) => count($v) > 2, a::ignore())),
         );
 
         self::assertSame(

@@ -2,15 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\condition;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pass;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\value;
 
 final class passTest extends TestCase
 {
@@ -22,12 +16,12 @@ final class passTest extends TestCase
             'tags' => ['one', 'two', 'three'],
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id', pipe(
-                get('[id]'),
-                condition(fn($v) => $v > 0, pass(), value('negative'))
+            a::toKey('id', a::pipe(
+                a::get('[id]'),
+                a::condition(fn($v) => $v > 0, a::pass(), a::value('negative'))
             )),
         );
 

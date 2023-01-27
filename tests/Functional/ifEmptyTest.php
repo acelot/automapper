@@ -2,16 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\ifEmpty;
-use function Acelot\AutoMapper\ignore;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pass;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toKey;
-use function Acelot\AutoMapper\value;
 
 final class ifEmptyTest extends TestCase
 {
@@ -24,24 +17,24 @@ final class ifEmptyTest extends TestCase
             'desc' => '',
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('id', pipe(
-                get('[id]'),
-                ifEmpty(ignore()),
+            a::toKey('id', a::pipe(
+                a::get('[id]'),
+                a::ifEmpty(a::ignore()),
             )),
-            toKey('title', pipe(
-                get('[title]'),
-                ifEmpty(value('default title')),
+            a::toKey('title', a::pipe(
+                a::get('[title]'),
+                a::ifEmpty(a::value('default title')),
             )),
-            toKey('tags', pipe(
-                get('[tags]'),
-                ifEmpty(pass()),
+            a::toKey('tags', a::pipe(
+                a::get('[tags]'),
+                a::ifEmpty(a::pass()),
             )),
-            toKey('desc', pipe(
-                get('[desc]'),
-                ifEmpty(ignore()),
+            a::toKey('desc', a::pipe(
+                a::get('[desc]'),
+                a::ifEmpty(a::ignore()),
             )),
         );
 

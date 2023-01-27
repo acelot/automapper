@@ -2,13 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\marshalArray;
-use function Acelot\AutoMapper\pipe;
-use function Acelot\AutoMapper\toInt;
-use function Acelot\AutoMapper\toKey;
 
 final class toIntTest extends TestCase
 {
@@ -23,32 +19,32 @@ final class toIntTest extends TestCase
             'available' => null,
         ];
 
-        $result = marshalArray(
+        $result = a::marshalArray(
             new Context(),
             $source,
-            toKey('int_to_int', pipe(
-                get('[id]'),
-                toInt()
+            a::toKey('int_to_int', a::pipe(
+                a::get('[id]'),
+                a::toInt()
             )),
-            toKey('float_string_to_int', pipe(
-                get('[price]'),
-                toInt()
+            a::toKey('float_string_to_int', a::pipe(
+                a::get('[price]'),
+                a::toInt()
             )),
-            toKey('zero_string_to_int', pipe(
-                get('[netto]'),
-                toInt()
+            a::toKey('zero_string_to_int', a::pipe(
+                a::get('[netto]'),
+                a::toInt()
             )),
-            toKey('float_zero_string_to_int', pipe(
-                get('[brutto]'),
-                toInt()
+            a::toKey('float_zero_string_to_int', a::pipe(
+                a::get('[brutto]'),
+                a::toInt()
             )),
-            toKey('zero_to_int', pipe(
-                get('[width]'),
-                toInt()
+            a::toKey('zero_to_int', a::pipe(
+                a::get('[width]'),
+                a::toInt()
             )),
-            toKey('null_to_int', pipe(
-                get('[available]'),
-                toInt()
+            a::toKey('null_to_int', a::pipe(
+                a::get('[available]'),
+                a::toInt()
             )),
         );
 

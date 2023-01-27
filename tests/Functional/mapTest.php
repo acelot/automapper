@@ -2,11 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Functional;
 
+use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
 use PHPUnit\Framework\TestCase;
-use function Acelot\AutoMapper\get;
-use function Acelot\AutoMapper\map;
-use function Acelot\AutoMapper\toKey;
 
 final class mapTest extends TestCase
 {
@@ -22,13 +20,13 @@ final class mapTest extends TestCase
             'type' => 'article',
         ];
 
-        map(
+        a::map(
             new Context(),
             $source,
             $target,
-            toKey('mapped_id', get('[id]')),
-            toKey('mapped_title', get('[title]')),
-            toKey('mapped_tags', get('[tags]')),
+            a::toKey('mapped_id', a::get('[id]')),
+            a::toKey('mapped_title', a::get('[title]')),
+            a::toKey('mapped_tags', a::get('[tags]')),
         );
 
         self::assertSame(

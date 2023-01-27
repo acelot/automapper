@@ -31,20 +31,7 @@ composer require acelot/automapper:^2.0
 
 ```php
 use Acelot\AutoMapper\Context;
-use function Acelot\AutoMapper\{
-    custom,
-    explodeString,
-    get,
-    ifEmpty,
-    ignore,
-    mapIterable,
-    marshalArray,
-    pipe,
-    sortArray,
-    toArray,
-    toKey,
-    trimString
-};
+use Acelot\AutoMapper\AutoMapper as a;
 
 $source = [
     'id' => '99',
@@ -58,24 +45,24 @@ $source = [
 $result = marshalArray(
     new Context(),
     $source,
-    toKey('id', pipe(
-        get('[id]'),
-        toInt()
+    a::toKey('id', a::pipe(
+        a::get('[id]'),
+        a::toInt()
     )),
-    toKey('fullname', pipe(
-        get('[name]'),
-        custom(fn($v) => $v['firstname'] . ' ' . $v('lastname'))
+    a::toKey('fullname', a::pipe(
+        a::get('[name]'),
+        a::custom(fn($v) => $v['firstname'] . ' ' . $v('lastname'))
     )),
-    toKey('skills', pipe(
-        get('[skills]'),
-        explodeString(','),
-        mapIterable(pipe(
-            trimString(),
-            ifEmpty(ignore()),
-            sortArray(),
-            custom('strtolower')
+    a::toKey('skills', a::pipe(
+        a::get('[skills]'),
+        a::explodeString(','),
+        a::mapIterable(a::pipe(
+            a::trimString(),
+            a::ifEmpty(ignore()),
+            a::custom('strtolower')
         )),
-        toArray()
+        a::toArray(),
+        a::sortArray()
     ))
 );
 
@@ -100,13 +87,7 @@ array(
 
 ```php
 use Acelot\AutoMapper\Context;
-use function Acelot\AutoMapper\{
-    get,
-    map,
-    pipe,
-    toKey,
-    trimString
-};
+use Acelot\AutoMapper\AutoMapper as a;
 
 $source = [
     'title' => '  Product title  ',
@@ -122,15 +103,15 @@ $target = [
     'title' => 'Current title',
 ];
 
-$result = map(
+$result = a::map(
     new Context(),
     $source,
     $target,
-    toKey('title', pipe(
-        get('[title]'),
-        trimString()
+    a::toKey('title', a::pipe(
+        a::get('[title]'),
+        a::trimString()
     )),
-    toKey('description', get('[desc][#last]')),
+    a::toKey('description', a::get('[desc][#last]')),
 );
 
 // Output of `var_export($result)`
@@ -149,8 +130,8 @@ All examples can be found in [`tests/Functional`](tests/Functional) directory.
 
 ## Reference
 
-No need to use concrete classes, it's better to use the API [functions](src/functions.php).
-The library API is contained in functions.php file.
+No need to use concrete classes, it's better to use the AutoMapper API [static functions](src/AutoMapper.php).
+It is very convenient to import the AutoMapper as a short alias, for example `use Acelot\AutoMapper\AutoMapper as a`.
 
 ### Main functions
 
