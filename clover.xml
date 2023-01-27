@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674807113">
-  <project timestamp="1674807113">
+<coverage generated="1674808975">
+  <project timestamp="1674808975">
     <file name="/home/runner/work/automapper/automapper/src/Context/Context.php">
       <class name="Acelot\AutoMapper\Context\Context" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
@@ -113,14 +113,14 @@
       <class name="Acelot\AutoMapper\Extractor\FromObjectProp" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="11" type="stmt" count="5"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="11" type="stmt" count="6"/>
       <line num="13" type="method" name="getProperty" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="15" type="stmt" count="1"/>
-      <line num="18" type="method" name="isExtractable" visibility="public" complexity="2" crap="2" count="3"/>
-      <line num="20" type="stmt" count="3"/>
-      <line num="23" type="method" name="extract" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="25" type="stmt" count="1"/>
+      <line num="18" type="method" name="isExtractable" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="20" type="stmt" count="4"/>
+      <line num="23" type="method" name="extract" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="25" type="stmt" count="2"/>
       <metrics loc="28" ncloc="28" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Extractor/FromSelf.php">
@@ -149,8 +149,8 @@
       <line num="23" type="stmt" count="2"/>
       <line num="26" type="stmt" count="9"/>
       <line num="27" type="stmt" count="3"/>
-      <line num="30" type="stmt" count="6"/>
-      <line num="31" type="stmt" count="2"/>
+      <line num="30" type="stmt" count="7"/>
+      <line num="31" type="stmt" count="3"/>
       <line num="34" type="stmt" count="4"/>
       <line num="35" type="stmt" count="3"/>
       <line num="38" type="stmt" count="1"/>
@@ -325,10 +325,10 @@
       <class name="Acelot\AutoMapper\Path\Part\ObjectProp" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="11" type="stmt" count="4"/>
-      <line num="13" type="method" name="getProperty" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="15" type="stmt" count="4"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="11" type="stmt" count="5"/>
+      <line num="13" type="method" name="getProperty" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="15" type="stmt" count="5"/>
       <metrics loc="18" ncloc="18" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Path/Part/SelfPointer.php">
