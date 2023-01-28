@@ -12,6 +12,11 @@ final class ToObjectProp implements ObjectFieldInterface
         private ProcessorInterface  $processor
     ) {}
 
+    public function getProperty(): string
+    {
+        return $this->property;
+    }
+
     public function getProcessor(): ProcessorInterface
     {
         return $this->processor;

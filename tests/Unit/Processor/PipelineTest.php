@@ -13,6 +13,16 @@ use PHPUnit\Framework\TestCase;
  */
 final class PipelineTest extends TestCase
 {
+    public function testGetProcessors_Constructed_ReturnCorrectProcessors(): void
+    {
+        $processor0 = $this->createMock(ProcessorInterface::class);
+        $processor1 = $this->createMock(ProcessorInterface::class);
+
+        $processor = new Pipeline($processor0, $processor1);
+
+        self::assertSame([$processor0, $processor1], $processor->getProcessors());
+    }
+
     public function testProcess_PassedProcessors_CallsProcessorsProcessMethod(): void
     {
         $context = $this->createMock(ContextInterface::class);

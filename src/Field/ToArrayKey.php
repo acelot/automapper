@@ -12,6 +12,11 @@ final class ToArrayKey implements FieldInterface
         private ProcessorInterface  $processor
     ) {}
 
+    public function getKey(): int|string
+    {
+        return $this->key;
+    }
+
     public function getProcessor(): ProcessorInterface
     {
         return $this->processor;

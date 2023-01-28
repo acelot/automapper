@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Fixtures;
 
-final class TestClass
+class TestClass
 {
     public function __construct(
         private int $id,
@@ -38,5 +38,10 @@ final class TestClass
     public function setPrice(float $price): void
     {
         $this->price = $price;
+    }
+
+    public function __toString(): string
+    {
+        return 'test';
     }
 }

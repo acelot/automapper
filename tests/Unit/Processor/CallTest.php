@@ -14,7 +14,17 @@ use PHPUnit\Framework\TestCase;
  */
 final class CallTest extends TestCase
 {
-    public function testProcess_PassedNotUserValue_NeverCallsCallable(): void
+    public function testGetCallable_Constructed_ReturnsCallable(): void
+    {
+        $someClass = $this->createMock(TestGetInterface::class);
+        $callable = [$someClass, 'get'];
+
+        $processor = new Call($callable);
+
+        self::assertSame($callable, $processor->getCallable());
+    }
+
+    public function testProcess_PassedNotUserValue_ReturnsSameValue(): void
     {
         $context = $this->createMock(ContextInterface::class);
         $value = $this->createMock(ValueInterface::class);

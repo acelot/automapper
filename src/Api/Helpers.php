@@ -2,30 +2,30 @@
 
 namespace Acelot\AutoMapper\Api;
 
-use Acelot\AutoMapper\Exception\UnexpectedValueException;
+use Acelot\AutoMapper\Processor\AssertType;
 use Acelot\AutoMapper\Processor\Call;
 use Acelot\AutoMapper\Processor\Condition;
 use Acelot\AutoMapper\Processor\Pass;
+use Acelot\AutoMapper\Processor\Pipeline;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\NotFoundValue;
 use Traversable;
 
 final class Helpers
 {
-    public function joinArray(string $separator = ''): Condition
+    public function joinArray(string $separator = ''): Pipeline
     {
-        return new Condition(
-            'is_array',
-            true:  new Call(fn($value) => implode($separator, $value)),
-            false: $this->throwUnexpectedValueException('array')
+        return new Pipeline(
+            new AssertType(AssertType::ARRAY),
+            new Call(fn($value) => implode($separator, $value))
         );
     }
 
-    public function sortArray(bool $descending = false, int $options = SORT_REGULAR): Condition
+    public function sortArray(bool $descending = false, int $options = SORT_REGULAR): Pipeline
     {
-        return new Condition(
-            'is_array',
-            true:  new Call(function ($value) use ($descending, $options) {
+        return new Pipeline(
+            new AssertType(AssertType::ARRAY),
+            new Call(function ($value) use ($descending, $options) {
                 if ($descending) {
                     rsort($value, $options);
                 } else {
@@ -33,21 +33,19 @@ final class Helpers
                 }
 
                 return $value;
-            }),
-            false: $this->throwUnexpectedValueException('array')
+            })
         );
     }
 
-    public function uniqueArray(bool $keepKeys = false, int $options = SORT_STRING): Condition
+    public function uniqueArray(bool $keepKeys = false, int $options = SORT_STRING): Pipeline
     {
-        return new Condition(
-            'is_array',
-            true:  new Call(function ($value) use ($keepKeys, $options) {
+        return new Pipeline(
+            new AssertType(AssertType::ARRAY),
+            new Call(function ($value) use ($keepKeys, $options) {
                 $items = array_unique($value, $options);
 
                 return $keepKeys ? $items : array_values($items);
-            }),
-            false: $this->throwUnexpectedValueException('array')
+            })
         );
     }
 
@@ -76,21 +74,19 @@ final class Helpers
         return $this->ifEqual($to, $false, $true, $strict);
     }
 
-    public function explodeString(string $separator): Condition
+    public function explodeString(string $separator): Pipeline
     {
-        return new Condition(
-            'is_string',
-            true:  new Call(fn($value) => explode($separator, $value)),
-            false: $this->throwUnexpectedValueException('string')
+        return new Pipeline(
+            new AssertType(AssertType::STRING),
+            new Call(fn($value) => explode($separator, $value))
         );
     }
 
-    public function trimString(string $characters = " \t\n\r\0\x0B"): Condition
+    public function trimString(string $characters = " \t\n\r\0\x0B"): Pipeline
     {
-        return new Condition(
-            'is_string',
-            true:  new Call(fn($value) => trim($value, $characters)),
-            false: $this->throwUnexpectedValueException('string')
+        return new Pipeline(
+            new AssertType(AssertType::STRING),
+            new Call(fn($value) => trim($value, $characters))
         );
     }
 
@@ -99,30 +95,27 @@ final class Helpers
         return  new Call('boolval');
     }
 
-    public function toFloat(): Condition
+    public function toFloat(): Pipeline
     {
-        return new Condition(
-            fn($value) => is_null($value) || is_scalar($value),
-            true:  new Call(fn($value) => is_null($value) ? 0.0 : floatval($value)),
-            false: $this->throwUnexpectedValueException('null|scalar')
+        return new Pipeline(
+            new AssertType(AssertType::NULL, AssertType::SCALAR),
+            new Call(fn($value) => is_null($value) ? 0.0 : floatval($value))
         );
     }
 
-    public function toInt(): Condition
+    public function toInt(): Pipeline
     {
-        return new Condition(
-            fn($value) => is_null($value) || is_scalar($value),
-            true:  new Call(fn($value) => is_null($value) ? 0 : intval($value)),
-            false: $this->throwUnexpectedValueException('null|scalar')
+        return new Pipeline(
+            new AssertType(AssertType::NULL, AssertType::SCALAR),
+            new Call(fn($value) => is_null($value) ? 0 : intval($value))
         );
     }
 
-    public function toString(): Condition
+    public function toString(): Pipeline
     {
-        return new Condition(
-            fn($value) => is_null($value) || is_scalar($value) || (is_object($value) && method_exists($value, '__toString')),
-            true:  new Call('strval'),
-            false: $this->throwUnexpectedValueException('null|scalar|__toString()')
+        return new Pipeline(
+            new AssertType(AssertType::NULL, AssertType::SCALAR, AssertType::TO_STRING),
+            new Call('strval')
         );
     }
 
@@ -139,10 +132,5 @@ final class Helpers
 
             return [$value];
         });
-    }
-
-    private function throwUnexpectedValueException(string $expectedType): Call
-    {
-        return new Call(fn($value) => throw new UnexpectedValueException($expectedType, $value));
     }
 }

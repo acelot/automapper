@@ -2,36 +2,48 @@
 
 namespace Acelot\AutoMapper\Api;
 
-use Acelot\AutoMapper\Context\Context;
+use Acelot\AutoMapper\Context\ContextInterface;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\FieldInterface;
-use Acelot\AutoMapper\Mapper;
+use Acelot\AutoMapper\MapperFactory;
+use Acelot\AutoMapper\MapperFactoryInterface;
 use Acelot\AutoMapper\ObjectFieldInterface;
 use stdClass;
 
 final class Main
 {
-    public function map(Context $context, mixed $source, mixed &$target, FieldInterface ...$fields): void
+    private MapperFactoryInterface $mapperFactory;
+
+    public function __construct(?MapperFactoryInterface $mapperFactory = null)
     {
-        $mapper = new Mapper($context, ...$fields);
+        if (!$mapperFactory) {
+            $mapperFactory = new MapperFactory();
+        }
+
+        $this->mapperFactory = $mapperFactory;
+    }
+
+    public function map(ContextInterface $context, mixed $source, mixed &$target, FieldInterface ...$fields): void
+    {
+        $mapper = $this->mapperFactory->create($context, ...$fields);
         $mapper->map($source, $target);
     }
 
-    public function marshalArray(Context $context, mixed $source, ToArrayKey ...$fields): array
+    public function marshalArray(ContextInterface $context, mixed $source, ToArrayKey ...$fields): array
     {
         $target = [];
 
-        $mapper = new Mapper($context, ...$fields);
+        $mapper = $this->mapperFactory->create($context, ...$fields);
         $mapper->map($source, $target);
 
         return $target;
     }
 
-    public function marshalObject(Context $context, mixed $source, ObjectFieldInterface ...$fields): stdClass
+    public function marshalObject(ContextInterface $context, mixed $source, ObjectFieldInterface ...$fields): stdClass
     {
         $target = new stdClass();
 
-        $mapper = new Mapper($context, ...$fields);
+        $mapper = $this->mapperFactory->create($context, ...$fields);
         $mapper->map($source, $target);
 
         return $target;

@@ -12,6 +12,11 @@ final class ToObjectMethod implements ObjectFieldInterface
         private ProcessorInterface  $processor
     ) {}
 
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
     public function getProcessor(): ProcessorInterface
     {
         return $this->processor;

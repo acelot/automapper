@@ -19,6 +19,11 @@ final class Call implements ProcessorInterface
         $this->callable = $callable;
     }
 
+    public function getCallable(): callable
+    {
+        return $this->callable;
+    }
+
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface
     {
         if (!$value instanceof UserValue) {

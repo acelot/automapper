@@ -23,6 +23,21 @@ final class Condition implements ProcessorInterface
         $this->condition = $condition;
     }
 
+    public function getCondition(): callable
+    {
+        return $this->condition;
+    }
+
+    public function getTrueProcessor(): ProcessorInterface
+    {
+        return $this->true;
+    }
+
+    public function getFalseProcessor(): ProcessorInterface
+    {
+        return $this->false;
+    }
+
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface
     {
         if (($this->condition)($value instanceof UserValue ? $value->getValue() : $value)) {

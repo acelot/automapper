@@ -14,6 +14,45 @@ use PHPUnit\Framework\TestCase;
  */
 final class ConditionTest extends TestCase
 {
+    public function testGetCondition_Constructed_ReturnsCondition(): void
+    {
+        $someClass = $this->createMock(TestGetInterface::class);
+        $condition = [$someClass, 'get'];
+
+        $true = $this->createMock(ProcessorInterface::class);
+        $false = $this->createMock(ProcessorInterface::class);
+
+        $processor = new Condition($condition, $true, $false);
+
+        self::assertSame($condition, $processor->getCondition());
+    }
+
+    public function testGetTrueProcessor_Constructed_ReturnsCondition(): void
+    {
+        $someClass = $this->createMock(TestGetInterface::class);
+        $condition = [$someClass, 'get'];
+
+        $true = $this->createMock(ProcessorInterface::class);
+        $false = $this->createMock(ProcessorInterface::class);
+
+        $processor = new Condition($condition, $true, $false);
+
+        self::assertSame($true, $processor->getTrueProcessor());
+    }
+
+    public function testGetFalseProcessor_Constructed_ReturnsCondition(): void
+    {
+        $someClass = $this->createMock(TestGetInterface::class);
+        $condition = [$someClass, 'get'];
+
+        $true = $this->createMock(ProcessorInterface::class);
+        $false = $this->createMock(ProcessorInterface::class);
+
+        $processor = new Condition($condition, $true, $false);
+
+        self::assertSame($false, $processor->getFalseProcessor());
+    }
+
     public function testProcess_PassedArgs_CallsConditionCallable(): void
     {
         $context = $this->createMock(ContextInterface::class);

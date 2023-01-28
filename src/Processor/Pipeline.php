@@ -18,6 +18,14 @@ final class Pipeline implements ProcessorInterface
         $this->processors = $processors;
     }
 
+    /**
+     * @return ProcessorInterface[]
+     */
+    public function getProcessors(): array
+    {
+        return $this->processors;
+    }
+
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface
     {
         foreach ($this->processors as $processor) {

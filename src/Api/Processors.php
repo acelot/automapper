@@ -7,6 +7,7 @@ use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\Field\ToObjectProp;
 use Acelot\AutoMapper\MapperFactory;
 use Acelot\AutoMapper\Path\Parser;
+use Acelot\AutoMapper\Processor\AssertType;
 use Acelot\AutoMapper\Processor\Call;
 use Acelot\AutoMapper\Processor\CallWithContext;
 use Acelot\AutoMapper\Processor\Condition;
@@ -27,6 +28,11 @@ use Acelot\AutoMapper\ProcessorInterface;
 
 final class Processors
 {
+    public function assertType(string $oneOfType, string ...$oneOfTypes): AssertType
+    {
+        return new AssertType($oneOfType, ...$oneOfTypes);
+    }
+
     public function call(callable $callable): Call
     {
         return new Call($callable);
