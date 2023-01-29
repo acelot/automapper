@@ -206,7 +206,7 @@ Helpers are the processors that built on top of the another processors. Some hel
 |--------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | [`RespectValidation`](integrations/respect-validation) | Provides validation processor via [`respect/validation`](https://github.com/Respect/Validation) library. |
 
-## ❔ FAQ
+## 🤨 FAQ
 
 ### What is Context?
 
