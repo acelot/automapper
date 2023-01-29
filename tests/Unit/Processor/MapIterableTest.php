@@ -3,13 +3,11 @@
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
 use Acelot\AutoMapper\ContextInterface;
-use Acelot\AutoMapper\Exception\NotFoundException;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
 use Acelot\AutoMapper\ExceptionValueInterface;
 use Acelot\AutoMapper\Processor\MapIterable;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
-use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;
 use ArrayIterator;

@@ -2,6 +2,9 @@
 
 namespace Acelot\AutoMapper\Tests\Fixtures;
 
+/**
+ * @codeCoverageIgnore
+ */
 class TestClass
 {
     public function __construct(

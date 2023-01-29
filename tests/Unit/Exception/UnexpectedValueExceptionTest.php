@@ -2,9 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Exception;
 
-use Acelot\AutoMapper\Exception\NotFoundException;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
-use Exception;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 

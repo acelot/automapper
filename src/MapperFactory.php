@@ -2,8 +2,6 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\ContextInterface;
-
 final class MapperFactory implements MapperFactoryInterface
 {
     public function create(ContextInterface $context, FieldInterface ...$fields): Mapper

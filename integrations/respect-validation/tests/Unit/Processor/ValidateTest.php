@@ -2,10 +2,7 @@
 
 namespace Acelot\AutoMapper\Integrations\RespectValidation\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\Context;
 use Acelot\AutoMapper\ContextInterface;
-use Acelot\AutoMapper\Integrations\RespectValidation\Context\ValidationContext;
-use Acelot\AutoMapper\Integrations\RespectValidation\Context\ValidationContextFactory;
 use Acelot\AutoMapper\Integrations\RespectValidation\Processor\Validate;
 use Acelot\AutoMapper\Integrations\RespectValidation\ValidationContextFactoryInterface;
 use Acelot\AutoMapper\Integrations\RespectValidation\ValidationContextInterface;
