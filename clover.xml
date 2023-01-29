@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674994313">
-  <project timestamp="1674994313">
+<coverage generated="1674996374">
+  <project timestamp="1674996374">
     <file name="/home/runner/work/automapper/automapper/src/Api/Fields.php">
       <class name="Acelot\AutoMapper\Api\Fields" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
@@ -261,7 +261,7 @@
       <metrics loc="41" ncloc="33" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="10" coveredelements="10"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/ContextInterface.php">
-      <metrics loc="13" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="18" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Exception/NotFoundException.php">
       <class name="Acelot\AutoMapper\Exception\NotFoundException" namespace="global">
@@ -491,12 +491,12 @@
       <class name="Acelot\AutoMapper\MapperFactory" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </class>
-      <line num="9" type="method" name="create" visibility="public" complexity="1" crap="1" count="36"/>
-      <line num="11" type="stmt" count="36"/>
-      <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      <line num="7" type="method" name="create" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="9" type="stmt" count="36"/>
+      <metrics loc="12" ncloc="12" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/MapperFactoryInterface.php">
-      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/MapperInterface.php">
       <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -880,7 +880,7 @@
       <metrics loc="25" ncloc="25" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/ProcessorInterface.php">
-      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Value/IgnoreValue.php">
       <class name="Acelot\AutoMapper\Value\IgnoreValue" namespace="global">
@@ -913,6 +913,6 @@
     <file name="/home/runner/work/automapper/automapper/src/ValueInterface.php">
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="64" loc="2168" ncloc="2086" classes="46" methods="189" coveredmethods="186" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="378" elements="570" coveredelements="564"/>
+    <metrics files="64" loc="2167" ncloc="2080" classes="46" methods="189" coveredmethods="186" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="378" elements="570" coveredelements="564"/>
   </project>
 </coverage>
