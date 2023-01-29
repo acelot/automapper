@@ -9,7 +9,7 @@ use stdClass;
 
 final class marshalObjectTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 10,

@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Processor\Pass;
 use Acelot\AutoMapper\ValueInterface;
 use PHPUnit\Framework\TestCase;

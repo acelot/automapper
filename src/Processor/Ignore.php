@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
 use Acelot\AutoMapper\ValueInterface;

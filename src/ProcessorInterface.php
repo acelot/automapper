@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 
 interface ProcessorInterface
 {

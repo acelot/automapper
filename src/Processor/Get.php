@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\ExtractorResolverInterface;
 use Acelot\AutoMapper\Path\ParserInterface;
 use Acelot\AutoMapper\ProcessorInterface;

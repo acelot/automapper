@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\MapperFactoryInterface;
 use Acelot\AutoMapper\MapperInterface;

@@ -200,6 +200,12 @@ Helpers are the processors that built on top of the another processors. Some hel
 | [`toString`](tests/Functional/toStringTest.php)           | Converts the incoming value to string type. Throws `UnexpectedValueException` if incoming value is not a scalar or an object that not implements `__toString`. |
 | [`toArray`](tests/Functional/toArrayTest.php)             | Converts the incoming value to array. Usually used with `mapIterable` processor.                                                                               |
 
+## Integrations
+
+| Name                                                   | Description                                                                                              |
+|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`RespectValidation`](integrations/respect-validation) | Provides validation processor via [`respect/validation`](https://github.com/Respect/Validation) library. |
+
 ## FAQ
 
 ### What is Context?

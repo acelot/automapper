@@ -22,19 +22,22 @@
   "require-dev": {
     "phpunit/phpunit": "^9.0",
     "nikic/php-parser": "^4.15",
-    "friendsofphp/php-cs-fixer": "^3.13"
+    "friendsofphp/php-cs-fixer": "^3.13",
+    "respect/validation": "^2"
+  },
+  "suggest": {
+    "respect/validation": "Enables respect-validation integration"
   },
   "autoload": {
     "psr-4": {
-      "Acelot\\AutoMapper\\": "src/"
-    },
-    "classmap": [
-
-    ]
+      "Acelot\\AutoMapper\\": "src/",
+      "Acelot\\AutoMapper\\Integrations\\RespectValidation\\": "integrations/respect-validation/src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
-      "Acelot\\AutoMapper\\Tests\\": "tests/"
+      "Acelot\\AutoMapper\\Tests\\": "tests/",
+      "Acelot\\AutoMapper\\Integrations\\RespectValidation\\Tests\\": "integrations/respect-validation/tests/"
     }
   },
   "bin": ["bin/generate-static-api"],

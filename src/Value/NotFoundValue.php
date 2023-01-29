@@ -2,9 +2,10 @@
 
 namespace Acelot\AutoMapper\Value;
 
-use Acelot\AutoMapper\ValueInterface;
+use Acelot\AutoMapper\Exception\NotFoundException;
+use Throwable;
 
-final class NotFoundValue implements ValueInterface
+final class NotFoundValue implements ExceptionValueInterface
 {
     public function __construct(
         private string $path
@@ -13,5 +14,10 @@ final class NotFoundValue implements ValueInterface
     public function getPath(): string
     {
         return $this->path;
+    }
+
+    public function getException(): Throwable
+    {
+        return new NotFoundException($this->path);
     }
 }

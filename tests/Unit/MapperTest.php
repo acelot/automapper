@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Exception\NotFoundException;
 use Acelot\AutoMapper\FieldInterface;
 use Acelot\AutoMapper\Mapper;

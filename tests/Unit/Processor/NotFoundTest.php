@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Processor\NotFound;
 use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\ValueInterface;

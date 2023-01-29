@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Acelot\AutoMapper\Context;
+namespace Acelot\AutoMapper;
 
 interface ContextInterface
 {

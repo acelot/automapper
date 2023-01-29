@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ifEmptyTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 0,

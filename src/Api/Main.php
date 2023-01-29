@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Api;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\FieldInterface;
 use Acelot\AutoMapper\MapperFactory;

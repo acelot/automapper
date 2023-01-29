@@ -6,11 +6,12 @@ use Acelot\AutoMapper\Api\Fields;
 use Acelot\AutoMapper\Api\Helpers;
 use Acelot\AutoMapper\Api\Main;
 use Acelot\AutoMapper\Api\Processors;
-use Acelot\AutoMapper\Context\ContextInterface;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\Field\ToObjectMethod;
 use Acelot\AutoMapper\Field\ToObjectProp;
 use Acelot\AutoMapper\Field\ToSelf;
+use Acelot\AutoMapper\Integrations\RespectValidation\Api\Validation;
+use Acelot\AutoMapper\Integrations\RespectValidation\Processor\Validate;
 use Acelot\AutoMapper\Processor\AssertType;
 use Acelot\AutoMapper\Processor\Call;
 use Acelot\AutoMapper\Processor\CallWithContext;
@@ -28,6 +29,7 @@ use Acelot\AutoMapper\Processor\NotFound;
 use Acelot\AutoMapper\Processor\Pass;
 use Acelot\AutoMapper\Processor\Pipeline;
 use Acelot\AutoMapper\Processor\Value;
+use Respect\Validation\Validatable;
 use stdClass;
 
 /**
@@ -230,6 +232,16 @@ final class AutoMapper
     public static function toArray(): Call
     {
         return self::getInstance(Helpers::class)->toArray();
+    }
+
+    public static function validate(Validatable $validator): Validate
+    {
+        return self::getInstance(Validation::class)->validate($validator);
+    }
+
+    public static function ifValidationFailed(ProcessorInterface $true, ?ProcessorInterface $false = null): Condition
+    {
+        return self::getInstance(Validation::class)->ifValidationFailed($true, $false);
     }
 
     /**

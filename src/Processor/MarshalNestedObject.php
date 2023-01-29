@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\MapperFactoryInterface;
 use Acelot\AutoMapper\ObjectFieldInterface;
 use Acelot\AutoMapper\ProcessorInterface;

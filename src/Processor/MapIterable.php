@@ -2,12 +2,11 @@
 
 namespace Acelot\AutoMapper\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
-use Acelot\AutoMapper\Exception\NotFoundException;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
 use Acelot\AutoMapper\ProcessorInterface;
+use Acelot\AutoMapper\Value\ExceptionValueInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
-use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;
 use Generator;
@@ -41,8 +40,8 @@ final class MapIterable implements ProcessorInterface
                 continue;
             }
 
-            if ($processed instanceof NotFoundValue) {
-                throw new NotFoundException($processed->getPath());
+            if ($processed instanceof ExceptionValueInterface) {
+                throw $processed->getException();
             }
 
             if ($processed instanceof UserValue) {

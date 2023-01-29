@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class notFoundTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 10,
@@ -27,7 +27,7 @@ final class notFoundTest extends TestCase
         );
     }
 
-    public function testExampleRecover(): void
+    public function testFunctionRecover(): void
     {
         $source = [
             'id' => 10,

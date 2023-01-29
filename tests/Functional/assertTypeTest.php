@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class assertTypeTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 10,
@@ -45,7 +45,7 @@ final class assertTypeTest extends TestCase
         );
     }
 
-    public function testExampleFailAssert(): void
+    public function testFunctionFailAssert(): void
     {
         $source = [
             'id' => 10,

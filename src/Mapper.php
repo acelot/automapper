@@ -2,10 +2,9 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\Context\ContextInterface;
-use Acelot\AutoMapper\Exception\NotFoundException;
+use Acelot\AutoMapper\ContextInterface;
+use Acelot\AutoMapper\Value\ExceptionValueInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
-use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 
 final class Mapper implements MapperInterface
@@ -45,8 +44,8 @@ final class Mapper implements MapperInterface
                 continue;
             }
 
-            if ($value instanceof NotFoundValue) {
-                throw new NotFoundException($value->getPath());
+            if ($value instanceof ExceptionValueInterface) {
+                throw $value->getException();
             }
 
             if ($value instanceof UserValue) {

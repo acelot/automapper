@@ -4,12 +4,12 @@ namespace Acelot\AutoMapper\Tests\Functional;
 
 use Acelot\AutoMapper\AutoMapper as a;
 use Acelot\AutoMapper\Context\Context;
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use PHPUnit\Framework\TestCase;
 
 final class conditionCtxTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 10,

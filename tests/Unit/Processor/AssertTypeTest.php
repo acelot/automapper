@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
 use Acelot\AutoMapper\Processor\AssertType;
 use Acelot\AutoMapper\Tests\Fixtures\TestClass;

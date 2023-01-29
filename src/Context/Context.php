@@ -2,6 +2,7 @@
 
 namespace Acelot\AutoMapper\Context;
 
+use Acelot\AutoMapper\ContextInterface;
 use OutOfBoundsException;
 
 final class Context implements ContextInterface
@@ -18,6 +19,11 @@ final class Context implements ContextInterface
         return array_key_exists($key, $this->items);
     }
 
+    /**
+     * @template T
+     * @param int|string|class-string<T> $key
+     * @return mixed|T
+     */
     public function get(int|string $key): mixed
     {
         if (!$this->has($key)) {

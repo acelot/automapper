@@ -3,7 +3,7 @@
 namespace Acelot\AutoMapper\Tests\Unit\Api;
 
 use Acelot\AutoMapper\Api\Main;
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\Field\ToObjectProp;
 use Acelot\AutoMapper\FieldInterface;

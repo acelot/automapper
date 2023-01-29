@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Processor\Call;
 use Acelot\AutoMapper\Tests\Fixtures\TestGetInterface;
 use Acelot\AutoMapper\Value\UserValue;

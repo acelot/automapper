@@ -1,11 +1,8 @@
 #!/usr/bin/php
 <?php declare(strict_types=1);
 
-use Acelot\AutoMapper\Api\Fields;
-use Acelot\AutoMapper\Api\Helpers;
-use Acelot\AutoMapper\Api\Main;
-use Acelot\AutoMapper\Api\MainFactory;
-use Acelot\AutoMapper\Api\Processors;
+use Acelot\AutoMapper\Api;
+use Acelot\AutoMapper\Integrations;
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
@@ -48,10 +45,11 @@ require 'vendor/autoload.php';
 const OUTPUT_FILE = 'src/AutoMapper.php';
 
 const COMPONENTS = [
-    Main::class,
-    Fields::class,
-    Processors::class,
-    Helpers::class,
+    Api\Main::class,
+    Api\Fields::class,
+    Api\Processors::class,
+    Api\Helpers::class,
+    Integrations\RespectValidation\Api\Validation::class,
 ];
 
 class Context

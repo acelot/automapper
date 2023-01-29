@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Tests\Unit\Processor;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\ExtractorInterface;
 use Acelot\AutoMapper\ExtractorResolverInterface;
 use Acelot\AutoMapper\Path\ParserInterface;

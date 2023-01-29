@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class getTest extends TestCase
 {
-    public function testExample(): void
+    public function testFunction(): void
     {
         $source = [
             'id' => 10,

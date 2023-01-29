@@ -8,4 +8,5 @@ badge-coverage.svg export-ignore
 clover.xml export-ignore
 logo-light.png export-ignore
 logo-night.png export-ignore
+Makefile export-ignore
 phpunit.xml export-ignore

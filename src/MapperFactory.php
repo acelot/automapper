@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\Context\ContextInterface;
+use Acelot\AutoMapper\ContextInterface;
 
 final class MapperFactory implements MapperFactoryInterface
 {
