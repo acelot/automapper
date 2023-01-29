@@ -241,3 +241,7 @@ You can combine the parts to obtain the deep values:
 
 If any part of the path is not found, then the processor will return `NotFoundValue` value.
 This value throws an `NotFoundException` but you can recover it using [`ifNotFound`](tests/Functional/notFoundTest.php) helper.
+
+## License
+
+Licensed under [MIT](LICENSE). Copyright (c) 2017-present, Valeriy Protopopov

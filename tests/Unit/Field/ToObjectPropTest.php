@@ -12,6 +12,14 @@ use stdClass;
  */
 final class ToObjectPropTest extends TestCase
 {
+    public function testGetProperty_Constructed_ReturnsCorrectValue(): void
+    {
+        $processor = $this->createMock(ProcessorInterface::class);
+        $field = new ToObjectProp('prop', $processor);
+
+        self::assertSame('prop', $field->getProperty());
+    }
+
     public function testGetProcessor_Constructed_ReturnsCorrectValue(): void
     {
         $processor = $this->createMock(ProcessorInterface::class);

@@ -12,6 +12,14 @@ use PHPUnit\Framework\TestCase;
  */
 final class ToObjectMethodTest extends TestCase
 {
+    public function testGetMethod_Constructed_ReturnsCorrectValue(): void
+    {
+        $processor = $this->createMock(ProcessorInterface::class);
+        $field = new ToObjectMethod('set', $processor);
+
+        self::assertSame('set', $field->getMethod());
+    }
+
     public function testGetProcessor_Constructed_ReturnsCorrectValue(): void
     {
         $processor = $this->createMock(ProcessorInterface::class);

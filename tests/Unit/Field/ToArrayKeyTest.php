@@ -11,6 +11,14 @@ use PHPUnit\Framework\TestCase;
  */
 final class ToArrayKeyTest extends TestCase
 {
+    public function testGetKey_Constructed_ReturnsCorrectValue(): void
+    {
+        $processor = $this->createMock(ProcessorInterface::class);
+        $field = new ToArrayKey('key', $processor);
+
+        self::assertSame('key', $field->getKey());
+    }
+
     public function testGetProcessor_Constructed_ReturnsCorrectValue(): void
     {
         $processor = $this->createMock(ProcessorInterface::class);
