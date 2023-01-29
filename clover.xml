@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674993812">
-  <project timestamp="1674993812">
+<coverage generated="1674994313">
+  <project timestamp="1674994313">
     <file name="/home/runner/work/automapper/automapper/src/Api/Fields.php">
       <class name="Acelot\AutoMapper\Api\Fields" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
@@ -301,6 +301,9 @@
       <line num="20" type="stmt" count="1"/>
       <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
+    <file name="/home/runner/work/automapper/automapper/src/ExceptionValueInterface.php">
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/home/runner/work/automapper/automapper/src/Extractor/FromArrayKey.php">
       <class name="Acelot\AutoMapper\Extractor\FromArrayKey" namespace="global">
         <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="11" coveredelements="11"/>
@@ -463,23 +466,23 @@
       <class name="Acelot\AutoMapper\Mapper" namespace="global">
         <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="44"/>
-      <line num="21" type="stmt" count="44"/>
-      <line num="22" type="stmt" count="44"/>
-      <line num="25" type="method" name="getContext" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="27" type="stmt" count="1"/>
-      <line num="33" type="method" name="getFields" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="35" type="stmt" count="3"/>
-      <line num="38" type="method" name="map" visibility="public" complexity="5" crap="5" count="40"/>
-      <line num="40" type="stmt" count="40"/>
-      <line num="41" type="stmt" count="40"/>
-      <line num="43" type="stmt" count="39"/>
-      <line num="44" type="stmt" count="3"/>
-      <line num="47" type="stmt" count="38"/>
-      <line num="48" type="stmt" count="2"/>
-      <line num="51" type="stmt" count="37"/>
-      <line num="52" type="stmt" count="36"/>
-      <metrics loc="57" ncloc="51" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
+      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="44"/>
+      <line num="19" type="stmt" count="44"/>
+      <line num="20" type="stmt" count="44"/>
+      <line num="23" type="method" name="getContext" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="31" type="method" name="getFields" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="33" type="stmt" count="3"/>
+      <line num="36" type="method" name="map" visibility="public" complexity="5" crap="5" count="40"/>
+      <line num="38" type="stmt" count="40"/>
+      <line num="39" type="stmt" count="40"/>
+      <line num="41" type="stmt" count="39"/>
+      <line num="42" type="stmt" count="3"/>
+      <line num="45" type="stmt" count="38"/>
+      <line num="46" type="stmt" count="2"/>
+      <line num="49" type="stmt" count="37"/>
+      <line num="50" type="stmt" count="36"/>
+      <metrics loc="55" ncloc="49" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/MapperExceptionInterface.php">
       <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -879,9 +882,6 @@
     <file name="/home/runner/work/automapper/automapper/src/ProcessorInterface.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <file name="/home/runner/work/automapper/automapper/src/Value/ExceptionValueInterface.php">
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <file name="/home/runner/work/automapper/automapper/src/Value/IgnoreValue.php">
       <class name="Acelot\AutoMapper\Value\IgnoreValue" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -892,13 +892,13 @@
       <class name="Acelot\AutoMapper\Value\NotFoundValue" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="12" type="stmt" count="3"/>
-      <line num="14" type="method" name="getPath" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="16" type="stmt" count="1"/>
-      <line num="19" type="method" name="getException" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="21" type="stmt" count="1"/>
-      <metrics loc="24" ncloc="24" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
+      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="13" type="stmt" count="3"/>
+      <line num="15" type="method" name="getPath" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="20" type="method" name="getException" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <metrics loc="25" ncloc="25" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Value/UserValue.php">
       <class name="Acelot\AutoMapper\Value\UserValue" namespace="global">
@@ -913,6 +913,6 @@
     <file name="/home/runner/work/automapper/automapper/src/ValueInterface.php">
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="64" loc="2170" ncloc="2088" classes="46" methods="189" coveredmethods="186" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="378" elements="570" coveredelements="564"/>
+    <metrics files="64" loc="2168" ncloc="2086" classes="46" methods="189" coveredmethods="186" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="378" elements="570" coveredelements="564"/>
   </project>
 </coverage>
