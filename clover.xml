@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674996374">
-  <project timestamp="1674996374">
+<coverage generated="1675003490">
+  <project timestamp="1675003490">
     <file name="/home/runner/work/automapper/automapper/src/Api/Fields.php">
       <class name="Acelot\AutoMapper\Api\Fields" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
@@ -407,45 +407,45 @@
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Field/ToArrayKey.php">
       <class name="Acelot\AutoMapper\Field\ToArrayKey" namespace="global">
-        <metrics complexity="4" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="35"/>
-      <line num="13" type="stmt" count="35"/>
-      <line num="15" type="method" name="getKey" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="13" type="stmt" count="36"/>
+      <line num="15" type="method" name="getKey" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="stmt" count="1"/>
       <line num="20" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="34"/>
       <line num="22" type="stmt" count="34"/>
       <line num="25" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="33"/>
       <line num="27" type="stmt" count="33"/>
-      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Field/ToObjectMethod.php">
       <class name="Acelot\AutoMapper\Field\ToObjectMethod" namespace="global">
-        <metrics complexity="4" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="13" type="stmt" count="3"/>
-      <line num="15" type="method" name="getMethod" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="13" type="stmt" count="4"/>
+      <line num="15" type="method" name="getMethod" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="stmt" count="1"/>
       <line num="20" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="22" type="stmt" count="2"/>
       <line num="25" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="27" type="stmt" count="2"/>
-      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Field/ToObjectProp.php">
       <class name="Acelot\AutoMapper\Field\ToObjectProp" namespace="global">
-        <metrics complexity="4" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
       </class>
-      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="13" type="stmt" count="4"/>
-      <line num="15" type="method" name="getProperty" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
+      <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="13" type="stmt" count="5"/>
+      <line num="15" type="method" name="getProperty" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="stmt" count="1"/>
       <line num="20" type="method" name="getProcessor" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="22" type="stmt" count="3"/>
       <line num="25" type="method" name="writeValue" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="27" type="stmt" count="3"/>
-      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="8" coveredelements="6"/>
+      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Field/ToSelf.php">
       <class name="Acelot\AutoMapper\Field\ToSelf" namespace="global">
@@ -913,6 +913,6 @@
     <file name="/home/runner/work/automapper/automapper/src/ValueInterface.php">
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="64" loc="2167" ncloc="2080" classes="46" methods="189" coveredmethods="186" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="378" elements="570" coveredelements="564"/>
+    <metrics files="64" loc="2167" ncloc="2080" classes="46" methods="189" coveredmethods="189" conditionals="0" coveredconditionals="0" statements="381" coveredstatements="381" elements="570" coveredelements="570"/>
   </project>
 </coverage>
