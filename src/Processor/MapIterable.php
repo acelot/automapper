@@ -5,7 +5,7 @@ namespace Acelot\AutoMapper\Processor;
 use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
 use Acelot\AutoMapper\ProcessorInterface;
-use Acelot\AutoMapper\Value\ExceptionValueInterface;
+use Acelot\AutoMapper\ExceptionValueInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;

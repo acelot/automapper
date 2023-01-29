@@ -5,6 +5,7 @@ namespace Acelot\AutoMapper\Tests\Unit\Processor;
 use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\Exception\NotFoundException;
 use Acelot\AutoMapper\Exception\UnexpectedValueException;
+use Acelot\AutoMapper\ExceptionValueInterface;
 use Acelot\AutoMapper\Processor\MapIterable;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
@@ -12,6 +13,7 @@ use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
 use Acelot\AutoMapper\ValueInterface;
 use ArrayIterator;
+use Exception;
 use Iterator;
 use PHPUnit\Framework\TestCase;
 
@@ -152,9 +154,16 @@ final class MapIterableTest extends TestCase
         self::assertEquals([0 => 10, 2 => 30], iterator_to_array($result->getValue()));
     }
 
-    public function testProcess_ProcessorReturnsNotFoundValue_ThrowsNotFoundException(): void
+    public function testProcess_ProcessorReturnsExceptionValue_ThrowsException(): void
     {
         $context = $this->createMock(ContextInterface::class);
+
+        $exception = new Exception();
+
+        $exceptionValue = $this->createMock(ExceptionValueInterface::class);
+        $exceptionValue
+            ->method('getException')
+            ->willReturn($exception);
 
         $subProcessor = $this->createMock(ProcessorInterface::class);
         $subProcessor
@@ -162,13 +171,13 @@ final class MapIterableTest extends TestCase
             ->method('process')
             ->willReturnOnConsecutiveCalls(
                 new UserValue(10),
-                new NotFoundValue('test'),
+                $exceptionValue,
                 new UserValue(30),
             );
 
         $processor = new MapIterable($subProcessor, true);
 
-        self::expectExceptionObject(new NotFoundException('test'));
+        self::expectExceptionObject($exception);
 
         /** @var UserValue $result */
         $result = $processor->process($context, new UserValue(new ArrayIterator([1, 2, 3])));

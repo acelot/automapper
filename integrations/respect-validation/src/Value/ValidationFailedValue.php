@@ -2,7 +2,7 @@
 
 namespace Acelot\AutoMapper\Integrations\RespectValidation\Value;
 
-use Acelot\AutoMapper\Value\ExceptionValueInterface;
+use Acelot\AutoMapper\ExceptionValueInterface;
 use Respect\Validation\Exceptions\ValidationException;
 
 final class ValidationFailedValue implements ExceptionValueInterface

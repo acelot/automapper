@@ -3,13 +3,13 @@
 namespace Acelot\AutoMapper\Tests\Unit;
 
 use Acelot\AutoMapper\ContextInterface;
-use Acelot\AutoMapper\Exception\NotFoundException;
+use Acelot\AutoMapper\ExceptionValueInterface;
 use Acelot\AutoMapper\FieldInterface;
 use Acelot\AutoMapper\Mapper;
 use Acelot\AutoMapper\ProcessorInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
-use Acelot\AutoMapper\Value\NotFoundValue;
 use Acelot\AutoMapper\Value\UserValue;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -74,15 +74,23 @@ final class MapperTest extends TestCase
         $mapper->map([], $target);
     }
 
-    public function testMap_FieldValueIsMissingFieldValue_ThrowsFieldMissingException(): void
+    public function testMap_FieldValueIsExceptionValue_ThrowsNotFoundException(): void
     {
         $context = $this->createMock(ContextInterface::class);
         $field0 = $this->createMock(FieldInterface::class);
 
         $field0Processor = $this->createMock(ProcessorInterface::class);
+
+        $exception = new Exception();
+
+        $exceptionValue = $this->createMock(ExceptionValueInterface::class);
+        $exceptionValue
+            ->method('getException')
+            ->willReturn($exception);
+
         $field0Processor
             ->method('process')
-            ->willReturn(new NotFoundValue('test'));
+            ->willReturn($exceptionValue);
 
         $field0
             ->method('getProcessor')
@@ -90,7 +98,7 @@ final class MapperTest extends TestCase
 
         $mapper = new Mapper($context, $field0);
 
-        self::expectExceptionObject(new NotFoundException('test'));
+        self::expectExceptionObject($exception);
 
         $target = [];
 

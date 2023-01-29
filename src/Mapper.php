@@ -2,8 +2,6 @@
 
 namespace Acelot\AutoMapper;
 
-use Acelot\AutoMapper\ContextInterface;
-use Acelot\AutoMapper\Value\ExceptionValueInterface;
 use Acelot\AutoMapper\Value\IgnoreValue;
 use Acelot\AutoMapper\Value\UserValue;
 

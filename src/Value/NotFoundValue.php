@@ -3,6 +3,7 @@
 namespace Acelot\AutoMapper\Value;
 
 use Acelot\AutoMapper\Exception\NotFoundException;
+use Acelot\AutoMapper\ExceptionValueInterface;
 use Throwable;
 
 final class NotFoundValue implements ExceptionValueInterface
