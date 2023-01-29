@@ -19,13 +19,13 @@ If you want a previous version, then proceed to [1.x](https://github.com/acelot/
 **AutoMapper** is a powerful declarative data mapper for PHP 8.
 AutoMapper can map data from any source data (usually array/object) to the existing array/object or marshal a new ones.
 
-## Install
+## 💿 Install
 
 ```bash
 composer require acelot/automapper:^2.0
 ```
 
-## Usage
+## 🗿 Usage
 
 ### How to marshal new array from the another?
 
@@ -124,11 +124,11 @@ array (
 
 </details>
 
-## Examples
+## 📌 Examples
 
 All examples can be found in [`tests/Functional`](tests/Functional) directory.
 
-## Reference
+## 🗄️ Reference
 
 No need to use concrete classes, it's better to use the AutoMapper API [static functions](src/AutoMapper.php).
 It is very convenient to import the AutoMapper as a short alias, for example `use Acelot\AutoMapper\AutoMapper as a`.
@@ -200,13 +200,13 @@ Helpers are the processors that built on top of the another processors. Some hel
 | [`toString`](tests/Functional/toStringTest.php)           | Converts the incoming value to string type. Throws `UnexpectedValueException` if incoming value is not a scalar or an object that not implements `__toString`. |
 | [`toArray`](tests/Functional/toArrayTest.php)             | Converts the incoming value to array. Usually used with `mapIterable` processor.                                                                               |
 
-## Integrations
+## 🧩 Integrations
 
 | Name                                                   | Description                                                                                              |
 |--------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | [`RespectValidation`](integrations/respect-validation) | Provides validation processor via [`respect/validation`](https://github.com/Respect/Validation) library. |
 
-## FAQ
+## ❔ FAQ
 
 ### What is Context?
 
@@ -242,6 +242,6 @@ You can combine the parts to obtain the deep values:
 If any part of the path is not found, then the processor will return `NotFoundValue` value.
 This value throws an `NotFoundException` but you can recover it using [`ifNotFound`](tests/Functional/notFoundTest.php) helper.
 
-## License
+## 🖋️ License
 
 Licensed under [MIT](LICENSE). Copyright (c) 2017-present, Valeriy Protopopov
