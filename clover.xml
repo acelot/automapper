@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675003490">
-  <project timestamp="1675003490">
+<coverage generated="1675004011">
+  <project timestamp="1675004011">
     <file name="/home/runner/work/automapper/automapper/src/Api/Fields.php">
       <class name="Acelot\AutoMapper\Api\Fields" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
