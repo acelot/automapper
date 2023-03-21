@@ -51,14 +51,14 @@ $result = marshalArray(
     )),
     a::toKey('fullname', a::pipe(
         a::get('[name]'),
-        a::custom(fn($v) => $v['firstname'] . ' ' . $v('lastname'))
+        a::custom(fn($v) => $v['firstname'] . ' ' . $v['lastname'])
     )),
     a::toKey('skills', a::pipe(
         a::get('[skills]'),
         a::explodeString(','),
         a::mapIterable(a::pipe(
             a::trimString(),
-            a::ifEmpty(ignore()),
+            a::ifEmpty(a::ignore()),
             a::custom('strtolower')
         )),
         a::toArray(),
