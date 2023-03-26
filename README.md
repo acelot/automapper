@@ -42,7 +42,7 @@ $source = [
     'skills' => 'Php, CSS,JS,html, MySql,  brainfuck,'
 ];
 
-$result = marshalArray(
+$result = a::marshalArray(
     new Context(),
     $source,
     a::toKey('id', a::pipe(
