@@ -14,8 +14,8 @@ final class validateTest extends TestCase
     {
         $source = [
             'id' => 10,
-            'email' => 'some@email.com',
-            'phone' => '+1-111-111-1111',
+            'email' => 'some@@email.com',
+            'phone' => '000+1-111-111-1111',
             'ip' => '127.0.0.256'
         ];
 
@@ -26,11 +26,13 @@ final class validateTest extends TestCase
             $source,
             a::toKey('email', a::pipe(
                 a::get('[email]'),
-                a::validate(v::email()),
+                a::validate(v::email()->setName('E-mail')),
+                a::ifValidationFailed(a::value('default@example.com')),
             )),
             a::toKey('phone', a::pipe(
                 a::get('[phone]'),
-                a::validate(v::phone()),
+                a::validate(v::phone()->setName('Phone')),
+                a::ifValidationFailed(a::ignore())
             )),
             a::toKey('ip', a::pipe(
                 a::get('[ip]'),
@@ -41,19 +43,28 @@ final class validateTest extends TestCase
 
         self::assertSame(
             [
-                'email' => 'some@email.com',
-                'phone' => '+1-111-111-1111',
+                'email' => 'default@example.com',
                 'ip' => '127.0.0.1',
             ],
             $result
         );
 
+        $validationContext = $context->get(ValidationContextInterface::class);
+
         self::assertTrue($context->has(ValidationContextInterface::class));
-        self::assertTrue($context->get(ValidationContextInterface::class)->hasErrors());
-        self::assertCount(1, $context->get(ValidationContextInterface::class)->getErrors());
+        self::assertTrue($validationContext->hasErrors());
+        self::assertCount(3, $validationContext->getErrors());
         self::assertSame(
-            ['IP Address' => 'IP Address must be an IP address'],
-            $context->get(ValidationContextInterface::class)->getErrors()[0]->getMessages()
+            [
+                'E-mail' => 'E-mail must be valid email',
+                'Phone' => 'Phone must be a valid telephone number',
+                'IP Address' => 'IP Address must be an IP address',
+            ],
+            [
+                ...$validationContext->getErrors()[0]->getMessages(),
+                ...$validationContext->getErrors()[1]->getMessages(),
+                ...$validationContext->getErrors()[2]->getMessages(),
+            ]
         );
     }
 }

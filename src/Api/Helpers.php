@@ -92,7 +92,7 @@ final class Helpers
 
     public function toBool(): Call
     {
-        return  new Call('boolval');
+        return new Call('boolval');
     }
 
     public function toFloat(): Pipeline
@@ -121,7 +121,7 @@ final class Helpers
 
     public function toArray(): Call
     {
-        return  new Call(function ($value) {
+        return new Call(function ($value) {
             if ($value instanceof Traversable) {
                 return iterator_to_array($value);
             }

@@ -61,6 +61,11 @@ $result = marshalArray(
         a::get('[email]'),
         a::validate(v::email()),
         a::ifValidationFailed(a::ignore())
+    )),
+    a::toKey('phone', a::pipe(
+        a::get('[phone]'),
+        a::validate(v::phone()),
+        a::ifValidationFailed(a::ignore())
     ))
 );
 
