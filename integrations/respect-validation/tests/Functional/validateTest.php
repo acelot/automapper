@@ -56,14 +56,14 @@ final class validateTest extends TestCase
         self::assertCount(3, $validationContext->getErrors());
         self::assertSame(
             [
-                'E-mail' => 'E-mail must be valid email',
-                'Phone' => 'Phone must be a valid telephone number',
-                'IP Address' => 'IP Address must be an IP address',
+                ['E-mail' => 'E-mail must be valid email'],
+                ['Phone' => 'Phone must be a valid telephone number'],
+                ['IP Address' => 'IP Address must be an IP address'],
             ],
             [
-                ...$validationContext->getErrors()[0]->getMessages(),
-                ...$validationContext->getErrors()[1]->getMessages(),
-                ...$validationContext->getErrors()[2]->getMessages(),
+                $validationContext->getErrors()[0]->getMessages(),
+                $validationContext->getErrors()[1]->getMessages(),
+                $validationContext->getErrors()[2]->getMessages(),
             ]
         );
     }
