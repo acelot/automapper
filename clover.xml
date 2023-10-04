@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679834958">
-  <project timestamp="1679834958">
+<coverage generated="1696398931">
+  <project timestamp="1696398931">
     <file name="/home/runner/work/automapper/automapper/src/Api/Fields.php">
       <class name="Acelot\AutoMapper\Api\Fields" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
@@ -134,8 +134,8 @@
       <line num="68" type="stmt" count="34"/>
       <line num="71" type="method" name="getFromCtx" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="73" type="stmt" count="1"/>
-      <line num="76" type="method" name="ignore" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="78" type="stmt" count="4"/>
+      <line num="76" type="method" name="ignore" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="78" type="stmt" count="5"/>
       <line num="81" type="method" name="mapIterable" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="83" type="stmt" count="4"/>
       <line num="86" type="method" name="marshalNestedArray" visibility="public" complexity="1" crap="1" count="1"/>
@@ -188,8 +188,8 @@
       <line num="114" type="stmt" count="34"/>
       <line num="117" type="method" name="getFromCtx" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="119" type="stmt" count="1"/>
-      <line num="122" type="method" name="ignore" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="124" type="stmt" count="4"/>
+      <line num="122" type="method" name="ignore" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="124" type="stmt" count="5"/>
       <line num="127" type="method" name="mapIterable" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="129" type="stmt" count="4"/>
       <line num="132" type="method" name="marshalNestedArray" visibility="public" complexity="1" crap="1" count="1"/>
@@ -477,7 +477,7 @@
       <line num="38" type="stmt" count="40"/>
       <line num="39" type="stmt" count="40"/>
       <line num="41" type="stmt" count="39"/>
-      <line num="42" type="stmt" count="3"/>
+      <line num="42" type="stmt" count="4"/>
       <line num="45" type="stmt" count="38"/>
       <line num="46" type="stmt" count="2"/>
       <line num="49" type="stmt" count="37"/>
@@ -776,8 +776,8 @@
       <class name="Acelot\AutoMapper\Processor\Ignore" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </class>
-      <line num="12" type="method" name="process" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="14" type="stmt" count="4"/>
+      <line num="12" type="method" name="process" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="14" type="stmt" count="5"/>
       <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
     <file name="/home/runner/work/automapper/automapper/src/Processor/MapIterable.php">
