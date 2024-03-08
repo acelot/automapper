@@ -51,7 +51,7 @@ $result = a::marshalArray(
     )),
     a::toKey('fullname', a::pipe(
         a::get('[name]'),
-        a::custom(fn($v) => $v['firstname'] . ' ' . $v['lastname'])
+        a::call(fn($v) => $v['firstname'] . ' ' . $v['lastname'])
     )),
     a::toKey('skills', a::pipe(
         a::get('[skills]'),
@@ -59,7 +59,7 @@ $result = a::marshalArray(
         a::mapIterable(a::pipe(
             a::trimString(),
             a::ifEmpty(a::ignore()),
-            a::custom('strtolower')
+            a::call('strtolower')
         )),
         a::toArray(),
         a::sortArray()
