@@ -23,7 +23,8 @@
     "phpunit/phpunit": "^9.0",
     "nikic/php-parser": "^4.15",
     "friendsofphp/php-cs-fixer": "^3.13",
-    "respect/validation": "^2"
+    "respect/validation": "^2",
+    "giggsey/libphonenumber-for-php": "*"
   },
   "suggest": {
     "respect/validation": "Enables respect-validation integration"
