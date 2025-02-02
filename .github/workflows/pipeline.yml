@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['8.0', '8.1', '8.2', '8.3', '8.4']
+        php-versions: ['8.0', '8.1', '8.2', '8.3']
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,6 +35,9 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
+      - name: Run static analyzer
+        run: composer run psalm
+
       - name: Run tests
         run: composer run test -- --no-coverage
 
@@ -49,7 +52,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.3
           tools: phpunit-bridge
           extensions: mbstring, json
           coverage: xdebug

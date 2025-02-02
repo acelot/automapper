@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types=1);
 
 namespace Acelot\AutoMapper;
 
@@ -89,21 +89,41 @@ final class AutoMapper
         return self::getInstance(Processors::class)->callCtx($callable);
     }
 
+    /**
+     * @param callable(mixed): bool $condition
+     * @param ProcessorInterface $true
+     * @param ProcessorInterface|null $false
+     * @return Condition
+     */
     public static function condition(callable $condition, ProcessorInterface $true, ?ProcessorInterface $false = null): Condition
     {
         return self::getInstance(Processors::class)->condition($condition, $true, $false);
     }
 
+    /**
+     * @param callable(ContextInterface, mixed): bool $condition
+     * @param ProcessorInterface $true
+     * @param ProcessorInterface|null $false
+     * @return ConditionWithContext
+     */
     public static function conditionCtx(callable $condition, ProcessorInterface $true, ?ProcessorInterface $false = null): ConditionWithContext
     {
         return self::getInstance(Processors::class)->conditionCtx($condition, $true, $false);
     }
 
+    /**
+     * @param callable(mixed, int|string): bool $predicate
+     * @return Find
+     */
     public static function find(callable $predicate): Find
     {
         return self::getInstance(Processors::class)->find($predicate);
     }
 
+    /**
+     * @param callable(ContextInterface, mixed, int|string): bool $predicate
+     * @return FindWithContext
+     */
     public static function findCtx(callable $predicate): FindWithContext
     {
         return self::getInstance(Processors::class)->findCtx($predicate);
@@ -199,6 +219,10 @@ final class AutoMapper
         return self::getInstance(Helpers::class)->ifNotEqual($to, $true, $false, $strict);
     }
 
+    /**
+     * @param non-empty-string $separator
+     * @return Pipeline
+     */
     public static function explodeString(string $separator): Pipeline
     {
         return self::getInstance(Helpers::class)->explodeString($separator);

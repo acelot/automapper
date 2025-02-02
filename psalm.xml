@@ -11,7 +11,7 @@
     <projectFiles>
         <directory name="src" />
         <ignoreFiles>
-            <file name="src/Automapper.php" />
+            <file name="src/AutoMapper.php" />
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
