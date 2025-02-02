@@ -24,7 +24,8 @@
     "nikic/php-parser": "^4.15",
     "friendsofphp/php-cs-fixer": "^3.13",
     "respect/validation": "^2",
-    "giggsey/libphonenumber-for-php": "*"
+    "giggsey/libphonenumber-for-php": "*",
+    "vimeo/psalm": "^5.26"
   },
   "suggest": {
     "respect/validation": "Enables respect-validation integration"
@@ -43,6 +44,7 @@
   },
   "bin": ["bin/generate-static-api"],
   "scripts": {
+    "psalm": "psalm",
     "test": "phpunit",
     "generate-static-api": "generate-static-api",
     "php-cs-fixer": "php-cs-fixer"

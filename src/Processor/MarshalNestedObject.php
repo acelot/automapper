@@ -19,11 +19,10 @@ final class MarshalNestedObject implements ProcessorInterface
 
     public function __construct(
         private MapperFactoryInterface $mapperFactory,
-        ObjectFieldInterface           $firstField,
-        ObjectFieldInterface           ...$restFields
+        ObjectFieldInterface           ...$fields
     )
     {
-        $this->fields = [$firstField, ...$restFields];
+        $this->fields = $fields;
     }
 
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface

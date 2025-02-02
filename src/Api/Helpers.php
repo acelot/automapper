@@ -15,9 +15,10 @@ final class Helpers
 {
     public function joinArray(string $separator = ''): Pipeline
     {
+        /** @psalm-suppress MixedArgumentTypeCoercion */
         return new Pipeline(
             new AssertType(AssertType::ARRAY),
-            new Call(fn($value) => implode($separator, $value))
+            new Call(fn(array $value) => implode($separator, $value))
         );
     }
 
@@ -25,7 +26,7 @@ final class Helpers
     {
         return new Pipeline(
             new AssertType(AssertType::ARRAY),
-            new Call(function ($value) use ($descending, $options) {
+            new Call(function (array $value) use ($descending, $options) {
                 if ($descending) {
                     rsort($value, $options);
                 } else {
@@ -41,7 +42,7 @@ final class Helpers
     {
         return new Pipeline(
             new AssertType(AssertType::ARRAY),
-            new Call(function ($value) use ($keepKeys, $options) {
+            new Call(function (array $value) use ($keepKeys, $options) {
                 $items = array_unique($value, $options);
 
                 return $keepKeys ? $items : array_values($items);
@@ -51,12 +52,12 @@ final class Helpers
 
     public function ifNotFound(ProcessorInterface $true, ?ProcessorInterface $false = null): Condition
     {
-        return new Condition(fn($value) => $value instanceof NotFoundValue, $true, $false ?? new Pass());
+        return new Condition(fn(mixed $value) => $value instanceof NotFoundValue, $true, $false ?? new Pass());
     }
 
     public function ifEmpty(ProcessorInterface $true, ?ProcessorInterface $false = null): Condition
     {
-        return new Condition(fn($value) => empty($value), $true, $false ?? new Pass());
+        return new Condition(fn(mixed $value) => empty($value), $true, $false ?? new Pass());
     }
 
     public function ifNull(ProcessorInterface $true, ?ProcessorInterface $false = null): Condition
@@ -66,19 +67,23 @@ final class Helpers
 
     public function ifEqual(mixed $to, ProcessorInterface $true, ?ProcessorInterface $false = null, bool $strict = true): Condition
     {
-        return new Condition(fn($value) => $strict ? $value === $to : $value == $to, $true, $false ?? new Pass());
+        return new Condition(fn(mixed $value) => $strict ? $value === $to : $value == $to, $true, $false ?? new Pass());
     }
 
     public function ifNotEqual(mixed $to, ProcessorInterface $true, ?ProcessorInterface $false = null, bool $strict = true): Condition
     {
-        return $this->ifEqual($to, $false, $true, $strict);
+        return new Condition(fn(mixed $value) => $strict ? $value !== $to : $value != $to, $true, $false ?? new Pass());
     }
 
+    /**
+     * @param non-empty-string $separator
+     * @return Pipeline
+     */
     public function explodeString(string $separator): Pipeline
     {
         return new Pipeline(
             new AssertType(AssertType::STRING),
-            new Call(fn($value) => explode($separator, $value))
+            new Call(fn(string $value) => explode($separator, $value))
         );
     }
 
@@ -86,7 +91,7 @@ final class Helpers
     {
         return new Pipeline(
             new AssertType(AssertType::STRING),
-            new Call(fn($value) => trim($value, $characters))
+            new Call(fn(string $value) => trim($value, $characters))
         );
     }
 
@@ -99,7 +104,7 @@ final class Helpers
     {
         return new Pipeline(
             new AssertType(AssertType::NULL, AssertType::SCALAR),
-            new Call(fn($value) => is_null($value) ? 0.0 : floatval($value))
+            new Call(fn(mixed $value) => is_null($value) ? 0.0 : floatval($value))
         );
     }
 
@@ -107,7 +112,7 @@ final class Helpers
     {
         return new Pipeline(
             new AssertType(AssertType::NULL, AssertType::SCALAR),
-            new Call(fn($value) => is_null($value) ? 0 : intval($value))
+            new Call(fn(mixed $value) => is_null($value) ? 0 : intval($value))
         );
     }
 
@@ -121,7 +126,7 @@ final class Helpers
 
     public function toArray(): Call
     {
-        return new Call(function ($value) {
+        return new Call(function (mixed $value) {
             if ($value instanceof Traversable) {
                 return iterator_to_array($value);
             }

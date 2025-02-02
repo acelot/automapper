@@ -12,12 +12,12 @@ use Acelot\AutoMapper\ValueInterface;
 final class FindWithContext implements ProcessorInterface
 {
     /**
-     * @var callable<bool>
+     * @var callable(ContextInterface, mixed, int|string): bool
      */
     private $predicate;
 
     /**
-     * @param callable<bool> $predicate
+     * @param callable(ContextInterface, mixed, int|string): bool $predicate
      */
     public function __construct(callable $predicate)
     {
@@ -30,11 +30,17 @@ final class FindWithContext implements ProcessorInterface
             return $value;
         }
 
-        if (!is_iterable($value->getValue())) {
-            throw new UnexpectedValueException('array|Traversable', $value->getValue());
+        $innerValue = $value->getValue();
+
+        if (!is_iterable($innerValue)) {
+            throw new UnexpectedValueException('array|Traversable', $innerValue);
         }
 
-        foreach ($value->getValue() as $key => $item) {
+        /**
+         * @var array-key $key
+         * @var mixed $item
+         */
+        foreach ($innerValue as $key => $item) {
             if (($this->predicate)($context, $item, $key)) {
                 return new UserValue($item);
             }

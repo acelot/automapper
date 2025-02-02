@@ -2,6 +2,7 @@
 
 namespace Acelot\AutoMapper\Api;
 
+use Acelot\AutoMapper\ContextInterface;
 use Acelot\AutoMapper\ExtractorResolver;
 use Acelot\AutoMapper\Field\ToArrayKey;
 use Acelot\AutoMapper\Field\ToObjectProp;
@@ -43,21 +44,41 @@ final class Processors
         return new CallWithContext($callable);
     }
 
+    /**
+     * @param callable(mixed): bool $condition
+     * @param ProcessorInterface $true
+     * @param ProcessorInterface|null $false
+     * @return Condition
+     */
     public function condition(callable $condition, ProcessorInterface  $true, ?ProcessorInterface $false = null): Condition
     {
         return new Condition($condition, $true, $false ?? new Pass());
     }
 
+    /**
+     * @param callable(ContextInterface, mixed): bool $condition
+     * @param ProcessorInterface $true
+     * @param ProcessorInterface|null $false
+     * @return ConditionWithContext
+     */
     public function conditionCtx(callable $condition, ProcessorInterface $true, ?ProcessorInterface $false = null): ConditionWithContext
     {
         return new ConditionWithContext($condition, $true, $false ?? new Pass());
     }
 
+    /**
+     * @param callable(mixed, int|string): bool $predicate
+     * @return Find
+     */
     public function find(callable $predicate): Find
     {
         return new Find($predicate);
     }
 
+    /**
+     * @param callable(ContextInterface, mixed, int|string): bool $predicate
+     * @return FindWithContext
+     */
     public function findCtx(callable $predicate): FindWithContext
     {
         return new FindWithContext($predicate);

@@ -4,6 +4,9 @@ namespace Acelot\AutoMapper\Extractor;
 
 use Acelot\AutoMapper\ExtractorInterface;
 
+/**
+ * @implements ExtractorInterface<object>
+ */
 final class FromObjectMethod implements ExtractorInterface
 {
     public function __construct(

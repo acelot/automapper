@@ -5,6 +5,9 @@ namespace Acelot\AutoMapper\Field;
 use Acelot\AutoMapper\FieldInterface;
 use Acelot\AutoMapper\ProcessorInterface;
 
+/**
+ * @implements FieldInterface<array>
+ */
 final class ToArrayKey implements FieldInterface
 {
     public function __construct(
@@ -24,6 +27,7 @@ final class ToArrayKey implements FieldInterface
 
     public function writeValue(mixed &$target, mixed $value): void
     {
+        /** @psalm-suppress MixedAssignment,MixedArrayAssignment */
         $target[$this->key] = $value;
     }
 }

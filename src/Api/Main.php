@@ -36,6 +36,7 @@ final class Main
         $mapper = $this->mapperFactory->create($context, ...$fields);
         $mapper->map($source, $target);
 
+        /** @var array<array-key, mixed> $target */
         return $target;
     }
 
@@ -46,6 +47,7 @@ final class Main
         $mapper = $this->mapperFactory->create($context, ...$fields);
         $mapper->map($source, $target);
 
+        /** @var \stdClass $target */
         return $target;
     }
 }

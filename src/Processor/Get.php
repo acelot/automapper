@@ -25,6 +25,8 @@ final class Get implements ProcessorInterface
         }
 
         $path = $this->parser->parse($this->path);
+
+        /** @var mixed $currentValue */
         $currentValue = $value->getValue();
 
         foreach ($path->getParts() as $part) {
@@ -34,6 +36,7 @@ final class Get implements ProcessorInterface
                 return new NotFoundValue($this->path);
             }
 
+            /** @var mixed $currentValue */
             $currentValue = $extractor->extract($currentValue);
         }
 

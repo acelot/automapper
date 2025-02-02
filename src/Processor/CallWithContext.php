@@ -25,6 +25,7 @@ final class CallWithContext implements ProcessorInterface
             return $value;
         }
 
+        /** @var mixed $newValue */
         $newValue = ($this->callable)($context, $value->getValue());
 
         if (!$newValue instanceof ValueInterface) {

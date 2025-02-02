@@ -9,7 +9,7 @@ use Acelot\AutoMapper\ValueInterface;
 final class Pipeline implements ProcessorInterface
 {
     /**
-     * @param ProcessorInterface[] $processors
+     * @var ProcessorInterface[] $processors
      */
     private array $processors;
 

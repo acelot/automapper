@@ -4,6 +4,9 @@ namespace Acelot\AutoMapper\Extractor;
 
 use Acelot\AutoMapper\ExtractorInterface;
 
+/**
+ * @implements ExtractorInterface<mixed>
+ */
 final class FromSelf implements ExtractorInterface
 {
     public function isExtractable(mixed $source): bool

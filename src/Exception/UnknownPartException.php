@@ -9,13 +9,13 @@ use LogicException;
 final class UnknownPartException extends LogicException implements MapperExceptionInterface
 {
     public function __construct(
-        private PartInterface $part
+        private PartInterface|string $part
     )
     {
-        parent::__construct(sprintf('Unknown part `%s`', $part::class));
+        parent::__construct(sprintf('Unknown part `%s`', is_string($part) ? $part : $part::class));
     }
 
-    public function getPart(): PartInterface
+    public function getPart(): PartInterface|string
     {
         return $this->part;
     }

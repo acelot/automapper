@@ -31,9 +31,9 @@ final class AssertType implements ProcessorInterface
      */
     private array $oneOfTypes;
 
-    public function __construct(string $oneOfType, string ...$oneOfTypes)
+    public function __construct(string ...$oneOfTypes)
     {
-        $this->oneOfTypes = [$oneOfType, ...$oneOfTypes];
+        $this->oneOfTypes = $oneOfTypes;
     }
 
     /**
@@ -50,8 +50,7 @@ final class AssertType implements ProcessorInterface
             return $value;
         }
 
-        /** @var callable[] $asserts */
-        $asserts = array_map(fn($type) => $this->getAssert($type), $this->oneOfTypes);
+        $asserts = array_map(fn(string $type) => $this->getAssert($type), $this->oneOfTypes);
 
         foreach ($asserts as $assert) {
             if ($assert($value->getValue())) {
@@ -65,20 +64,20 @@ final class AssertType implements ProcessorInterface
     private function getAssert(string $type): callable
     {
         return match ($type) {
-            self::BOOL => static fn($v) => is_bool($v),
-            self::INT => static fn($v) => is_int($v),
-            self::FLOAT => static fn($v) => is_float($v),
-            self::SCALAR => static fn($v) => is_scalar($v),
-            self::STRING => static fn($v) => is_string($v),
-            self::TO_STRING => static fn($v) => is_object($v) && method_exists($v, '__toString'),
-            self::ITERABLE => static fn($v) => is_iterable($v),
-            self::ARRAY => static fn($v) => is_array($v),
-            self::OBJECT => static fn($v) => is_object($v),
-            self::CALLABLE => static fn($v) => is_callable($v),
-            self::NUMERIC => static fn($v) => is_numeric($v),
-            self::COUNTABLE => static fn($v) => is_countable($v),
-            self::RESOURCE => static fn($v) => is_resource($v),
-            self::NULL => static fn($v) => is_null($v),
+            self::BOOL => static fn(mixed $v) => is_bool($v),
+            self::INT => static fn(mixed $v) => is_int($v),
+            self::FLOAT => static fn(mixed $v) => is_float($v),
+            self::SCALAR => static fn(mixed $v) => is_scalar($v),
+            self::STRING => static fn(mixed $v) => is_string($v),
+            self::TO_STRING => static fn(mixed $v) => is_object($v) && method_exists($v, '__toString'),
+            self::ITERABLE => static fn(mixed $v) => is_iterable($v),
+            self::ARRAY => static fn(mixed $v) => is_array($v),
+            self::OBJECT => static fn(mixed $v) => is_object($v),
+            self::CALLABLE => static fn(mixed $v) => is_callable($v),
+            self::NUMERIC => static fn(mixed $v) => is_numeric($v),
+            self::COUNTABLE => static fn(mixed $v) => is_countable($v),
+            self::RESOURCE => static fn(mixed $v) => is_resource($v),
+            self::NULL => static fn(mixed $v) => is_null($v),
             default => throw new InvalidArgumentException("Unknown assert type `$type`")
         };
     }

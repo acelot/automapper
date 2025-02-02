@@ -2,6 +2,9 @@
 
 namespace Acelot\AutoMapper;
 
+/**
+ * @extends FieldInterface<object>
+ */
 interface ObjectFieldInterface extends FieldInterface
 {
 }

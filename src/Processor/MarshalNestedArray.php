@@ -18,11 +18,10 @@ final class MarshalNestedArray implements ProcessorInterface
 
     public function __construct(
         private MapperFactoryInterface $mapperFactory,
-        ToArrayKey                     $firstField,
-        ToArrayKey                     ...$restFields
+        ToArrayKey                     ...$fields
     )
     {
-        $this->fields = [$firstField, ...$restFields];
+        $this->fields = $fields;
     }
 
     public function process(ContextInterface $context, ValueInterface $value): ValueInterface

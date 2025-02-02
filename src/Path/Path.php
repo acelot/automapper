@@ -9,9 +9,9 @@ final class Path implements PathInterface
      */
     private array $parts;
 
-    public function __construct(PartInterface $requiredPart, PartInterface ...$otherParts)
+    public function __construct(PartInterface ...$parts)
     {
-        $this->parts = [$requiredPart, ...$otherParts];
+        $this->parts = $parts;
     }
 
     /**

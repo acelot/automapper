@@ -4,6 +4,9 @@ namespace Acelot\AutoMapper\Extractor;
 
 use Acelot\AutoMapper\ExtractorInterface;
 
+/**
+ * @implements ExtractorInterface<non-empty-array>
+ */
 final class FromArrayKeyLast implements ExtractorInterface
 {
     public function isExtractable(mixed $source): bool

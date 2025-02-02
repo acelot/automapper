@@ -10,10 +10,15 @@ use Acelot\AutoMapper\ValueInterface;
 final class Condition implements ProcessorInterface
 {
     /**
-     * @var callable<bool>
+     * @var callable(mixed): bool
      */
     private $condition;
 
+    /**
+     * @param callable(mixed): bool $condition
+     * @param ProcessorInterface $true
+     * @param ProcessorInterface $false
+     */
     public function __construct(
         callable                   $condition,
         private ProcessorInterface $true,

@@ -50,8 +50,11 @@ $result = a::marshalArray(
         a::toInt()
     )),
     a::toKey('fullname', a::pipe(
-        a::get('[name]'),
-        a::call(fn($v) => $v['firstname'] . ' ' . $v['lastname'])
+        a::marshalNestedArray(
+            a::toKey(0, a::get('[name][firstname]')),
+            a::toKey(1, a::get('[name][lastname]')),
+        ),
+        a::joinArray(' ')
     )),
     a::toKey('skills', a::pipe(
         a::get('[skills]'),

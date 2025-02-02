@@ -24,15 +24,21 @@ final class MapIterable implements ProcessorInterface
             return $value;
         }
 
-        if (!is_iterable($value->getValue())) {
-            throw new UnexpectedValueException('array|Traversable', $value->getValue());
+        $innerValue = $value->getValue();
+
+        if (!is_iterable($innerValue)) {
+            throw new UnexpectedValueException('array|Traversable', $innerValue);
         }
 
-        return new UserValue($this->map($context, $value->getValue()));
+        return new UserValue($this->map($context, $innerValue));
     }
 
     private function map(ContextInterface $context, iterable $iterator): Generator
     {
+        /**
+         * @var array-key $key
+         * @var mixed $item
+         */
         foreach ($iterator as $key => $item) {
             $processed = $this->processor->process($context, new UserValue($item));
 

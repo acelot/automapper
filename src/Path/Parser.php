@@ -47,7 +47,7 @@ final class Parser implements ParserInterface
 
     public function parse(string $path): Path
     {
-        if (!preg_match_all(self::PATH_PATTERN, $path, $matches)) {
+        if (preg_match_all(self::PATH_PATTERN, $path, $matches) === 0) {
             throw new InvalidArgumentException('Invalid path');
         }
 
@@ -60,12 +60,17 @@ final class Parser implements ParserInterface
         return new Path(...$this->convertToParts($tokens));
     }
 
+    /**
+     * @param string[][] $matches
+     * @return array<int, array{0: string, 1: string}>
+     */
     private function getTokens(array $matches): array
     {
         $tokens = [];
 
         for ($i = 0; $i < count($matches[0]); $i++) {
             foreach (self::GROUPS as $group) {
+                /** @psalm-suppress RiskyTruthyFalsyComparison */
                 if (!empty($matches[$group][$i])) {
                     $tokens[$i] = [$group, $matches[$group][$i]];
                     continue 2;
@@ -76,6 +81,10 @@ final class Parser implements ParserInterface
         return $tokens;
     }
 
+    /**
+     * @param array<int, array{0: string, 1: string}> $tokens
+     * @return PartInterface[]
+     */
     private function convertToParts(array $tokens): array
     {
         $parts = [];

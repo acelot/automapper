@@ -30,6 +30,7 @@ final class Call implements ProcessorInterface
             return $value;
         }
 
+        /** @var mixed $newValue */
         $newValue = ($this->callable)($value->getValue());
 
         if (!$newValue instanceof ValueInterface) {

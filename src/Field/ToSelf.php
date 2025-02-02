@@ -5,6 +5,9 @@ namespace Acelot\AutoMapper\Field;
 use Acelot\AutoMapper\FieldInterface;
 use Acelot\AutoMapper\ProcessorInterface;
 
+/**
+ * @implements FieldInterface<mixed>
+ */
 final class ToSelf implements FieldInterface
 {
     public function __construct(
@@ -18,6 +21,7 @@ final class ToSelf implements FieldInterface
 
     public function writeValue(mixed &$target, mixed $value): void
     {
+        /** @psalm-suppress MixedAssignment */
         $target = $value;
     }
 }

@@ -4,13 +4,22 @@ namespace Acelot\AutoMapper\Extractor;
 
 use Acelot\AutoMapper\ExtractorInterface;
 
+/**
+ * @implements ExtractorInterface<array|string>
+ */
 final class FromArrayKey implements ExtractorInterface
 {
+    /**
+     * @param array-key $key
+     */
     public function __construct(
-        private int|string $key
+        private mixed $key
     ) {}
 
-    public function getKey(): string
+    /**
+     * @return array-key
+     */
+    public function getKey(): mixed
     {
         return $this->key;
     }
@@ -25,6 +34,6 @@ final class FromArrayKey implements ExtractorInterface
 
     public function extract(mixed $source): mixed
     {
-        return $source[$this->key];
+        return is_string($source) ? $source[(int) $this->key] : $source[$this->key];
     }
 }

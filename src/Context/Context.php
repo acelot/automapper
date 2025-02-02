@@ -8,7 +8,7 @@ use OutOfBoundsException;
 final class Context implements ContextInterface
 {
     /**
-     * @var array<int|string, mixed> $items
+     * @param array<int|string, mixed> $items
      */
     public function __construct(
         private array $items = []
